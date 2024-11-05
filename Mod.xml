@@ -1,0 +1,27 @@
+<Header>
+  <Name>Project EoN (0.2.2)</Name>
+  <Author>Logical123</Author>
+  <Description>You're hired by an Exploration Team to investigate and explore dungeons of various kinds, a mystery is afoot and you have to find out what causes the dungeons' sudden shift in strength.</Description>
+  <Namespace>what_does_n_stand_for</Namespace>
+  <UUID>ADD9A018-9122-4716-B088-E87E41EC50B9</UUID>
+  <Version>0.2.2</Version>
+  <GameVersion>0.7.25.0</GameVersion>
+  <ModType>Quest</ModType>
+  <Relationships>
+    <RelatedMod>
+      <UUID>C8912E1B-EC5F-495C-BADD-165CC08C8E78</UUID>
+      <Namespace>Gender Unlock</Namespace>
+      <Relationship>Incompatible</Relationship>
+    </RelatedMod>
+    <RelatedMod>
+      <UUID>4D7F17A7-0864-4F1B-AD4A-F8D2BE6DDD97</UUID>
+      <Namespace>All Starters</Namespace>
+      <Relationship>Incompatible</Relationship>
+    </RelatedMod>
+    <RelatedMod>
+      <UUID>55887EBE-E6E9-408B-A8DC-ADC9D6A5F67C</UUID>
+      <Namespace>Enable Mission Board</Namespace>
+      <Relationship>Incompatible</Relationship>
+    </RelatedMod>
+  </Relationships>
+</Header>

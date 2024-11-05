@@ -1,0 +1,102 @@
+
+Project EoN Version 0.2.1 (It's not gonna be done for a long while.)
+- Made by Logical123
+- Coding Support by: Palika, Sunkern, and Audino.
+- Dialogue Support: Trio~
+- Berry Scripts + Sprites: Palika (I mean, they allowed me to take them.)
+- Beach waves Sound Effect: Deeshura (Might need to ask to use this first)
+- And to those that playtest and checked out EoN: Thank you, I hope you enjoyed it. If you got complaints, share them at the Project EoN Channel in the PMD:O Discord Server. I'll try to put it down on a list and do them.
+
+----------------------------------------------------------------------------------
+
+V0.2.1 Changes -
+
+- Fixed weird sequence breaks and other weird SVar inconvienient nonsenses like:
+
+	- Fixed Cameo "Bolt" from having 0 dialogue after he speaks to you for the first time.
+
+	- Fixed the Beach (by removing it's cutscene).
+
+	- Fixed Madilyn's weird Sans powers (She found a shortcut to the entrance).
+
+- Fixed some comma stuffs.
+
+- Added ending cutscenes for Mossy Outcrops, Seaside Seranade, and Cackling Quarry.
+
+- Fixed some pixels being incorrect (funny thing, they're still in the base games).
+
+- Added a Night Mode to Branchway Woods' 3rd Floors and down.
+
+- Changed 'mixer' to 'shaker'.
+
+- Added a dinner cutscene to the Guild.
+
+- Added Piks' own sprites (they're not the best, but they'll do the job. Does NOT include special animations, ie getting up).
+
+- Added button prompts to various tutorials instead of vague buttons.
+
+- Modified Drenched Bluff's Ending A dialogue and added a way to stop the 'no' loop via SV.
+
+- Made more Prologue, and added Chapter 1 specific NPCs.
+
+- Changed the Value of Basic Power-Up Scarves (Zinc, Special, Defence, Power...) so they aren't absurdly priced and sold for so high (They boost one single stat, no Kecleon is that insane).
+
+- Changed Pidgey from Branchway Woods' monster list to Starly to not conflict the starter choice.
+
+- Changed referring the player from 'they/them' to gender-specific ones.
+
+- Added different locations for the portait box to appear in certain cutscenes.
+
+- Added different Dialogue for the guild members after the player finishes the first assignment.
+
+- Added Mod Conflicts to not break the game.
+
+----------------------------------------------------------------------------------
+
+V0.2 Changes -
+
+! EVERY DIALOGUE FROM 0.1 HAS BEEN CHANGED! I recommend resetting your game savedata.
+
+- More Scriptvars, so reset your game savedata anyways.
+
+- Branchway Woods is now Normal-Type only, there should be no Grass-Type Counters for anyone picking Grass.
+
+- Branchway Woods' Boss is now 'obnoxious' and will take your stuff, and run away, and take more stuff from you until you no longer have stuff to steal. The medallion has plot-armor, so don't worry about that.
+
+- Fixed various Groundmaps (as best as I possibly could).
+
+- Fixed grammar mistakes (most of what is reported).
+
+- Changed the Treasure Town narrative, you no longer walk to the Left when you want to finish the story. (Read the Dialogue closely)
+
+- Fixed it so that Treasure Town's crossroads isn't as dark as the Future when Dialga is throwing a hissy fit.
+
+- More shops are working as intended... maybe.
+
+- Drenched Bluff isn't as painful to Fire types anymore... but it's still gonna be a smidge difficult.
+
+- More NPCs to talk to.
+
+- Piks is still missing his Pecha Scarf, but I suck at Pixel Art, so I'll do that later.
+
+- Drenched Bluff no longer just 'ends', now you get a shiny cutscene (maybe except when you've already done it, idk, that requires more testing).
+
+- Added more things (like another 'hidden' interaction. If you use Dev Mode, and F1, you're not cool... well, I can't exactly stop you, you can do it if you want, but it would be really dang lame if you just used help from the software itself to find something that usually has a reference).
+
+- Added 3 new Story Dungeons for you to explore.
+
+- It's really hard to keep track of what I mostly did, so assume I fixed them if you're telling me about them unless it's like a scripting problem in which case expect like 3 months just fixing a minor bug.
+
+- Added some new Starters (Gen 4 Pokémon, and Aron. I tried Starly, but they were a smidge too powerful at Branchway.)
+
+- Every song now properly has their Composers and Albums listed down. I don't think they're jukebox-ready though.
+
+- Upgrade Service onway when this is released for mods like 'Music Notice', and further updates.
+
+- More berry types because 3 berries is not a lot of item to item in a dungeon.
+
+- Changed various cutscene Groundmaps to have varying names (I'll let you figure out where to find that kinda information).
+
+- Purple Kecleon works! (kinda)
+
+- Xatu does not, but nobody's going to be getting boxes this early without cheating, so...

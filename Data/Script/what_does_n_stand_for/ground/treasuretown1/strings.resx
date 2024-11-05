@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.NetStandard.ResXResourceReader, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.NetStandard.ResXResourceWriter, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </resheader>
+  <data name="CutsceneNoWayKiddo" xml:space="preserve">
+    <value>Kiddo, [pause=20]this stuff is not for sale, [pause=20]if it were, [pause=15]it'd cost around [color=#75f6ff]10,000\uE024[color].</value>
+  </data>
+  <data name="CutsceneInsertCharacter" xml:space="preserve">
+    <value>\uE040: Hey, [pause=15]Kecleon Duo!</value>
+  </data>
+  <data name="Shop_Intro" xml:space="preserve">
+    <value>Hey there, [pause=10]what are you in the market for?</value>
+  </data>
+  <data name="Shop_Intro_Return" xml:space="preserve">
+    <value>Anything else I could help you with?</value>
+  </data>
+  <data name="Shop_Option_Buy" xml:space="preserve">
+    <value>Buy Items</value>
+  </data>
+  <data name="Shop_Option_Sell" xml:space="preserve">
+    <value>Sell Items</value>
+  </data>
+  <data name="Shop_Buy" xml:space="preserve">
+    <value>If you see anything you like, [pause=10]just let me know. \n(Use {0} to select more than one Item.)</value>
+  </data>
+  <data name="Shop_Buy_Empty" xml:space="preserve">
+    <value>Sorry, [pause=10]I'm completely sold out... [pause=20]Come back tomorrow when we've restocked, [pause=10]ok?</value>
+  </data>
+  <data name="Shop_Sell" xml:space="preserve">
+    <value>What'cha selling? [pause=0]I might just buy it. \n(Use {0} to select more than one item.)</value>
+  </data>
+  <data name="Shop_Bag_Empty" xml:space="preserve">
+    <value>Kiddo, [pause=10]I can't buy if you're not selling anything.</value>
+  </data>
+  <data name="Shop_Info_001" xml:space="preserve">
+    <value>Now that's the first time someone tilted their head at a store...</value>
+  </data>
+  <data name="Shop_Info_002" xml:space="preserve">
+    <value>Basically, [pause=10]I sell and buy common items for everyday use in dungeon exploration.</value>
+  </data>
+  <data name="Shop_Info_003" xml:space="preserve">
+    <value>If you want Wonder Orbs, [pause=10]TMs, [pause=10]or any of that magic stuff, [pause=10]visit my brother.</value>
+  </data>
+  <data name="Shop_Goodbye" xml:space="preserve">
+    <value>Bye now, [pause=10]have a good day!</value>
+  </data>
+  <data name="Shop_Bag_Full" xml:space="preserve">
+    <value>You're gonna have to empty that bag before you buy these wares.</value>
+  </data>
+  <data name="Shop_Buy_No_Money" xml:space="preserve">
+    <value>...What? [pause=0]You think I'm just gonna give it to you for less? [pause=0]No way.</value>
+  </data>
+  <data name="Shop_Buy_One" xml:space="preserve">
+    <value>With only that, it'll cost you {0}.</value>
+  </data>
+  <data name="Shop_Buy_Multi" xml:space="preserve">
+    <value>All of those things will come up to a total of {0}.</value>
+  </data>
+  <data name="Shop_Buy_Complete" xml:space="preserve">
+    <value>Nice doing business with you!</value>
+  </data>
+  <data name="Shop_Sell_One" xml:space="preserve">
+    <value>I can give you {0} for that.</value>
+  </data>
+  <data name="Shop_Sell_Multi" xml:space="preserve">
+    <value>With all that stuff you've placed on the counter, I can give you {0}.</value>
+  </data>
+  <data name="Shop_Sell_Complete" xml:space="preserve">
+    <value>Pleasure doing business with ya'!</value>
+  </data>
+  <data name="Storage_Menu_Store" xml:space="preserve">
+    <value>Deposit Items</value>
+  </data>
+  <data name="Storage_Menu_Take" xml:space="preserve">
+    <value>Withdraw Items</value>
+  </data>
+  <data name="Storage_Menu_All" xml:space="preserve">
+    <value>Deposit Everything</value>
+  </data>
+  <data name="Storage_Menu_Stop" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="Storage_Menu_Dialogue" xml:space="preserve">
+    <value>What would you like to do here, [pause=10]hun?</value>
+  </data>
+  <data name="Storage_Menu_Confirm" xml:space="preserve">
+    <value>Are you certain you want to store everything in your [color=#32a852]Treasure Bag[color]?</value>
+  </data>
+  <data name="Storage_Menu_Confirmed" xml:space="preserve">
+    <value>Don't worry yourself any, [pause=10]I'll have this stored away nice and neat for you, [pause=10]hun.</value>
+  </data>
+  <data name="Appraisal_Intro" xml:space="preserve">
+    <value>Your presence is felt here at my appraisal shop. [pause=0]What is your desire?</value>
+  </data>
+  <data name="Appraisal_Return" xml:space="preserve">
+    <value>Do you require extra assistance?</value>
+  </data>
+  <data name="Appraisal_Option_Open" xml:space="preserve">
+    <value>Open a Treasure Box</value>
+  </data>
+  <data name="Appraisal_Choose" xml:space="preserve">
+    <value>You are handing me something? [pause=0]A reminder, [pause=10][color=#32a852]Treasure Boxes[color] only. (Use {0} to select more than one box.)</value>
+  </data>
+  <data name="Appraisal_Bag_Empty" xml:space="preserve">
+    <value>I cannot appraise anything when you have nothing for me.</value>
+  </data>
+  <data name="Appraisal_Info_001" xml:space="preserve">
+    <value>You tilt your head to obtain my role? [pause=0]Very well.</value>
+  </data>
+  <data name="Appraisal_Info_002" xml:space="preserve">
+    <value>When explorers visit some dungeons, [pause=10]they obtain [color=#32a852]Treasure Boxes[color].</value>
+  </data>
+  <data name="Appraisal_Info_003" xml:space="preserve">
+    <value>For a fee, [pause=10]I will negate the lock that binds the box closed, [pause=10]and they obtain the item inside.</value>
+  </data>
+  <data name="Appraisal_Goodbye" xml:space="preserve">
+    <value>Until next time, [pause=10]explorer of dungeons.</value>
+  </data>
+  <data name="Appraisal_No_Money" xml:space="preserve">
+    <value>You seem to lack the fee I have assigned for my services. [pause=0]Keep the box.</value>
+  </data>
+  <data name="Appraisal_Choose_One" xml:space="preserve">
+    <value>Only the one, [pause=10]correct? [pause=10]It will require {0} to unshackle it's lock.</value>
+  </data>
+  <data name="Appraisal_Choose_Multi" xml:space="preserve">
+    <value>To open all of the boxes you have given me, [pause=10]it'll cost you \uE024{0}.</value>
+  </data>
+  <data name="Appraisal_Start" xml:space="preserve">
+    <value>The time is now, [pause=10]I will begin to do my work.</value>
+  </data>
+  <data name="Storage_Menu_Storing" xml:space="preserve">
+    <value>What would you like me to take care of, [pause=10]dear? \n(Use {0} to select more than one item.)</value>
+  </data>
+  <data name="Storage_Menu_Taking" xml:space="preserve">
+    <value>What would you like to take out? \n(Use {0} to select more than one item.)</value>
+  </data>
+  <data name="Shop_Purple_Info1" xml:space="preserve">
+    <value>Not the first time I was asked what I did.</value>
+  </data>
+  <data name="Shop_Purple_Info2" xml:space="preserve">
+    <value>I sell the more interesting wares for explorers. [pause=0]Things like wands, [pause=10]orbs, [pause=10]TMs, [pause=10]I can provide it all.</value>
+  </data>
+  <data name="Shop_Purple_Info3" xml:space="preserve">
+    <value>If you need the real basic stuff, [pause=10]my brother can provide those things.</value>
+  </data>
+  <data name="Storage_Menu_Return" xml:space="preserve">
+    <value>Need anything else, [pause=10]dear?</value>
+  </data>
+</root>

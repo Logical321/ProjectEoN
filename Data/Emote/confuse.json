@@ -1,0 +1,21 @@
+﻿{
+"Version": "0.8.0.0",
+"Object": {
+"$type": "RogueEssence.Data.EmoteData, RogueEssence",
+"Name": {
+"DefaultText": "Confused",
+"LocalTexts": {}
+},
+"Comment": "This is stupid.",
+"LocHeight": 12,
+"Anim": {
+"AnimIndex": "Confuse",
+"FrameTime": 4,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": -1,
+"Alpha": 255,
+"AnimFlip": 0
+}
+}
+}

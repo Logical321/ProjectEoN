@@ -1,0 +1,459 @@
+﻿{
+"Version": "0.8.5.0",
+"Object": {
+"$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[RogueEssence.Data.EntrySummary, RogueEssence]], System.Private.CoreLib",
+"branchwaywoods": {
+"$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+"ExpPercent": 100,
+"Level": -1,
+"LevelCap": false,
+"KeepSkills": false,
+"TeamRestrict": false,
+"TeamSize": -1,
+"MoneyRestrict": false,
+"BagRestrict": -1,
+"KeepTreasure": false,
+"BagSize": 8,
+"Rescues": 0,
+"CountedFloors": 0,
+"Rogue": 0,
+"Grounds": [
+"BranchwayWoodsEntrance",
+"BranchwayWoodsExitCutscene",
+"eontestroom"
+],
+"Maps": [
+[
+0
+]
+],
+"Name": {
+"DefaultText": "",
+"LocalTexts": {}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 0
+},
+"branchwaywoodsdungeon": {
+"$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+"ExpPercent": 100,
+"Level": -1,
+"LevelCap": false,
+"KeepSkills": false,
+"TeamRestrict": false,
+"TeamSize": -1,
+"MoneyRestrict": false,
+"BagRestrict": -1,
+"KeepTreasure": false,
+"BagSize": -1,
+"Rescues": 0,
+"CountedFloors": 5,
+"Rogue": 0,
+"Grounds": [],
+"Maps": [
+[
+0,
+1,
+2,
+3,
+4
+]
+],
+"Name": {
+"DefaultText": "Branchway Woods",
+"LocalTexts": {}
+},
+"Released": true,
+"Comment": "Difficulty: Relatively Easy",
+"SortOrder": 0
+},
+"cacklingquarry": {
+"$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+"ExpPercent": 100,
+"Level": 15,
+"LevelCap": false,
+"KeepSkills": false,
+"TeamRestrict": false,
+"TeamSize": -1,
+"MoneyRestrict": false,
+"BagRestrict": -1,
+"KeepTreasure": false,
+"BagSize": -1,
+"Rescues": 3,
+"CountedFloors": 10,
+"Rogue": 0,
+"Grounds": [
+"cacklingquarryfinal"
+],
+"Maps": [
+[
+0,
+1,
+2,
+3,
+4,
+5,
+6,
+7,
+8,
+9
+]
+],
+"Name": {
+"DefaultText": "Cackling Quarry",
+"LocalTexts": {}
+},
+"Released": true,
+"Comment": "Difficulty: Normal",
+"SortOrder": 0
+},
+"cutscenezone": {
+"$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+"ExpPercent": 100,
+"Level": -1,
+"LevelCap": false,
+"KeepSkills": false,
+"TeamRestrict": false,
+"TeamSize": -1,
+"MoneyRestrict": false,
+"BagRestrict": -1,
+"KeepTreasure": false,
+"BagSize": -1,
+"Rescues": 0,
+"CountedFloors": 0,
+"Rogue": 0,
+"Grounds": [
+"cutscenepath",
+"cutscenebluff",
+"cutsceneguildent",
+"cutsceneguildmasterroom",
+"cutscenecrumblingcanyon",
+"cutsceneelectraterpath",
+"cutscenethieveshideout"
+],
+"Maps": [],
+"Name": {
+"DefaultText": "cutscenezone",
+"LocalTexts": {}
+},
+"Released": true,
+"Comment": "It's for cutscenes, no playable elements should be here at ALL.",
+"SortOrder": 0
+},
+"drenchedbluff": {
+"$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+"ExpPercent": 100,
+"Level": 10,
+"LevelCap": false,
+"KeepSkills": false,
+"TeamRestrict": false,
+"TeamSize": -1,
+"MoneyRestrict": false,
+"BagRestrict": -1,
+"KeepTreasure": false,
+"BagSize": -1,
+"Rescues": 3,
+"CountedFloors": 8,
+"Rogue": 0,
+"Grounds": [
+"drenchedbluffend"
+],
+"Maps": [
+[
+0,
+1,
+2,
+3,
+4,
+5,
+6,
+7
+]
+],
+"Name": {
+"DefaultText": "Drenched Bluff",
+"LocalTexts": {}
+},
+"Released": true,
+"Comment": "Difficulty: Normal",
+"SortOrder": 0
+},
+"intro": {
+"$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+"ExpPercent": 100,
+"Level": -1,
+"LevelCap": false,
+"KeepSkills": false,
+"TeamRestrict": false,
+"TeamSize": -1,
+"MoneyRestrict": false,
+"BagRestrict": -1,
+"KeepTreasure": false,
+"BagSize": -1,
+"Rescues": 0,
+"CountedFloors": 0,
+"Rogue": 0,
+"Grounds": [
+"cutsceneintroroad",
+"cutsceneintromountain2",
+"cutsceneintrosnowplace3",
+"cutsceneintrobottle",
+"caretakerhomecs",
+"cutsceneintrosharpedo4",
+"cutsceneintroforest5",
+"cutsceneintrodock6",
+"cutsceneintrofinal7",
+"cutsceneintrofinalactualreal8"
+],
+"Maps": [],
+"Name": {
+"DefaultText": "Intro Cutscenes",
+"LocalTexts": {}
+},
+"Released": false,
+"Comment": "Only for the Intro! Not Playable!",
+"SortOrder": 0
+},
+"mossyoutcroppings": {
+"$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+"ExpPercent": 100,
+"Level": 15,
+"LevelCap": false,
+"KeepSkills": false,
+"TeamRestrict": false,
+"TeamSize": -1,
+"MoneyRestrict": false,
+"BagRestrict": -1,
+"KeepTreasure": false,
+"BagSize": -1,
+"Rescues": 3,
+"CountedFloors": 10,
+"Rogue": 0,
+"Grounds": [
+"mossyoutcropsfinal"
+],
+"Maps": [
+[
+0,
+1,
+2,
+3,
+4,
+5,
+6,
+7,
+8,
+9
+]
+],
+"Name": {
+"DefaultText": "Mossy Outcroppings",
+"LocalTexts": {}
+},
+"Released": true,
+"Comment": "Difficulty: Normal",
+"SortOrder": 0
+},
+"roadwalkpathway": {
+"$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+"ExpPercent": 40,
+"Level": 25,
+"LevelCap": false,
+"KeepSkills": false,
+"TeamRestrict": false,
+"TeamSize": -1,
+"MoneyRestrict": false,
+"BagRestrict": -1,
+"KeepTreasure": false,
+"BagSize": -1,
+"Rescues": 3,
+"CountedFloors": 15,
+"Rogue": 0,
+"Grounds": [
+"cutscenecrumblingcanyon2",
+"CrumbleCanyonThieves",
+"CrumbleCanyonMidway"
+],
+"Maps": [
+[
+0,
+1,
+2,
+3,
+4,
+5,
+6,
+7,
+8,
+9,
+10,
+11,
+12,
+13,
+14
+],
+[
+0
+]
+],
+"Name": {
+"DefaultText": "Crumbling Canyonway",
+"LocalTexts": {}
+},
+"Released": true,
+"Comment": "Difficulty: Normal+",
+"SortOrder": 0
+},
+"seasideserenade": {
+"$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+"ExpPercent": 100,
+"Level": 15,
+"LevelCap": false,
+"KeepSkills": false,
+"TeamRestrict": false,
+"TeamSize": -1,
+"MoneyRestrict": false,
+"BagRestrict": -1,
+"KeepTreasure": false,
+"BagSize": -1,
+"Rescues": 3,
+"CountedFloors": 10,
+"Rogue": 0,
+"Grounds": [
+"seasideseranadefinal"
+],
+"Maps": [
+[
+0,
+1,
+2,
+3,
+4,
+5,
+6,
+7,
+8,
+9
+]
+],
+"Name": {
+"DefaultText": "Seaside Serenade",
+"LocalTexts": {}
+},
+"Released": true,
+"Comment": "Difficulty: Normal",
+"SortOrder": 0
+},
+"treasuretownzone": {
+"$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+"ExpPercent": 100,
+"Level": -1,
+"LevelCap": false,
+"KeepSkills": false,
+"TeamRestrict": false,
+"TeamSize": -1,
+"MoneyRestrict": false,
+"BagRestrict": -1,
+"KeepTreasure": false,
+"BagSize": -1,
+"Rescues": 0,
+"CountedFloors": 0,
+"Rogue": 0,
+"Grounds": [
+"treasuretowncrossroads",
+"treasuretown2",
+"treasuretown1",
+"sharpedobluff",
+"electraterhome",
+"treasuretownbeachpath",
+"treasuretownbeach",
+"wigglyguildent",
+"wigglyguildtop",
+"wigglyguildmiddle",
+"wigglyguildbottom",
+"wigglyguildmess",
+"wigglyguildmaster",
+"wigglyguildbedhalls",
+"wigglyguildbedup",
+"wigglyguildbeddown",
+"wigglyguildbedsun",
+"wigglyguildeatcutscene",
+"wigglyguildbedmoon",
+"spindacafe",
+"skyregionmap"
+],
+"Maps": [],
+"Name": {
+"DefaultText": "Treasure Town",
+"LocalTexts": {}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 0
+},
+"beginners_footpath": {
+"$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+"ExpPercent": 0,
+"Level": 5,
+"LevelCap": true,
+"KeepSkills": false,
+"TeamRestrict": true,
+"TeamSize": 1,
+"MoneyRestrict": true,
+"BagRestrict": -1,
+"KeepTreasure": false,
+"BagSize": 8,
+"Rescues": 0,
+"CountedFloors": 2,
+"Rogue": 0,
+"Grounds": [],
+"Maps": [
+[
+0,
+1
+]
+],
+"Name": {
+"DefaultText": "Beginner's Footpath",
+"LocalTexts": {}
+},
+"Released": false,
+"Comment": "Tutorial dungeon.\r\nDo not count for Completion.",
+"SortOrder": 0
+},
+"prologueEX": {
+"$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+"ExpPercent": 60,
+"Level": 5,
+"LevelCap": false,
+"KeepSkills": false,
+"TeamRestrict": true,
+"TeamSize": -1,
+"MoneyRestrict": false,
+"BagRestrict": 0,
+"KeepTreasure": false,
+"BagSize": 32,
+"Rescues": 0,
+"CountedFloors": 5,
+"Rogue": 2,
+"Grounds": [],
+"Maps": [
+[
+0,
+1,
+2,
+3,
+4
+]
+],
+"Name": {
+"DefaultText": "Prologue EX",
+"LocalTexts": {}
+},
+"Released": false,
+"Comment": "Difficulty: Hard",
+"SortOrder": 0
+}
+}
+}

@@ -1,0 +1,254 @@
+﻿{
+"Version": "0.8.3.0",
+"Object": {
+"$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[RogueEssence.Data.EntrySummary, RogueEssence]], System.Private.CoreLib",
+"kecleon": {
+"$type": "RogueEssence.Data.MonsterEntrySummary, RogueEssence",
+"Forms": [
+{
+"Name": {
+"DefaultText": "Kecleon",
+"LocalTexts": {
+"ja": "カクレオン",
+"ko": "켈리몬",
+"zh-hant": "變隱龍",
+"fr": "Kecleon",
+"de": "Kecleon",
+"es": "Kecleon",
+"it": "Kecleon",
+"ja-jp": "カクレオン",
+"zh-hans": "变隐龙"
+}
+},
+"Released": true,
+"Temporary": false
+},
+{
+"Name": {
+"DefaultText": "Purple",
+"LocalTexts": {}
+},
+"Released": false,
+"Temporary": false
+}
+],
+"Name": {
+"DefaultText": "Kecleon",
+"LocalTexts": {
+"ja": "カクレオン",
+"ko": "켈리몬",
+"zh-hant": "變隱龍",
+"fr": "Kecleon",
+"de": "Kecleon",
+"es": "Kecleon",
+"it": "Kecleon",
+"ja-jp": "カクレオン",
+"zh-hans": "变隐龙"
+}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 352
+},
+"mudkip": {
+"$type": "RogueEssence.Data.MonsterEntrySummary, RogueEssence",
+"Forms": [
+{
+"Name": {
+"DefaultText": "Mudkip",
+"LocalTexts": {
+"ja": "ミズゴロウ",
+"ko": "물짱이",
+"zh-hant": "水躍魚",
+"fr": "Gobou",
+"de": "Hydropi",
+"es": "Mudkip",
+"it": "Mudkip",
+"ja-jp": "ミズゴロウ",
+"zh-hans": "水跃鱼"
+}
+},
+"Released": true,
+"Temporary": false
+},
+{
+"Name": {
+"DefaultText": "Mudkip(Adam)",
+"LocalTexts": {
+"ja": "ミズゴロウ",
+"ko": "물짱이",
+"zh-hant": "水躍魚",
+"fr": "Gobou",
+"de": "Hydropi",
+"es": "Mudkip",
+"it": "Mudkip",
+"ja-jp": "ミズゴロウ",
+"zh-hans": "水跃鱼"
+}
+},
+"Released": false,
+"Temporary": false
+}
+],
+"Name": {
+"DefaultText": "Mudkip",
+"LocalTexts": {
+"ja": "ミズゴロウ",
+"ko": "물짱이",
+"zh-hant": "水躍魚",
+"fr": "Gobou",
+"de": "Hydropi",
+"es": "Mudkip",
+"it": "Mudkip",
+"ja-jp": "ミズゴロウ",
+"zh-hans": "水跃鱼"
+}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 258
+},
+"pikachu": {
+"$type": "RogueEssence.Data.MonsterEntrySummary, RogueEssence",
+"Forms": [
+{
+"Name": {
+"DefaultText": "Pikachu",
+"LocalTexts": {
+"ja": "ピカチュウ",
+"ko": "피카츄",
+"zh-hant": "皮卡丘",
+"fr": "Pikachu",
+"de": "Pikachu",
+"es": "Pikachu",
+"it": "Pikachu",
+"ja-jp": "ピカチュウ",
+"zh-hans": "皮卡丘"
+}
+},
+"Released": true,
+"Temporary": false
+},
+{
+"Name": {
+"DefaultText": "Boltchu",
+"LocalTexts": {
+"ja": "ピカチュウ",
+"ko": "피카츄",
+"zh-hant": "皮卡丘",
+"fr": "Pikachu",
+"de": "Pikachu",
+"es": "Pikachu",
+"it": "Pikachu",
+"ja-jp": "ピカチュウ",
+"zh-hans": "皮卡丘"
+}
+},
+"Released": false,
+"Temporary": false
+},
+{
+"Name": {
+"DefaultText": "Gigantamax Pikachu",
+"LocalTexts": {}
+},
+"Released": false,
+"Temporary": true
+},
+{
+"Name": {
+"DefaultText": "Piks",
+"LocalTexts": {
+"ja": "ピカチュウ",
+"ko": "피카츄",
+"zh-hant": "皮卡丘",
+"fr": "Pikachu",
+"de": "Pikachu",
+"es": "Pikachu",
+"it": "Pikachu",
+"ja-jp": "ピカチュウ",
+"zh-hans": "皮卡丘"
+}
+},
+"Released": false,
+"Temporary": false
+}
+],
+"Name": {
+"DefaultText": "Pikachu",
+"LocalTexts": {
+"ja": "ピカチュウ",
+"ko": "피카츄",
+"zh-hant": "皮卡丘",
+"fr": "Pikachu",
+"de": "Pikachu",
+"es": "Pikachu",
+"it": "Pikachu",
+"ja-jp": "ピカチュウ",
+"zh-hans": "皮卡丘"
+}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 25
+},
+"piplup": {
+"$type": "RogueEssence.Data.MonsterEntrySummary, RogueEssence",
+"Forms": [
+{
+"Name": {
+"DefaultText": "Piplup",
+"LocalTexts": {
+"ja": "ポッチャマ",
+"ko": "팽도리",
+"zh-hant": "波加曼",
+"fr": "Tiplouf",
+"de": "Plinfa",
+"es": "Piplup",
+"it": "Piplup",
+"ja-jp": "ポッチャマ",
+"zh-hans": "波加曼"
+}
+},
+"Released": true,
+"Temporary": false
+},
+{
+"Name": {
+"DefaultText": "Piplup(Madilyn)",
+"LocalTexts": {
+"ja": "ポッチャマ",
+"ko": "팽도리",
+"zh-hant": "波加曼",
+"fr": "Tiplouf",
+"de": "Plinfa",
+"es": "Piplup",
+"it": "Piplup",
+"ja-jp": "ポッチャマ",
+"zh-hans": "波加曼"
+}
+},
+"Released": false,
+"Temporary": false
+}
+],
+"Name": {
+"DefaultText": "Piplup",
+"LocalTexts": {
+"ja": "ポッチャマ",
+"ko": "팽도리",
+"zh-hant": "波加曼",
+"fr": "Tiplouf",
+"de": "Plinfa",
+"es": "Piplup",
+"it": "Piplup",
+"ja-jp": "ポッチャマ",
+"zh-hans": "波加曼"
+}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 393
+}
+}
+}

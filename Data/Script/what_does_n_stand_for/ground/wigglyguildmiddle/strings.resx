@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.NetStandard.ResXResourceReader, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.NetStandard.ResXResourceWriter, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </resheader>
+  <data name="Tablist" xml:space="preserve">
+    <value>What do you want to read?</value>
+  </data>
+  <data name="Tab1" xml:space="preserve">
+    <value>Q.1</value>
+  </data>
+  <data name="Tab2" xml:space="preserve">
+    <value>Q.2</value>
+  </data>
+  <data name="Tab3" xml:space="preserve">
+    <value>Q.3</value>
+  </data>
+  <data name="Tab4" xml:space="preserve">
+    <value>Q.4</value>
+  </data>
+  <data name="Tab5" xml:space="preserve">
+    <value>Q.5</value>
+  </data>
+  <data name="Tab6" xml:space="preserve">
+    <value>Q.6</value>
+  </data>
+  <data name="Tab7" xml:space="preserve">
+    <value>Q.7</value>
+  </data>
+  <data name="Tab8" xml:space="preserve">
+    <value>Q.8</value>
+  </data>
+  <data name="LeaveList" xml:space="preserve">
+    <value>Leave</value>
+  </data>
+  <data name="FirstMeeting" xml:space="preserve">
+    <value>You must be {0}. [pause=0][color=#54ebaf]Adam[color] and [color=#54ebaf]Piks[color] told me about you at the crossroads.</value>
+  </data>
+  <data name="TeamReady" xml:space="preserve">
+    <value>If you need me, [pause=10]remember to ring the bell, [pause=10]{0}. [pause=0]Have a nice day!</value>
+  </data>
+  <data name="StoryTimeQuestion" xml:space="preserve">
+    <value>...What, [pause=10]do you want to listen to me or something?</value>
+  </data>
+  <data name="NoStory" xml:space="preserve">
+    <value>Then it would be your best interest to do your job, [pause=10]and stop bothing me.</value>
+  </data>
+  <data name="YesStory" xml:space="preserve">
+    <value>*Groan...* Fine.</value>
+  </data>
+  <data name="CashYoinked" xml:space="preserve">
+    <value>Wow, you've earned \uE024[color=#00FFFF]1000[color]! [pause=30]But... [color=#54ebaf]Madilyn[color] took away \uE024[color=#00FFFF]900[color] from those earnings...[pause=60]</value>
+  </data>
+</root>

@@ -1,0 +1,340 @@
+﻿{
+"Version": "0.8.0.0",
+"Object": {
+"$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[RogueEssence.Data.EntrySummary, RogueEssence]], System.Private.CoreLib",
+"berry_aspear": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": 3,
+"UsageType": 4,
+"States": [
+{
+"assembly": "PMDC, Version=0.8.0.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.EdibleState"
+},
+{
+"assembly": "PMDC, Version=0.8.0.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.BerryState"
+}
+],
+"Name": {
+"DefaultText": "Aspear Berry",
+"LocalTexts": {
+"fr": "Baie Willia",
+"de": "Wilbirbeere",
+"es": "Baya Perasi",
+"pt": "Fruta Aspear",
+"it": "Baccaperina",
+"ko": "배리열매",
+"ja": "ナナシのみ",
+"ja-jp": "ナナシのみ",
+"zh-hans": "利木果",
+"zh-hant": "利木果"
+}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 0
+},
+"berry_cheri": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": 3,
+"UsageType": 4,
+"States": [
+{
+"assembly": "PMDC, Version=0.8.0.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.EdibleState"
+},
+{
+"assembly": "PMDC, Version=0.8.0.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.BerryState"
+}
+],
+"Name": {
+"DefaultText": "Cheri Berry",
+"LocalTexts": {
+"fr": "Baie Ceriz",
+"de": "Amrenabeere",
+"es": "Baya Zreza",
+"pt": "Fruta Cheri",
+"it": "Baccaliegia",
+"ko": "버치열매",
+"ja": "クラボのみ",
+"ja-jp": "クラボのみ",
+"zh-hans": "樱子果",
+"zh-hant": "櫻子果"
+}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 0
+},
+"berry_chesto": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": 3,
+"UsageType": 4,
+"States": [
+{
+"assembly": "PMDC, Version=0.8.0.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.EdibleState"
+},
+{
+"assembly": "PMDC, Version=0.8.0.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.BerryState"
+}
+],
+"Name": {
+"DefaultText": "Chesto Berry",
+"LocalTexts": {
+"fr": "Baie Maron",
+"de": "Maronbeere",
+"es": "Baya Atania",
+"pt": "Fruta Chesto",
+"it": "Baccastagna",
+"ko": "유루열매",
+"ja": "カゴのみ",
+"ja-jp": "カゴのみ",
+"zh-hans": "零余果",
+"zh-hant": "零餘果"
+}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 0
+},
+"berry_pecha": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": 3,
+"UsageType": 4,
+"States": [
+{
+"assembly": "PMDC, Version=0.8.0.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.EdibleState"
+},
+{
+"assembly": "PMDC, Version=0.8.0.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.BerryState"
+}
+],
+"Name": {
+"DefaultText": "Pecha Berry",
+"LocalTexts": {
+"fr": "Baie Pêcha",
+"de": "Pirsifbeere",
+"es": "Baya Meloc",
+"pt": "Fruta Pecha",
+"it": "Baccapesca",
+"ko": "복슝열매",
+"ja": "モモンのみ",
+"ja-jp": "モモンのみ",
+"zh-hans": "桃桃果",
+"zh-hant": "桃桃果"
+}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 0
+},
+"berry_persim": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": 3,
+"UsageType": 4,
+"States": [
+{
+"assembly": "PMDC, Version=0.8.0.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.EdibleState"
+},
+{
+"assembly": "PMDC, Version=0.8.0.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.BerryState"
+}
+],
+"Name": {
+"DefaultText": "Persim Berry",
+"LocalTexts": {
+"fr": "Baie Kika",
+"de": "Persimbeere",
+"es": "Baya Caquic",
+"pt": "Fruta Persim",
+"it": "Baccaki",
+"ko": "시몬열매",
+"ja": "キーのみ",
+"ja-jp": "キーのみ",
+"zh-hans": "柿仔果",
+"zh-hant": "柿仔果"
+}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 0
+},
+"berry_rawst": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": 3,
+"UsageType": 4,
+"States": [
+{
+"assembly": "PMDC, Version=0.8.0.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.EdibleState"
+},
+{
+"assembly": "PMDC, Version=0.8.0.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.BerryState"
+}
+],
+"Name": {
+"DefaultText": "Rawst Berry",
+"LocalTexts": {
+"fr": "Baie Fraive",
+"de": "Fragiabeere",
+"es": "Baya Safre",
+"pt": "Fruta Rawst",
+"it": "Baccafrago",
+"ko": "복분열매",
+"ja": "チーゴのみ",
+"ja-jp": "チーゴのみ",
+"zh-hans": "莓莓果",
+"zh-hant": "莓莓果"
+}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 0
+},
+"held_defense_scarf": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": -1,
+"UsageType": 0,
+"States": [
+{
+"assembly": "PMDC, Version=0.8.0.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.EquipState"
+},
+{
+"assembly": "PMDC, Version=0.8.0.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.HeldState"
+}
+],
+"Name": {
+"DefaultText": "Defense Scarf",
+"LocalTexts": {
+"fr": "Écharpe Déf+",
+"de": "Panzerschal",
+"it": "Velodifesa",
+"zh-hans": "防御围巾"
+}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 10
+},
+"held_friend_bow": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": -1,
+"UsageType": 0,
+"States": [
+{
+"assembly": "PMDC, Version=0.8.0.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.EquipState"
+},
+{
+"assembly": "PMDC, Version=0.8.0.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.HeldState"
+}
+],
+"Name": {
+"DefaultText": "Friend Bow",
+"LocalTexts": {
+"fr": "Ruban Ami",
+"de": "Sympathie",
+"it": "Arcoamico",
+"ko": "친구리본",
+"zh-hans": "朋友缎带"
+}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 1
+},
+"held_power_band": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": -1,
+"UsageType": 0,
+"States": [
+{
+"assembly": "PMDC, Version=0.8.0.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.EquipState"
+},
+{
+"assembly": "PMDC, Version=0.8.0.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.HeldState"
+}
+],
+"Name": {
+"DefaultText": "Power Band",
+"LocalTexts": {
+"fr": "Ruban Force+",
+"de": "Machtband",
+"it": "Bandana Forza",
+"zh-hans": "力量头巾"
+}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 10
+},
+"held_special_band": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": -1,
+"UsageType": 0,
+"States": [
+{
+"assembly": "PMDC, Version=0.8.0.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.EquipState"
+},
+{
+"assembly": "PMDC, Version=0.8.0.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.HeldState"
+}
+],
+"Name": {
+"DefaultText": "Special Band",
+"LocalTexts": {
+"fr": "Ruban Spé.",
+"de": "Spezialband",
+"it": "Specialfiocco",
+"zh-hans": "特攻缎带"
+}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 10
+},
+"held_zinc_band": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": -1,
+"UsageType": 0,
+"States": [
+{
+"assembly": "PMDC, Version=0.8.0.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.EquipState"
+},
+{
+"assembly": "PMDC, Version=0.8.0.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.HeldState"
+}
+],
+"Name": {
+"DefaultText": "Zinc Band",
+"LocalTexts": {
+"fr": "Bandeau Zinc",
+"de": "Zinkband",
+"it": "Bandana Zinco",
+"zh-hans": "特防头巾"
+}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 10
+}
+}
+}

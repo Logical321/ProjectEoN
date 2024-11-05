@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.NetStandard.ResXResourceReader, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.NetStandard.ResXResourceWriter, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </resheader>
+  <data name="ContinueStory1" xml:space="preserve">
+    <value>[color=#00F8F8]Spinda[color] should have things like that, [pause=10]but can you help me before you go to him please?</value>
+  </data>
+  <data name="ContinueStory2" xml:space="preserve">
+    <value>Oh, [pause=10]you're back. ♪ [pause=0]Can I still ask for your help? [pause=0]It's really-really important.</value>
+  </data>
+  <data name="Tutor_Intro" xml:space="preserve">
+    <value>Welcome, [pause=10]buddy. [pause=0]It'll cost you {0} to change your moves.</value>
+  </data>
+  <data name="Tutor_Intro_Return" xml:space="preserve">
+    <value>Anything else you wanna do here?</value>
+  </data>
+  <data name="MENU_RECALL_SKILL" xml:space="preserve">
+    <value>Relearn a Move</value>
+  </data>
+  <data name="MENU_FORGET_SKILL" xml:space="preserve">
+    <value>Forget a Move</value>
+  </data>
+  <data name="MENU_INFO" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="MENU_EXIT" xml:space="preserve">
+    <value>Leave</value>
+  </data>
+  <data name="Tutor_No_Money" xml:space="preserve">
+    <value>Just hold on there a minute, [pause=10]buddy. [pause=0]You can't use my services if you don't have the cash on ya'.</value>
+  </data>
+  <data name="Tutor_Info_001" xml:space="preserve">
+    <value>Why're you tiltin' your head like that for... [pause=20]Oooh, [pause=10]you wanna know how my Link Shop works, [pause=10]right?</value>
+  </data>
+  <data name="Tutor_Info_002" xml:space="preserve">
+    <value>Here's the deal, [pause=10]if you wanna remember a move you want, [pause=10]I'm your Pokémon.</value>
+  </data>
+  <data name="Tutor_Info_003" xml:space="preserve">
+    <value>If you wanna remove a move because you don't like it or some other reason, [pause=10]I'm also your Pokémon.</value>
+  </data>
+  <data name="Tutor_Goodbye" xml:space="preserve">
+    <value>See you later, [pause=10]bud. [pause=0]If you need me, [pause=10]I'll be here!</value>
+  </data>
+  <data name="Tutor_Remember_Who" xml:space="preserve">
+    <value>Which one's remembering a move today?</value>
+  </data>
+  <data name="Tutor_Cant_Remember" xml:space="preserve">
+    <value>Uh, [pause=10]I don't want to be negative, [pause=10]but this one can't remember any other moves.</value>
+  </data>
+  <data name="Tutor_Remember_What" xml:space="preserve">
+    <value>What move is {0} going to relearn?</value>
+  </data>
+  <data name="Tutor_Remember_Begin" xml:space="preserve">
+    <value>Alright! [pause=0]Leave it to me!</value>
+  </data>
+  <data name="Tutor_Remember_Success" xml:space="preserve">
+    <value>Pow! [pause=0]Just like that, [pause=10]{0} just remembered how to use {1}!</value>
+  </data>
+  <data name="Tutor_Remember_Replace" xml:space="preserve">
+    <value>Woah, [pause=10]it looks like their moveset is completely full! [pause=10]You might want to replace a move first.</value>
+  </data>
+  <data name="Tutor_Forget_Who" xml:space="preserve">
+    <value>Which one's going to forget somethin' today?</value>
+  </data>
+  <data name="Tutor_Cant_Forget" xml:space="preserve">
+    <value>Buddy, [pause=10]it wouldn't be a smart thing to know no moves. [pause=0]You need at least one.</value>
+  </data>
+  <data name="Tutor_Forget_What" xml:space="preserve">
+    <value>{0} is going to forget... [pause=20]what move, [pause=10]exactly?</value>
+  </data>
+  <data name="Tutor_Forget_Begin" xml:space="preserve">
+    <value>Ok, [pause=10]it's time to get to work.</value>
+  </data>
+  <data name="Tutor_Forget_Success" xml:space="preserve">
+    <value>Bang! [pause=0]Just like that, [pause=10]{0} forgot how to use {1}!</value>
+  </data>
+  <data name="Tutor_Info_004" xml:space="preserve">
+    <value>Unfortunately, [pause=10]moves have been acting weird lately, [pause=10]so I can't link your moves right now.</value>
+  </data>
+</root>

@@ -1,0 +1,36 @@
+﻿{
+"Version": "0.8.0.0",
+"Object": {
+"$type": "RogueEssence.Data.ZoneData, RogueEssence",
+"Name": {
+"DefaultText": "cutscenezone",
+"LocalTexts": {}
+},
+"Released": true,
+"Comment": "It's for cutscenes, no playable elements should be here at ALL.",
+"NoEXP": false,
+"ExpPercent": 100,
+"Level": -1,
+"LevelCap": false,
+"KeepSkills": false,
+"TeamRestrict": false,
+"TeamSize": -1,
+"MoneyRestrict": false,
+"BagRestrict": -1,
+"KeepTreasure": false,
+"BagSize": -1,
+"Persistent": false,
+"Rescues": 0,
+"Rogue": 0,
+"Segments": [],
+"GroundMaps": [
+"cutscenepath",
+"cutscenebluff",
+"cutsceneguildent",
+"cutsceneguildmasterroom",
+"cutscenecrumblingcanyon",
+"cutsceneelectraterpath",
+"cutscenethieveshideout"
+]
+}
+}

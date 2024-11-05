@@ -1,0 +1,156 @@
+﻿{
+  "Version": [
+    "0.0",
+    "0.8.5.0"
+  ],
+  "Object": {
+    "ZoneSteps": {
+      "_t": "a",
+      "_0": [
+        {
+          "$type": "RogueEssence.LevelGen.ScriptZoneStep, RogueEssence",
+          "Script": "SpawnMissionNpcFromSV",
+          "ArgTable": "{}"
+        },
+        0,
+        0
+      ]
+    },
+    "UniversalStates": {
+      "_t": "a",
+      "3": {
+        "Effectiveness": {
+          "_t": "a",
+          "_10": [
+            9,
+            0,
+            0
+          ],
+          "10": [
+            8
+          ]
+        }
+      }
+    },
+    "OnMapStarts": {
+      "_t": "a",
+      "_0": [
+        {
+          "Key": {
+            "str": [
+              -10
+            ]
+          },
+          "Value": {
+            "$type": "PMDC.Dungeon.StealthEvoEvent, PMDC",
+            "CheckSpecies": [
+              "tandemaus"
+            ],
+            "PercentChance": 35
+          }
+        },
+        0,
+        0
+      ]
+    },
+    "OnTurnEnds": {
+      "_t": "a",
+      "0": [
+        {
+          "Key": {
+            "str": [
+              0
+            ]
+          },
+          "Value": {
+            "$type": "RogueEssence.Dungeon.SingleCharScriptEvent, RogueEssence",
+            "Script": "SetGuestHPStatus",
+            "ArgTable": "{ }"
+          }
+        }
+      ],
+      "1": [
+        {
+          "Key": {
+            "str": [
+              0
+            ]
+          },
+          "Value": {
+            "$type": "RogueEssence.Dungeon.SingleCharScriptEvent, RogueEssence",
+            "Script": "SetCriticalHealthStatus",
+            "ArgTable": "{ }"
+          }
+        }
+      ]
+    },
+    "OnDeaths": {
+      "_t": "a",
+      "2": {
+        "Value": {
+          "StatusID": [
+            "transformed",
+            ""
+          ]
+        }
+      },
+      "3": {
+        "Value": {
+          "$type": [
+            "@@ -1,42 +1,56 @@\n-PMDC.Dungeon.HandoutRelativeExpEvent, PMDC\n+RogueEssence.Dungeon.SingleCharScriptEvent, RogueEssence\n",
+            0,
+            2
+          ],
+          "Numerator": [
+            1,
+            0,
+            0
+          ],
+          "Denominator": [
+            7,
+            0,
+            0
+          ],
+          "LevelBuffer": [
+            5,
+            0,
+            0
+          ],
+          "PowerCurve": [
+            2,
+            0,
+            0
+          ],
+          "IgnoreMark": [
+            false,
+            0,
+            0
+          ],
+          "Script": [
+            "HeroPartnerCheck"
+          ],
+          "ArgTable": [
+            "{}"
+          ]
+        }
+      },
+      "4": [
+        {
+          "Key": {
+            "str": [
+              10
+            ]
+          },
+          "Value": {
+            "$type": "PMDC.Dungeon.HandoutRelativeExpEvent, PMDC",
+            "Numerator": 1,
+            "Denominator": 5,
+            "LevelBuffer": 10,
+            "PowerCurve": 3,
+            "IgnoreMark": false
+          }
+        }
+      ]
+    }
+  }
+}

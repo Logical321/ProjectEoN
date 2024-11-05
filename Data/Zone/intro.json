@@ -1,0 +1,39 @@
+﻿{
+"Version": "0.8.3.0",
+"Object": {
+"$type": "RogueEssence.Data.ZoneData, RogueEssence",
+"Name": {
+"DefaultText": "Intro Cutscenes",
+"LocalTexts": {}
+},
+"Released": false,
+"Comment": "Only for the Intro! Not Playable!",
+"NoEXP": false,
+"ExpPercent": 100,
+"Level": -1,
+"LevelCap": false,
+"KeepSkills": false,
+"TeamRestrict": false,
+"TeamSize": -1,
+"MoneyRestrict": false,
+"BagRestrict": -1,
+"KeepTreasure": false,
+"BagSize": -1,
+"Persistent": false,
+"Rescues": 0,
+"Rogue": 0,
+"Segments": [],
+"GroundMaps": [
+"cutsceneintroroad",
+"cutsceneintromountain2",
+"cutsceneintrosnowplace3",
+"cutsceneintrobottle",
+"caretakerhomecs",
+"cutsceneintrosharpedo4",
+"cutsceneintroforest5",
+"cutsceneintrodock6",
+"cutsceneintrofinal7",
+"cutsceneintrofinalactualreal8"
+]
+}
+}

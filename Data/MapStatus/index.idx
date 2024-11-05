@@ -1,0 +1,39 @@
+﻿{
+"Version": "0.8.3.0",
+"Object": {
+"$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[RogueEssence.Data.EntrySummary, RogueEssence]], System.Private.CoreLib",
+"fog": {
+"Name": {
+"DefaultText": "Fog",
+"LocalTexts": {
+"fr": "Brouillard",
+"de": "Nebel",
+"es": "Niebla",
+"it": "Nebbia",
+"zh-hans": "起雾"
+}
+},
+"Released": false,
+"Comment": "",
+"SortOrder": 0
+},
+"cutscene_rain": {
+"Name": {
+"DefaultText": "Cutscene Rain",
+"LocalTexts": {}
+},
+"Released": false,
+"Comment": "",
+"SortOrder": 0
+},
+"sunset": {
+"Name": {
+"DefaultText": "Sunset",
+"LocalTexts": {}
+},
+"Released": false,
+"Comment": "",
+"SortOrder": 0
+}
+}
+}
