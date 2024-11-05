@@ -5,7 +5,7 @@
   <Namespace>what_does_n_stand_for</Namespace>
   <UUID>ADD9A018-9122-4716-B088-E87E41EC50B9</UUID>
   <Version>0.2.2</Version>
-  <GameVersion>0.7.25.0</GameVersion>
+  <GameVersion>0.8.5.0</GameVersion>
   <ModType>Quest</ModType>
   <Relationships>
     <RelatedMod>
@@ -21,6 +21,11 @@
     <RelatedMod>
       <UUID>55887EBE-E6E9-408B-A8DC-ADC9D6A5F67C</UUID>
       <Namespace>Enable Mission Board</Namespace>
+      <Relationship>Incompatible</Relationship>
+    </RelatedMod>
+    <RelatedMod>
+      <UUID>6E153158-541D-46BC-9B92-2BD0BB62BA3C</UUID>
+      <Namespace>Any Starting Team</Namespace>
       <Relationship>Incompatible</Relationship>
     </RelatedMod>
   </Relationships>
