@@ -83,7 +83,7 @@ SV.checkpoint =
 
 	madilyn:ReplaceSkill("brick_break", 0, true)
 	madilyn:ReplaceSkill("aerial_ace", 1, true)
-	madilyn:ReplaceSkill("bubble_beam", 2, false)
+	madilyn:ReplaceSkill("bubble", 2, true)
 	madilyn:ReplaceSkill("protect", 3, false)
 	
 	GAME:AddPlayerGuest(madilyn)
@@ -325,6 +325,7 @@ UI:ChoiceMenuYesNo("Do you want to leave the dungeon?", false)
 UI:WaitForChoice()
 ch = UI:ChoiceResult()
 if ch then
+
 GAME:FadeOut(false, 30)
 GAME:WaitFrames(30)
 
@@ -341,8 +342,8 @@ if SV.chapter.number < 2 then
 
 end
 
---GAME:EndDungeonRun(result, 'treasuretownzone', -1, 17, 0, false, false)
-COMMON.EndDungeonDay(result, 'treasuretownzone', -1, 17, 0)
+--GAME:EndDungeonRun(result, 'treasuretownzone', -1, 17, 0)
+--COMMON.EndDungeonDay(result, 'treasuretownzone', -1, 17, 0)
 --GAME:EnterZone('treasuretownzone', -1, 17, 0)
 else
 

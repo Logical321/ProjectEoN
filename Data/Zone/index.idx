@@ -257,7 +257,7 @@
 },
 "roadwalkpathway": {
 "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
-"ExpPercent": 40,
+"ExpPercent": 30,
 "Level": 25,
 "LevelCap": false,
 "KeepSkills": false,

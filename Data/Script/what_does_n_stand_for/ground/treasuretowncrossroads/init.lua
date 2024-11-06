@@ -697,7 +697,7 @@ if ch then
 
 	madilyn:ReplaceSkill("brick_break", 0, true)
 	madilyn:ReplaceSkill("aerial_ace", 1, true)
-	madilyn:ReplaceSkill("bubble_beam", 2, true)
+	madilyn:ReplaceSkill("bubble", 2, false)
 	madilyn:ReplaceSkill("protect", 3, false)
 	
 	GAME:AddPlayerGuest(madilyn)
