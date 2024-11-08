@@ -851,20 +851,28 @@ GAME:WaitFrames(60)
 UI:WaitHideTitle(20)
 GAME:WaitFrames(20)
 
-GAME:MoveCamera(300, 174, 1, false)
-GAME:FadeIn(20)
-
-	GROUND:TeleportTo(player, 292, 200, Direction.Right)
+	--ALLY
+	GROUND:TeleportTo(player, 292, 200, Direction.Up)
 	GROUND:TeleportTo(Skiddo, 292, 156, Direction.Down)
-	GROUND:TeleportTo(Kecleon, 311, 198, Direction.UpLeft)
+	GROUND:TeleportTo(Kecleon, 311, 178, Direction.UpLeft)
 	GROUND:TeleportTo(Madilyn, 273, 178, Direction.UpRight)
+	--ENEMY
+	GROUND:TeleportTo(ScraftyA, 424, 184, Direction.Left)
+	GROUND:TeleportTo(ScraftyB, 160, 184, Direction.Right)
+	GROUND:TeleportTo(Ziggy1, 225, 169, Direction.Right)
+	GROUND:TeleportTo(Ziggy2, 201, 201, Direction.Right)
+	GROUND:TeleportTo(Ziggy3, 382, 169, Direction.Left)
+	GROUND:TeleportTo(Ziggy4, 359, 201, Direction.Left)
 	
 	GROUND:Hide("Ziggy1")
 	GROUND:Hide("Ziggy2")
 	GROUND:Hide("Ziggy3")
 	GROUND:Hide("Ziggy4")
 	GROUND:Hide("ScraftyA")
-	GROUND:Hide("ScraftyB")
+	GROUND:Hide("ScraftyB") --I'm a moron, and for some reason didn't consider putting these things BEFORE FadeIn.
+	
+GAME:MoveCamera(300, 174, 1, false)
+GAME:FadeIn(20)
 	
 	UI:SetSpeaker(Madilyn)
 	UI:SetSpeakerEmotion("Normal")
@@ -878,35 +886,36 @@ GAME:FadeIn(20)
 		local emitter = RogueEssence.Content.SingleEmitter(RogueEssence.Content.AnimData("Dig", 3))
 	emitter.LocHeight = 5
 	
-	coro1 = TASK:BranchCoroutine(function()
+	local coro1 = TASK:BranchCoroutine(function()
 	GROUND:PlayVFX(emitter, 424, 184)
-	GROUND:TeleportTo(ScraftyA, 424, 184, Direction.Left)
 	end)
 	
-	coro2 = TASK:BranchCoroutine(function()
+	local coro2 = TASK:BranchCoroutine(function()
 	GROUND:PlayVFX(emitter, 160, 184)
-	GROUND:TeleportTo(ScraftyB, 160, 184, Direction.Right)
 	end)
 	
-	coro3 = TASK:BranchCoroutine(function()
+	local coro3 = TASK:BranchCoroutine(function()
 	GROUND:PlayVFX(emitter, 225, 169)
-	GROUND:TeleportTo(Ziggy1, 225, 169, Direction.Right)
 	end)
 	
-	coro4 = TASK:BranchCoroutine(function()
+	local coro4 = TASK:BranchCoroutine(function()
 	GROUND:PlayVFX(emitter, 201, 201) --I swear this is accidental.
-	GROUND:TeleportTo(Ziggy2, 201, 201, Direction.Right)
 	end)
 	
-	coro5 = TASK:BranchCoroutine(function()
+	local coro5 = TASK:BranchCoroutine(function()
 	GROUND:PlayVFX(emitter, 382, 169)
-	GROUND:TeleportTo(Ziggy3, 382, 169, Direction.Left)
 	end)
 	
-	coro6 = TASK:BranchCoroutine(function()
+	local coro6 = TASK:BranchCoroutine(function()
 	GROUND:PlayVFX(emitter, 359, 209)
-	GROUND:TeleportTo(Ziggy4, 359, 201, Direction.Left)
 	end)
+	
+	GROUND:Unhide("Ziggy1")
+	GROUND:Unhide("Ziggy2")
+	GROUND:Unhide("Ziggy3")
+	GROUND:Unhide("Ziggy4")
+	GROUND:Unhide("ScraftyA")
+	GROUND:Unhide("ScraftyB")
 	
 	SOUND:PlayBattleSE("DUN_Dig")
 	

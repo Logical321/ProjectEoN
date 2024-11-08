@@ -1,6 +1,37 @@
 ﻿{
-"Version": "0.8.0.0",
+"Version": "0.8.5.0",
 "Object": {
-"$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[RogueEssence.Data.EntrySummary, RogueEssence]], System.Private.CoreLib"
+"$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[RogueEssence.Data.EntrySummary, RogueEssence]], System.Private.CoreLib",
+"stick_together": {
+"$type": "RogueEssence.Data.AIEntrySummary, RogueEssence",
+"Assignable": true,
+"Name": {
+"DefaultText": "Stick Together",
+"LocalTexts": {
+"fr": "Suivre le meneur",
+"fr-ca": "Rester ensemble",
+"de": "Zusammen bleiben",
+"es": "Vayamos juntos",
+"pt": "Fiquem Juntos",
+"it": "Restiamo uniti",
+"ko": "함께 가자",
+"zh-hans": "一起走吧"
+}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 0
+},
+"escortee": {
+"$type": "RogueEssence.Data.AIEntrySummary, RogueEssence",
+"Assignable": false,
+"Name": {
+"DefaultText": "Escortee",
+"LocalTexts": {}
+},
+"Released": false,
+"Comment": "Meant to make them not be stupid.",
+"SortOrder": 0
+}
 }
 }

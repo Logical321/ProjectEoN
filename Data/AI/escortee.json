@@ -1,0 +1,57 @@
+﻿{
+"Version": "0.8.5.0",
+"Object": {
+"$type": "RogueEssence.Data.AITactic, RogueEssence",
+"Name": {
+"DefaultText": "Escortee",
+"LocalTexts": {}
+},
+"Released": false,
+"Comment": "Meant to make them not be stupid.",
+"ID": "Escortee",
+"Assignable": false,
+"Plans": [
+{
+"$type": "PMDC.Dungeon.PrepareWithLeaderPlan, PMDC",
+"AttackPattern": 4,
+"IQ": 401,
+"RestrictedMobilityTypes": 0,
+"RestrictMobilityPassable": false,
+"AttackRange": -6,
+"StatusRange": 0,
+"SelfStatusRange": 0,
+"AbandonRangeOnHit": false
+},
+{
+"$type": "PMDC.Dungeon.ExplorePlan, PMDC",
+"IQ": 401,
+"RestrictedMobilityTypes": 0,
+"RestrictMobilityPassable": false,
+"AttackRange": -2,
+"StatusRange": 0,
+"SelfStatusRange": 0,
+"AbandonRangeOnHit": false
+},
+{
+"$type": "PMDC.Dungeon.WaitPlan, PMDC",
+"IQ": 401,
+"RestrictedMobilityTypes": 0,
+"RestrictMobilityPassable": false,
+"AttackRange": -3,
+"StatusRange": 0,
+"SelfStatusRange": 0,
+"AbandonRangeOnHit": false
+},
+{
+"$type": "PMDC.Dungeon.AvoidFoesPlan, PMDC",
+"IQ": 401,
+"RestrictedMobilityTypes": 0,
+"RestrictMobilityPassable": false,
+"AttackRange": -3,
+"StatusRange": 0,
+"SelfStatusRange": 0,
+"AbandonRangeOnHit": false
+}
+]
+}
+}

@@ -62,7 +62,7 @@ SV.checkpoint =
 	
 	GAME:AddPlayerGuest(kecleon)
 	kecleon:FullRestore()
-	--kecleon.Tactic = _DATA:GetAITactic("avoid_trouble") --Avoid Trouble causes Trouble. You already know this.
+	kecleon.Tactic = _DATA:GetAITactic("escortee") --Avoid Trouble causes Trouble. You already know this.
 	
     local talk_evt = RogueEssence.Dungeon.BattleScriptEvent("EscortInteract")
     kecleon.ActionEvents:Add(talk_evt)
@@ -89,7 +89,7 @@ SV.checkpoint =
 	GAME:AddPlayerGuest(madilyn)
 	madilyn:FullRestore() --What does this function do...? / Restores their Stats so they don't appear with 0 HP.
 	
-	madilyn.Tactic = _DATA:GetAITactic("go_after_foes") -- Sunkern helped here. / Apparently, she's too OP.
+	madilyn.Tactic = _DATA:GetAITactic("go_after_foes") -- Sunkern helped here. / Apparently, she's too OP. / No bloody idea what I'm doing.
      
 	local talk_evt = RogueEssence.Dungeon.BattleScriptEvent("MadilynInteract")
     madilyn.ActionEvents:Add(talk_evt)
@@ -333,7 +333,6 @@ local guestCount = GAME:GetPlayerGuestCount()
 
 if SV.chapter.number < 2 then
 
-
 		for i = 0, guestCount - 1, 1 do
 		
 		GAME:RemovePlayerGuest(0)
@@ -342,9 +341,9 @@ if SV.chapter.number < 2 then
 
 end
 
---GAME:EndDungeonRun(result, 'treasuretownzone', -1, 17, 0)
---COMMON.EndDungeonDay(result, 'treasuretownzone', -1, 17, 0)
---GAME:EnterZone('treasuretownzone', -1, 17, 0)
+GAME:EnterZone('treasuretownzone', -1, 17, 0) --Temporary fix. I can't tell why it's doing this.
+COMMON.EndDayCycle()
+
 else
 
 end
@@ -357,6 +356,7 @@ UI:ResetSpeaker()
 UI:ChoiceMenuYesNo("Travel further into the dungeon?", false)
 UI:WaitForChoice()
 ch = UI:ChoiceResult()
+
 if ch then
 GAME:FadeOut(false, 30)
 GAME:ContinueDungeon('roadwalkpathway', 0, 10, 0)

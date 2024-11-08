@@ -200,7 +200,7 @@ UI:WaitShowDialogue("(I'm not ready yet, [pause=10]I have nothing for the trip t
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue("I know you're eager, [pause=10]but hold on a minute.")
 	
-	treasuretowncrossroads.Madilyn_Action(chara, activator)
+	treasuretowncrossroads.Madilyn_Action(chara, activator) --Leaving this way causes the game to hang, sending you to the dungeon, and stop working.
 	
 	GROUND:MoveInDirection(player, Direction.Left, 10, false, 1)
 	GROUND:CharAnimateTurnTo(Madilyn, Direction.Left, 4)
@@ -676,7 +676,7 @@ if ch then
 	
 	GAME:AddPlayerGuest(kecleon)
 	kecleon:FullRestore()
-	--kecleon.Tactic = _DATA:GetAITactic("avoid_trouble") --Avoid Trouble? More like cause trouble. What a joke of an AI.
+	kecleon.Tactic = _DATA:GetAITactic("escortee") --Avoid Trouble? More like cause trouble. What a joke of an AI.
     
 	local talk_evt = RogueEssence.Dungeon.BattleScriptEvent("EscortInteract")
     kecleon.ActionEvents:Add(talk_evt)
@@ -697,7 +697,7 @@ if ch then
 
 	madilyn:ReplaceSkill("brick_break", 0, true)
 	madilyn:ReplaceSkill("aerial_ace", 1, true)
-	madilyn:ReplaceSkill("bubble", 2, false)
+	madilyn:ReplaceSkill("bubble", 2, true)
 	madilyn:ReplaceSkill("protect", 3, false)
 	
 	GAME:AddPlayerGuest(madilyn)
