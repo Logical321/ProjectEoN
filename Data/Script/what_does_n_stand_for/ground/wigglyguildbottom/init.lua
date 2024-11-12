@@ -139,7 +139,7 @@ UI:WaitShowDialogue("Ehh... [pause=20]You're the new kid, [pause=10]yeah?")
 UI:WaitShowDialogue("Don't look like much to me, [pause=10]sorry. [pause=0]I'm not sure if someone like you has anything useful to me.")
 UI:WaitShowDialogue("Do your dungeon work, [pause=10]then I'll reconsider letting you know how this whole Swap Shop works.") --Open up on Chapter 2, boxes will appear in the new dungeons by then.
 	else
-UI:WaitShowDialogue("Logic couldn't be bothered to add my swap shop right now. He's so lazy...")
+UI:WaitShowDialogue("...Uh, [pause=10]I misplaced my lines. [pause=0]The Swap Shop ain't open, [pause=10]by the way.")
 	end
 
 end
@@ -392,6 +392,7 @@ UI:WaitShowDialogue("I know you'd like to keep playing, but there's something I 
 UI:WaitShowDialogue("There's no way to progress the story right now.")
 UI:WaitShowDialogue("You must wait for the next update, as unfortunate as that sounds.")
 UI:WaitShowDialogue("But you can still play the dungeons in this 'free play' state.")
+UI:WaitShowDialogue("You are allowed to do Job Board missions if that pleases your fancy.")
 
 GROUND:EntTurn(Chatot, Direction.Down)
 GAME:UnlockDungeon('roadwalkpathway')

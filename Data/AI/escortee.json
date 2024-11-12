@@ -7,33 +7,12 @@
 "LocalTexts": {}
 },
 "Released": false,
-"Comment": "Meant to make them not be stupid.",
+"Comment": "Meant to make them not be painfully annoying to\r\nlose to. (Stick Together won't cut it for Escorts,\r\nnot in this game.)",
 "ID": "Escortee",
 "Assignable": false,
 "Plans": [
 {
-"$type": "PMDC.Dungeon.PrepareWithLeaderPlan, PMDC",
-"AttackPattern": 4,
-"IQ": 401,
-"RestrictedMobilityTypes": 0,
-"RestrictMobilityPassable": false,
-"AttackRange": -6,
-"StatusRange": 0,
-"SelfStatusRange": 0,
-"AbandonRangeOnHit": false
-},
-{
-"$type": "PMDC.Dungeon.ExplorePlan, PMDC",
-"IQ": 401,
-"RestrictedMobilityTypes": 0,
-"RestrictMobilityPassable": false,
-"AttackRange": -2,
-"StatusRange": 0,
-"SelfStatusRange": 0,
-"AbandonRangeOnHit": false
-},
-{
-"$type": "PMDC.Dungeon.WaitPlan, PMDC",
+"$type": "PMDC.Dungeon.FollowLeaderPlan, PMDC",
 "IQ": 401,
 "RestrictedMobilityTypes": 0,
 "RestrictMobilityPassable": false,
@@ -51,6 +30,38 @@
 "StatusRange": 0,
 "SelfStatusRange": 0,
 "AbandonRangeOnHit": false
+},
+{
+"$type": "PMDC.Dungeon.ExplorePlan, PMDC",
+"IQ": 401,
+"RestrictedMobilityTypes": 0,
+"RestrictMobilityPassable": false,
+"AttackRange": -3,
+"StatusRange": 0,
+"SelfStatusRange": 0,
+"AbandonRangeOnHit": false
+},
+{
+"$type": "PMDC.Dungeon.WaitPlan, PMDC",
+"IQ": 401,
+"RestrictedMobilityTypes": 0,
+"RestrictMobilityPassable": false,
+"AttackRange": -3,
+"StatusRange": 0,
+"SelfStatusRange": 0,
+"AbandonRangeOnHit": false
+},
+{
+"$type": "PMDC.Dungeon.AttackFoesPlan, PMDC",
+"AttackPattern": 4,
+"PositionPattern": 2,
+"IQ": 401,
+"RestrictedMobilityTypes": 0,
+"RestrictMobilityPassable": false,
+"AttackRange": -6,
+"StatusRange": 0,
+"SelfStatusRange": 0,
+"AbandonRangeOnHit": true
 }
 ]
 }

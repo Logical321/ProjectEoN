@@ -279,19 +279,34 @@ end
 function wigglyguildmiddle.JobBoard_Action(obj, activator)
 local player =CH('PLAYER')
 
+	if SV.chapter.number < 2 then
 
+		UI:SetSpeaker(player)
+		UI:SetSpeakerEmotion("Worried")
+		UI:WaitShowDialogue("(I don't remember being told I can take these.)")
 
-UI:SetSpeaker(player)
-UI:SetSpeakerEmotion("Worried")
-UI:WaitShowDialogue("(I don't remember being told I can take these.)")
+	else
+
+		UI:WaitShowDialogue("This isn't coded, Logic. Fix it.")
+
+	end
+
 end
 
 function wigglyguildmiddle.OutlawBoard_Action(obj, activator)
 local player =CH('PLAYER')
 
-UI:SetSpeaker(player)
-UI:SetSpeakerEmotion("Worried")
-UI:WaitShowDialogue("(I don't feel like chasing around criminals, [pause=10]so no thanks.)")
+	if SV.chapter.number < 2 then
+
+		UI:SetSpeaker(player)
+		UI:SetSpeakerEmotion("Worried")
+		UI:WaitShowDialogue("(I don't feel like chasing around criminals, [pause=10]so no thanks.)")
+
+	else
+	
+	UI:WaitShowDialogue("Not coded, Logic. Try again.")
+
+	end
 end
 
 function wigglyguildmiddle.Assembly_Action(obj, activator)
@@ -492,7 +507,7 @@ SOUND:PlayFanfare("Fanfare/Item")
 
 UI:ResetSpeaker(false)
 UI:SetCenter(true)
-UI:WaitShowDialogue("You received a [color=#32a852]Max Elixir[color] from ".. CH('Kecleon'):GetDisplayName() .."!") --That works?
+UI:WaitShowDialogue("You received a [color=#32a852]Max Elixir[color] from ".. CH('Kecleon'):GetDisplayName() .."!")
 UI:SetCenter(false)
 
 end
@@ -669,7 +684,7 @@ GROUND:EntTurn(Kecleon, Direction.DownRight)
 
 		GROUND:CharSetAnim(player, "Sound", false)
 		SOUND:PlayBattleSE("EVT_Emote_Complain_2")
-		GAME:WaitFrames(40)
+		GAME:WaitFrames(20)
 
 UI:SetSpeaker(Madilyn)
 UI:SetSpeakerEmotion("Normal")
@@ -680,13 +695,13 @@ UI:WaitShowDialogue("What are you getting angry at me for?")
 		elseif SV.playerinfo.job == 'Prepared' then
 			UI:WaitShowDialogue("Don't you make enough money in dungeons alone?")
 			else
-			UI:WaitShowDialogue("What I have in my flippers isn't yours.")
+			UI:WaitShowDialogue("What I have here isn't for you.")
 			end
 
 			UI:WaitShowDialogue("What I have is the guild's share of the profit. [pause=0]Most of a job's payout is given to the headmaster.")
 			UI:WaitShowDialogue("What she does with it, [pause=10]I can't even begin to wonder.")
 			UI:WaitShowDialogue("And ".. CH('PLAYER'):GetDisplayName() ..", [pause=10]even I think the amount they take is kinda dumb.")
-			UI:WaitShowDialogue("But for now, [pause=10]keep whatever's in your paws. [pause=0]I got enough for myself.")
+			UI:WaitShowDialogue("But for now, [pause=10]keep whatever you got. [pause=0]I got enough money for myself.")
 			
 			GROUND:CharSetEmote(player, "", 0)
 			GROUND:CharAnimateTurn(Madilyn, Direction.Up, 4, true)
@@ -704,17 +719,17 @@ GAME:WaitFrames(40)
 
 UI:SetSpeaker(player, false)
 UI:SetSpeakerEmotion("Pain")
-UI:WaitShowDialogue("(Nnf... I know [color=#54ebaf]Madilyn[color] told me why...)")
-UI:WaitShowDialogue("(But what ".. CH('Skiddo'):GetDisplayName() .." gave me versus how much is left feels so cheap...)")
+UI:WaitShowDialogue("(Nnf... I know what [color=#54ebaf]Madilyn[color] told me...)")
+UI:WaitShowDialogue("(But that's still so... [pause=20]dumb...)")
 UI:SetSpeakerEmotion("Worried")
-UI:WaitShowDialogue("(On the bright side, [pause=10]I got this bottle from ".. CH('Kecleon'):GetDisplayName() ..".)")
+UI:WaitShowDialogue("(On the bright side, [pause=10]I got this Elixir from ".. CH('Kecleon'):GetDisplayName() ..".)")
 
 if SV.playerinfo.job == 'Study' then
 UI:WaitShowDialogue("(I'm glad items aren't considered as payment.)")
 elseif SV.playerinfo.job == 'Prepared' then
 UI:WaitShowDialogue("(I'll be sure to use it for later in a tight spot.)")
 else
-UI:WaitShowDialogue("(So that's something...)")
+UI:WaitShowDialogue("(So that's neat...)")
 end
 
 	end
@@ -775,7 +790,7 @@ UI:SetSpeaker(player, false)
 UI:SetSpeakerEmotion("Sigh")
 UI:WaitShowDialogue("(Training in this guild must be pretty harsh...)")
 if SV.playerinfo == 'FriendZone' or 'AdventureSquad' then
-UI:WaitShowDialogue("(Much harsher than how I used to train.)")
+UI:WaitShowDialogue("(Much harsher than how I used to train back home.)")
 end
 UI:SetSpeakerEmotion("Normal")
 UI:WaitShowDialogue("(But I know I can do this.)")
@@ -843,7 +858,7 @@ end
 UI:WaitShowDialogue("Alrighty then! [pause=0]So you know what you're doing tomorrow.")
 
 if NeededRefresh == true then
-UI:WaitShowDialogue("I'm not sure if this is your first time doing this, [pause=10]but I know you got the spirit.")
+UI:WaitShowDialogue("With those reminders, [pause=10]you should be completely fine.")
 end
 
 GAME:WaitFrames(10)
@@ -852,14 +867,18 @@ UI:SetSpeaker(Piks)
 UI:SetSpeakerEmotion("Normal")
 UI:WaitShowDialogue("We should let you get some rest, [pause=10]".. CH('PLAYER'):GetDisplayName() ..".")
 UI:WaitShowDialogue("Remember, [pause=10]this stuff isn't necessary, [pause=10]but if you're looking for work, [pause=10]try doing some jobs.")
-UI:WaitShowDialogue("Get some rest now. [pause=0]We'll see you tomorrow.")
+UI:WaitShowDialogue("It's a bit more rewarding than stumbling into a dungeon with nothing to do.")
+UI:SetSpeakerEmotion("Happy")
+UI:WaitShowDialogue("Now get some rest. [pause=0]We'll see you tomorrow, ".. CH('PLAYER'):GetDisplayName()".")
 
 coro1 = TASK:BranchCoroutine(function()
+
 GROUND:MoveToPosition(AdamMudkip, 323, 156, false, 1)
 GROUND:MoveInDirection(AdamMudkip, Direction.Up, 50, false, 1)
 end)
 
 coro2 = TASK:BranchCoroutine(function()
+
 GROUND:MoveToPosition(Piks, 323, 156, false, 1)
 GROUND:MoveInDirection(Piks, Direction.Up, 50, false, 1)
 end)

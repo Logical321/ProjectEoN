@@ -1676,6 +1676,7 @@ function COMMON.GenderCheck(chara, form, uppercase)
             ["they'll"] = "she'll",
             ["they are"] = "she is",
             ["they have"] = "she has",
+			["they don't"] = "she doesn't",
             ["they were"] = "she was",
         }
         value = female_pronouns[form]
@@ -1689,6 +1690,7 @@ function COMMON.GenderCheck(chara, form, uppercase)
             ["they'll"] = "he'll", 
             ["they are"] = "he is", 
             ["they have"] = "he has", 
+			["they don't"] = "he doesn't",
             ["they were"] = "he was", 
         }
         value = male_pronouns[form]

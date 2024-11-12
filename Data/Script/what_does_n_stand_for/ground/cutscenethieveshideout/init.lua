@@ -83,7 +83,6 @@ local pcSpecies = _DATA:GetMonster(CH('PLAYER').CurrentForm.Species):GetColoredN
 
 GAME:CutsceneMode(true)
 GAME:MoveCamera(248, 224, 1, false)
-GAME:FadeIn(20)
 
 local coro1 = TASK:BranchCoroutine(function()
 
@@ -113,6 +112,12 @@ GAME:WaitFrames(10)
 end
 end)
 
+local coro3 = TASK:BranchCoroutine(function()
+GAME:FadeIn(20)
+end)
+
+--DO NOT JOIN COROUTINE! They will be indefinently walking back and forth with no end!
+
 UI:SetSpeaker(Thievul)
 UI:SetSpeakerEmotion("Determined")
 UI:WaitShowDialogue("Grr... [pause=20]we've prowled the eastern side of this stupid sunny region... [pause=20]where is that [color=#00F8F8]".. pcSpecies .."[color]!?") --[color] tags are completely ignored for some reason...
@@ -135,7 +140,7 @@ UI:ResetSpeakerLoc()
 UI:SetSpeakerEmotion("Determined")
 UI:WaitShowDialogue("Yes, [pause=10]that annoying twig!")
 StopPacing = true
-UI:WaitShowDialogue(GenderCheck(player, "they've", true) .." been holding that medallion for long enough!")
+UI:WaitShowDialogue(COMMON.GenderCheck(player, "they've", true) .." been holding that medallion for long enough!")
 
 	SOUND:PlayBattleSE("EVT_Emote_Sweating")
 	GROUND:CharSetEmote(Purrloin, "sweating", 1)
@@ -146,7 +151,7 @@ UI:SetSpeaker(Purrloin)
 UI:SetSpeakerLoc(264,131)
 UI:SetSpeakerEmotion("Worried", true)
 UI:WaitShowDialogue("Mm...")
-UI:WaitShowDialogue("I'm a little confused about your obsession with that piece of jewelry...")
+UI:WaitShowDialogue("I'm a little confused about your obsession with that coin...")
 
 GROUND:CharSetEmote(Thievul, "", 0)
 GROUND:EntTurn(Thievul, Direction.DownRight)
@@ -236,7 +241,7 @@ UI:WaitShowDialogue("Let me guess, [pause=10]those bruises are from a fight?")
 GAME:WaitFrames(10)
 UI:SetSpeaker(ScraftyB)
 UI:SetSpeakerEmotion("Worried")
-UI:WaitShowDialogue("Yeah... [pause=20]we lost harshly.")
+UI:WaitShowDialogue("Yeah... [pause=20]we lost badly.")
 UI:WaitShowDialogue("The [color=#00F8F8]Zigzagoons[color] ran away with our food too. [pause=0]So much for their help...")
 
 SOUND:PlayBattleSE("EVT_Emote_Sweatdrop")
@@ -295,7 +300,7 @@ GROUND:CharAnimateTurn(Thievul, Direction.Down, 4, true)
 UI:SetSpeaker(Thievul)
 UI:SetSpeakerEmotion("Angry")
 GROUND:CharSetEmote(Thievul, "angry", 0)
-UI:WaitShowDialogue("WHAT!?!?")
+--UI:WaitShowDialogue("WHAT!?!?")
 UI:WaitShowDialogue("WHAAAAAAAAAAT!?!?")
 UI:WaitShowDialogue("You're telling me that little runt is working with those muppets!?")
 
@@ -307,7 +312,7 @@ GAME:WaitFrames(30)
 UI:SetSpeaker(ScraftyA)
 UI:SetSpeakerLoc(264,131)
 UI:SetSpeakerEmotion("Surprised", true)
-UI:WaitShowDialogue("W-what if they are?? [pause=0]Can't we just lure that ".. pcSpecies .." out and ambush ".. GenderCheck(player, "them", false) .."?")
+UI:WaitShowDialogue("W-what if they are?? [pause=0]Can't we just lure that ".. pcSpecies .." out and ambush ".. COMMON.GenderCheck(player, "them", false) .."?")
 
 GROUND:CharAnimateTurn(Purrloin, Direction.UpLeft, 4, false)
 GAME:WaitFrames(10)
@@ -321,7 +326,7 @@ GROUND:EntTurn(Thievul, Direction.DownRight)
 GROUND:EntTurn(ScraftyA, Direction.UpRight)
 GROUND:EntTurn(ScraftyB, Direction.UpRight)
 GROUND:CharSetEmote(Thievul, "", 0)
-UI:WaitShowDialogue(GenderCheck(player, "they don't", true) .." have a partner. [pause=0]".. GenderCheck(player, "they'll", true) .." be all alone for the ambush. ♪")
+UI:WaitShowDialogue(COMMON.GenderCheck(player, "they don't", true) .." have a partner. [pause=0]".. COMMON.GenderCheck(player, "they'll", true) .." be all alone for the ambush. ♪")
 
 GROUND:CharAnimateTurn(Thievul, Direction.Up, 4, true)
 
@@ -336,7 +341,7 @@ coro1 = TASK:BranchCoroutine(function()
 GAME:FadeOut(false, 60)
 end)
 
-UI:WaitShowDialogue("What a perfect foil! [pause=0]That fool won't know what hit ".. GenderCheck(player, "them", false) .."!")
+UI:WaitShowDialogue("What a perfect foil! [pause=0]That fool won't know what hit ".. COMMON.GenderCheck(player, "them", false) .."!")
 
 GAME:WaitFrames(120)
 
@@ -361,19 +366,11 @@ function GenderCheck(chara, form, uppercase) --Uppercase?
     if gender == Gender.Female then
         local female_pronouns = {
             ["one"] = "girl",
-			["they've"] = "she's",
-			["they'll"] = "she'll",
-			["they don't"] = "she doesn't",
-			["them"] = "her",
         }
         value = female_pronouns[form]
     elseif gender == Gender.Male then
         local male_pronouns = {
             ["one"] = "boy",
-			["they've"] = "he",
-			["they'll"] = "he'll",
-			["they don't"] = "he doesn't",
-			["them"] = "him",
         }
         value = male_pronouns[form]
     else -- if neither male or female, use they/them, so just return the form 

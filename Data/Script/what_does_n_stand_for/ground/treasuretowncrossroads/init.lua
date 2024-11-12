@@ -669,14 +669,14 @@ if ch then
 	kecleon.MDefBonus = 0
 	kecleon.SpeedBonus = 0
 
-	kecleon:ReplaceSkill("feint", 0, true)
+	kecleon:ReplaceSkill("feint", 0, false)
 	kecleon:ReplaceSkill("fury_swipes", 1, true)
 	kecleon:ReplaceSkill("shadow_sneak", 2, true) --Causes problems because he's too aggressive lol / Feint and Shadow Sneak act the exact same, his aggressiveness has not changed.
 	kecleon:ReplaceSkill("bind", 3, true) --Despite everything, this move is actually useful.
 	
 	GAME:AddPlayerGuest(kecleon)
 	kecleon:FullRestore()
-	kecleon.Tactic = _DATA:GetAITactic("escortee") --Avoid Trouble? More like cause trouble. What a joke of an AI.
+	--kecleon.Tactic = _DATA:GetAITactic("escortee") --Avoid Trouble? More like cause trouble. What a joke of an AI.
     
 	local talk_evt = RogueEssence.Dungeon.BattleScriptEvent("EscortInteract")
     kecleon.ActionEvents:Add(talk_evt)

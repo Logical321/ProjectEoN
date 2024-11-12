@@ -48,7 +48,7 @@ function roadwalkpathway.ExitSegment(zone, result, rescue, segmentID, mapID)
 
 		for i = 0, guestCount - 1, 1 do
 		
-		GAME:RemovePlayerGuest(0)
+			GAME:RemovePlayerGuest(0)
 
 		end
 	
@@ -58,10 +58,11 @@ function roadwalkpathway.ExitSegment(zone, result, rescue, segmentID, mapID)
 		UI:SetSpeaker('[color=#54ebaf]Madilyn[color]',true,'piplup',1,'normal',Gender.Female)
 		UI:SetSpeakerEmotion("Pain")
 		UI:WaitShowDialogue("Shoot! [pause=0]We have to get out of here, [pause=10]and regroup tomorrow.")
+		SV.branchwaywoodsentrance.DungeonComplete = false
 		GAME:WaitFrames(10)
 
 	end
-	
+
    COMMON.EndDungeonDay(result, SV.checkpoint.Zone, SV.checkpoint.Segment, SV.checkpoint.Map, SV.checkpoint.Entry)
 	
   else

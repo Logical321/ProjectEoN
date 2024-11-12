@@ -1324,7 +1324,7 @@
 "Element": {
 "SkillNum": "beat_up",
 "Charges": 12,
-"Enabled": true,
+"Enabled": false,
 "Sealed": false
 },
 "BackRef": 1

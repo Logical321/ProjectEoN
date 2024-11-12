@@ -32,6 +32,7 @@ end
 --Engine callback function
 function CrumbleCanyonMidway.Enter(map)
 local GuestsNumber = GAME:GetPlayerGuestCount()
+
 if SV.chapter.number < 2 then
 
 SV.checkpoint = 
@@ -42,7 +43,13 @@ SV.checkpoint =
 
 	if GuestsNumber < 2 then
 	
-		local mon_id = RogueEssence.Dungeon.MonsterID("kecleon", 0, "normal", Gender.Male)
+		for i = 0, GuestsNumber - 1, 1 do
+		
+		GAME:RemovePlayerGuest(0) --To prevent accidental duplicating, remove all guests before adding more. This CANNOT run when doing missions, so it should be fine.
+
+		end
+	
+	local mon_id = RogueEssence.Dungeon.MonsterID("kecleon", 0, "normal", Gender.Male)
 	local kecleon = _DATA.Save.ActiveTeam:CreatePlayer(_DATA.Save.Rand, mon_id, 5, "color_change", 0)
 	kecleon.Discriminator = _DATA.Save.Rand:Next()--tbh idk what this is lol
 	kecleon.Level = 15
@@ -55,14 +62,14 @@ SV.checkpoint =
 	kecleon.MDefBonus = 0
 	kecleon.SpeedBonus = 0
 
-	kecleon:ReplaceSkill("feint", 0, true)
+	kecleon:ReplaceSkill("feint", 0, false)
 	kecleon:ReplaceSkill("fury_swipes", 1, true)
 	kecleon:ReplaceSkill("shadow_sneak", 2, true) --Causes problems because he's too aggressive lol / Feint and Shadow Sneak act the exact same, his aggressiveness has not changed.
 	kecleon:ReplaceSkill("bind", 3, true) --Despite everything, this move is actually useful.
 	
 	GAME:AddPlayerGuest(kecleon)
 	kecleon:FullRestore()
-	kecleon.Tactic = _DATA:GetAITactic("escortee") --Avoid Trouble causes Trouble. You already know this.
+	--kecleon.Tactic = _DATA:GetAITactic("escortee") --Avoid Trouble causes Trouble. You already know this. / Since modding in a custom tactic is kinda impossible, I will have to hold off on this.
 	
     local talk_evt = RogueEssence.Dungeon.BattleScriptEvent("EscortInteract")
     kecleon.ActionEvents:Add(talk_evt)

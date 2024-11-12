@@ -322,7 +322,7 @@ SOUND:PlayBGM("None", true)
 SV.repeatable.day_finished = true
 SV.repeatable.daily_chant = false
 
-GAME:EnterZone('cutscenezone', -1, 5, 0)
+GAME:EnterZone('cutscenezone', -1, 6, 0)
 
 GAME:CutsceneMode(false)
 end

@@ -878,10 +878,12 @@ GAME:FadeIn(20)
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue("Looks like you're still here...")
 	
+	GAME:WaitFrames(10)
+	
 	UI:SetSpeaker(Skiddo)
 	UI:SetSpeakerEmotion("Surprised")
-	UI:WaitShowDialogue("W-wait! [pause=0]The thieves also didn't leave!")
-	UI:WaitShowTimedDialogue("They're...",15)
+	UI:WaitShowDialogue("W-wait! [pause=0]The thieves didn't leave!")
+	UI:WaitShowTimedDialogue("They're still here...!",15)
 	
 		local emitter = RogueEssence.Content.SingleEmitter(RogueEssence.Content.AnimData("Dig", 3))
 	emitter.LocHeight = 5
@@ -971,7 +973,7 @@ GAME:WaitFrames(30)
 UI:SetSpeaker(Skiddo)
 UI:SetSpeakerEmotion("Determined")
 UI:WaitShowDialogue("Grr, [pause=10]they make me so angry!")
-UI:WaitShowDialogue("Come on, [pause=10]let's show them who's boss!")
+UI:WaitShowDialogue("Come on, [pause=10]let's show them who's boss this time!")
 
 	local mon_id = RogueEssence.Dungeon.MonsterID("skiddo", 0, "normal", Gender.Male)
 	local skiddo = _DATA.Save.ActiveTeam:CreatePlayer(_DATA.Save.Rand, mon_id, 5, "sap_sipper", 0)
