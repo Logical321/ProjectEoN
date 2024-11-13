@@ -42,6 +42,8 @@ if SV.chapter.number == 1 then
 	end
 end
 
+COMMON.WeatherApply()
+
 if not SV.chapter1.sbfadein then
   GAME:FadeIn(20) --Really stupid way of hiding the fade in, but it's better than nothing. It will continue reading until this function is over.
 end

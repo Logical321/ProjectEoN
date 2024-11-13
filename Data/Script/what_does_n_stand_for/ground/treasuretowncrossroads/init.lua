@@ -73,6 +73,8 @@ if SV.dungeons.drenchedbluff_fail then
 		treasuretowncrossroads.DrenchedFailure_Ouch(TryAgain)
 	end
 end
+
+		COMMON.WeatherApply()
 		
 		GAME:FadeIn(20) --If all else fails, fade the game in.
 		

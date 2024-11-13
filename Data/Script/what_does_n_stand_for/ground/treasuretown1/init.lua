@@ -40,6 +40,8 @@ GROUND:Hide("ShopGreen")
 GROUND:TeleportTo(CH('kecleonmain'), 316, 185, Direction.UpRight)
 end
 
+COMMON.WeatherApply()
+
 GAME:FadeIn(20)
 
 end

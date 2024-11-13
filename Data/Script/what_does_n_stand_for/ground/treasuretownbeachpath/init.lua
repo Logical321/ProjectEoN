@@ -32,6 +32,8 @@ end
 --Engine callback function
 function treasuretownbeachpath.Enter(map)
 
+  COMMON.WeatherApply()
+
   GAME:FadeIn(20)
 
 end

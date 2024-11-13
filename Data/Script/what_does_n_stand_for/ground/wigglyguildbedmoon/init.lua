@@ -212,6 +212,7 @@ UI:WaitShowDialogue("(Looks like today's over.)")
 UI:WaitShowDialogue("(I should get some sleep for tomorrow.)")
 
 	if not SV.chapter1.meeting_partA then
+	
 local tasks = {
     ["Mossy Outcroppings"] = SV.dungeons.mossyoutcroppings,
     ["Seaside Serenade"] = SV.dungeons.seasideserenade,
@@ -237,6 +238,7 @@ if #completed == 3 then
 	UI:WaitShowDialogue("(I hope they can use this information somehow.)")
 	UI:SetSpeakerEmotion("Worried")
 	UI:WaitShowDialogue("(But there was nothing in those places. [pause=0]Worse yet, [pause=10]not even a single lead...)")
+	SV.weather.allow = false --Make sure it's off for Crumbling Canyonway.
 elseif #completed == 2 then
     UI:WaitShowDialogue(
         string.format("(I finished my reports on [color=#FFC663]%s[color] and [color=#FFC663]%s[color].)", completed[1], completed[2])
@@ -244,20 +246,31 @@ elseif #completed == 2 then
     UI:WaitShowDialogue(
         string.format("(The last one I need to do is [color=#FFC663]%s[color].)", to_do[1])
     )
+	
+	SV.weather.allow = true
 elseif #completed == 1 then
     UI:WaitShowDialogue(
         string.format("(I got [color=#FFC663]%s[color] done, [pause=10]and I've got two more to do tomorrow.)", completed[1])
     )
-elseif #completed == 0 then
-    UI:SetSpeakerEmotion("Sad")
+	
+	SV.weather.allow = true
+		elseif #completed == 0 then
+    
+	UI:SetSpeakerEmotion("Sad")
     UI:WaitShowDialogue("(I need to step up my game... [pause=20]I got nothing on my report...)")
-	end
+
+		end
+	
+	SV.weather.allow = true
+
 end
 
 GAME:FadeOut(false, 30)
 SOUND:PlayBGM("None", true)
 SV.repeatable.day_finished = true
 SV.repeatable.daily_chant = false
+SV.weather.allow = true
+COMMON.WeatherStatus()
 GAME:WaitFrames(50)
 
 	UI:SetCenter(true)
@@ -319,6 +332,7 @@ SOUND:PlayBGM("None", true)
 	UI:WaitHideBG(40)
 	GAME:UnlockDungeon('roadwalkpathway')
 
+SV.weather.allow = true --Should be True.
 SV.repeatable.day_finished = true
 SV.repeatable.daily_chant = false
 

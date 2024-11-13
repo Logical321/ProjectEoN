@@ -33,6 +33,7 @@ end
 function treasuretown2.Enter(map)
 
   treasuretown2.chapterhidescript()
+  COMMON.WeatherApply()
 
   GAME:FadeIn(20)
   SV.repeatable.pots = false

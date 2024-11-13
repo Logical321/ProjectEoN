@@ -826,6 +826,14 @@ GAME:WaitFrames(80)
 UI:WaitShowVoiceOver("Meanwhile...", -1)
 GAME:WaitFrames(20)
 
+	local guestCount = GAME:GetPlayerGuestCount()
+
+		for i = 0, guestCount - 1, 1 do
+		
+			GAME:RemovePlayerGuest(0)
+
+		end
+
 GAME:EnterZone('cutscenezone', -1, 5, 0)
 
 GAME:CutsceneMode(false)

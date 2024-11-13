@@ -38,6 +38,8 @@ if SV.chapter.number == 1 and not SV.chapter1.apricorn_tutorial then
 		wigglyguildent.ApricornTut()
 end
 
+COMMON.WeatherApply()
+
   GAME:FadeIn(20)
 
 end

@@ -40,6 +40,8 @@ GROUND:Hide('Lapras')
 
 treasuretownbeach.chapterhidescript()
 
+COMMON.WeatherApply()
+
   SOUND:FadeInSE("Beach_Noise")
   GAME:FadeIn(20)
 
