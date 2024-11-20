@@ -854,14 +854,14 @@ elseif SV.playerinfo.continent == 'GatesToInf' then
 			
 				UI:SetSpeaker(Madilyn)
 				UI:SetSpeakerEmotion("Normal")
-				UI:WaitShowDialogue("[color=#FFC663]The Grandmaster's Trail Island[color]? [pause=0]Oh, [pause=10]this sounds promising.")
+				UI:WaitShowDialogue("[color=#9696ff]The Grandmaster's Trail Island[color]? [pause=0]Oh, [pause=10]this sounds promising.")
 				GAME:WaitFrames(10)
 			
 				if SV.playerinfo.job == 'Study' then
 		
 			UI:SetSpeaker(Madilyn)
 			UI:SetSpeakerEmotion("Normal")
-			UI:WaitShowDialogue("Wait, [pause=10][color=#FFC663]Base Camp[color] had a school?")
+			UI:WaitShowDialogue("Wait, [pause=10][color=#9696ff]Base Camp[color] had a school?")
 			UI:WaitShowDialogue("Oh, [pause=10]yeah, [pause=10]time for some context.")
 			UI:WaitShowDialogue("I've heard about this particular bit of island before.[br]It was in an issue of 'top 10 places to visit' on a newspaper.")
 			UI:WaitShowDialogue("I should check it out sometime. [pause=0]It's worth a visit or two.")
@@ -870,8 +870,8 @@ elseif SV.playerinfo.continent == 'GatesToInf' then
 		
 			UI:SetSpeaker(Madilyn)
 			UI:SetSpeakerEmotion("Normal")
-			UI:WaitShowDialogue("I can't really be surprised you did that over at the [color=#FFC663]Base Camp[color] island.")
-			UI:WaitShowDialogue("[color=#FFC663]Guildmaster Trail[color] makes for a great ordeal to overpass.")
+			UI:WaitShowDialogue("I can't really be surprised you did that over at the [color=#9696ff]Base Camp[color] island.")
+			UI:WaitShowDialogue("[color=#9696ff]Guildmaster Trail[color] makes for a great ordeal to overpass.")
 			UI:WaitShowDialogue("Considering you're here, [pause=10]I'm guessing being a Guildmaster wasn't on your list.")
 			
 			elseif SV.playerinfo.job == 'Courier' then
@@ -880,7 +880,7 @@ elseif SV.playerinfo.continent == 'GatesToInf' then
 			UI:SetSpeakerEmotion("Normal")
 			UI:WaitShowDialogue("Now that is something that doesn't need to be explained.")
 			UI:WaitShowDialogue("The long treks through to reach the other camps must be exhausting.")
-			UI:WaitShowDialogue("But uh, [pause=10]wasn't there already a mail service at [color=#FFC663]Base Camp[color]?")
+			UI:WaitShowDialogue("But uh, [pause=10]wasn't there already a mail service at [color=#9696ff]Base Camp[color]?")
 			UI:WaitShowDialogue("Oh, [pause=10]they were understaffed. [pause=0]Huh...")
 			
 			elseif SV.playerinfo.job == 'Helper' then
@@ -896,7 +896,7 @@ elseif SV.playerinfo.continent == 'GatesToInf' then
 			UI:SetSpeaker(Madilyn)
 			UI:SetSpeakerEmotion("Normal")
 			UI:WaitShowDialogue("Living on an island has it's perks...")
-			UI:WaitShowDialogue("There are much more exotic fruits and stuff, [pause=10]and free excersize through [color=#FFC663]Guildmaster Trail[color] is fine...")
+			UI:WaitShowDialogue("There are much more exotic fruits and stuff, [pause=10]and free excersize through [color=#9696ff]Guildmaster Trail[color] is fine...")
 			UI:SetSpeakerEmotion("Pain")
 			UI:WaitShowDialogue("But it's in the south, [pause=10]so it gets humid really dang quickly...")
 			UI:WaitShowDialogue("How do you stand it?")
@@ -913,7 +913,7 @@ elseif SV.playerinfo.continent == 'GatesToInf' then
 		
 		UI:SetSpeaker(Madilyn)
 		UI:SetSpeakerEmotion("Normal")
-		UI:WaitShowDialogue("[color=#FFC663]Metano Town[color]... [pause=20]Alright, [pause=10]let's see what you've written down...")
+		UI:WaitShowDialogue("[color=#9696ff]Metano Town[color]... [pause=20]Alright, [pause=10]let's see what you've written down...")
 		GAME:WaitFrames(10)
 		
 			if SV.playerinfo.job == 'Study' then
@@ -931,13 +931,13 @@ elseif SV.playerinfo.continent == 'GatesToInf' then
 			UI:SetSpeakerEmotion("Normal")
 			UI:WaitShowDialogue("Dungeon preparation, [pause=10]I shouldn't be surprised.")
 			UI:WaitShowDialogue("Oh wait... [pause=20]There's a dungeon next to the town? [pause=0]Wh- [pause=10]Two of them??")
-			UI:WaitShowDialogue("I thought [color=#FFC663]Beach Cave[color] was close enough, [pause=10]but two seems like too much.")
+			UI:WaitShowDialogue("I thought [color=#9696ff]Beach Cave[color] was close enough, [pause=10]but two seems like too much.")
 			
 			elseif SV.playerinfo.job == 'Courier' then
 			
 			UI:SetSpeaker(Madilyn)
 			UI:SetSpeakerEmotion("Normal")
-			UI:WaitShowDialogue("Mm... [pause=20]Being a mail-mon around [color=#FFC663]Metano Town[color] feels like you are always going to see that big tree every day when you deliver mail.")
+			UI:WaitShowDialogue("Mm... [pause=20]Being a mail-mon around [color=#9696ff]Metano Town[color] feels like you are always going to see that big tree every day when you deliver mail.")
 			UI:WaitShowDialogue("Now that I think about it, [pause=10]what is even in that tree to begin with?")
 			UI:WaitShowDialogue("...Oh, [pause=10]it's just the entire guild...")
 			UI:WaitShowDialogue("That must take an absurd amount of skill and effort to pull that off.")
@@ -948,7 +948,7 @@ elseif SV.playerinfo.continent == 'GatesToInf' then
 			UI:SetSpeakerEmotion("Normal")
 			UI:WaitShowDialogue("Helping around town, [pause=10]nobility indeed...")
 			UI:WaitShowDialogue("Oh, [pause=10]I don't know. [pause=0]Someone has to be a grown-up and take care of things from time to time.")
-			UI:WaitShowDialogue("I did find [color=#FFC663]Metano Town[color] on one of the places listed in a newspaper once.")
+			UI:WaitShowDialogue("I did find [color=#9696ff]Metano Town[color] on one of the places listed in a newspaper once.")
 			UI:WaitShowDialogue("It's called 'top 10 places to visit'. [pause=0]I don't know the issue, [pause=10]you're gonna have to dig that one for yourself.")
 			
 			elseif SV.playerinfo.job == 'Vibed' then
@@ -956,9 +956,9 @@ elseif SV.playerinfo.continent == 'GatesToInf' then
 			UI:SetSpeaker(Madilyn)
 			UI:SetSpeakerEmotion("Normal")
 			UI:WaitShowDialogue("I guess you were just enjoying your slice of halcyon, [pause=10]weren't you?")
-			UI:WaitShowDialogue("W-well, [pause=10]you know what halcyon means, [pause=10]right? No?")
+			UI:WaitShowDialogue("W-well, [pause=10]you know what halcyon means, [pause=10]right? [pause=0]No?")
 			UI:SetSpeakerEmotion("Pain")
-			UI:WaitShowDialogue("You're kidding... [pause=20]it means 'a moment of happiness', [pause=10]or something...")
+			UI:WaitShowDialogue("You're kidding... [pause=20]it means... [pause=20]something... [pause=20]I can't remember what it means.")
 			UI:SetSpeakerEmotion("Normal")
 			UI:WaitShowDialogue("It's not a commonly used word so just use whatever makes more sense, [pause=10]ok?")
 			
@@ -1375,10 +1375,10 @@ UI:ResetSpeaker(false)
 
 SV.playerinfo.continent = nil
 
-choices = {"The Origin Region",
-    "The Sky Region",
-    "The Magna Region",
-	"The Prospect Region",
+choices = {"[color=#FFC663]The Origin Region[color]",
+    "[color=#FFC663]The Sky Region[color]",
+    "[color=#FFC663]The Magna Region[color]",
+	"[color=#FFC663]The Prospect Region[color]",
 	"Other..."}
 
 UI:BeginChoiceMenu("What region did you come from?", choices, 1, 6)
@@ -1412,7 +1412,7 @@ SV.playerinfo.town = nil
 
 	if SV.playerinfo.continent == 'RescueTeam' then
 
-choices = {"Pokémon Square",
+choices = {"[color=#FFC663]Pokémon Square[color]",
     "A Friend Area",
     "I'm not sure... / Somewhere around there",
 	"Go back"}
@@ -1436,9 +1436,9 @@ end
 
 	elseif SV.playerinfo.continent == 'Explorers' then
 
-choices = {"Treasure Town",
-    "Pokémon Beach, Village, or Garden",
-	"Shaymin Village",
+choices = {"[color=#FFC663]Treasure Town[color]",
+    "[color=#FFC663]Pokémon Beach, Village, or Garden[color]",
+	"[color=#FFC663]Shaymin Village[color]",
     "I'm not sure... / Somewhere around there",
 	"Go back"}
 
@@ -1463,7 +1463,7 @@ end
 
 	elseif SV.playerinfo.continent == 'GatesToInf' then
 
-choices = {"Post Town",
+choices = {"[color=#FFC663]Post Town[color]",
     "I'm not sure... / Somewhere around there",
 	"Go back"}
 
@@ -1483,8 +1483,8 @@ end
 
 	elseif SV.playerinfo.continent == 'Super' then
 
-choices = {"Serene Village",
-    "Lively Town",
+choices = {"[color=#FFC663]Serene Village[color]",
+    "[color=#FFC663]Lively Town[color]",
     "I'm not sure... / Somewhere around there",
 	"Go back"}
 
@@ -1507,12 +1507,12 @@ end
 
 	elseif SV.playerinfo.continent == 'Undefined' then
 
-choices = {"Base Town", --PMD: Origins (Doesn't make sense, but hey, it's here.)
-    "Metano Town", --Halcyon
-	"Baram Town", --Air Continent
-	"Capim Town", --Grass Continent
-	"Noe Town", --Mist Continent
-	"Ramle Town", --Sand Continent
+choices = {"[color=#9696ff]Base Town[color]", --PMD: Origins (Doesn't make sense, but hey, it's here.)
+    "[color=#9696ff]Metano Town[color]", --Halcyon
+	"[color=#FFC663]Baram Town[color]", --Air Continent
+	"[color=#FFC663]Capim Town[color]", --Grass Continent
+	"[color=#FFC663]Noe Town[color]", --Mist Continent
+	"[color=#FFC663]Ramle Town[color]", --Sand Continent
 	"I live on the road",
     "I don't really know...",
 	"Go back"}

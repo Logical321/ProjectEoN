@@ -46,6 +46,17 @@ electraterhome.HideChara() --Hiding characters this way is completely stupid.
 		SOUND:PlayBGM("", true) --But only *if* these are here. Might change later.
 		SOUND:FadeInSE("Beach_Noise")
 	end
+	
+	if SV.weather.number ~= 3 or 4 then
+
+		COMMON.WeatherApply()
+			if SV.weather.number == 5 then
+	
+			GROUND:RemoveMapStatus("rain")
+			GROUND:AddMapStatus("non_colliding_rain")
+
+		end
+	end
 
   GAME:FadeIn(20)
 

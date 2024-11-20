@@ -1,5 +1,5 @@
 ﻿{
-"Version": "0.8.3.0",
+"Version": "0.8.6.0",
 "Object": {
 "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[RogueEssence.Data.EntrySummary, RogueEssence]], System.Private.CoreLib",
 "fog": {
@@ -33,6 +33,15 @@
 },
 "Released": false,
 "Comment": "",
+"SortOrder": 0
+},
+"non_colliding_rain": {
+"Name": {
+"DefaultText": "Non-Colliding Rain",
+"LocalTexts": {}
+},
+"Released": false,
+"Comment": "NOT A GAMEPLAY TOOL",
 "SortOrder": 0
 }
 }

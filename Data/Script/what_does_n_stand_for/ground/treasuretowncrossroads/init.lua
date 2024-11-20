@@ -40,7 +40,7 @@ SV.checkpoint =
     Zone    = 'treasuretownzone', Segment  = -1,
     Map  = 0, Entry  = 0
   } --T.Town entrance, don't call after prologue is done. / Spawns player OOB.
-elseif SV.chapter.number == 1 then
+elseif SV.chapter.number >= 1 then
 SV.checkpoint = 
   {
     Zone    = 'treasuretownzone', Segment  = -1,

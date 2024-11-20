@@ -43,7 +43,7 @@ print(SV.chapter.number)
   assert(self, 'UpgradeTools:OnUpgrade() : self is null!')
   
   PrintInfo("=>> Loading version")
-  _DATA.Save.NextDest = _DATA.Start.Map
+ --_DATA.Save.NextDest = _DATA.Start.Map
   
   if SV.chapter.number == 0 and SV.cutscenepath.DreamDone then
 	--SV.checkpoint = 

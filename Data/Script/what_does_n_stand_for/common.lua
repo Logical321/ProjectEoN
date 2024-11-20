@@ -1703,6 +1703,7 @@ return uppercase and value:gsub("^%l", string.upper) or value
 end
 
 function COMMON.WeatherStatus() --ROLL AT THE START OF THE DAY. / GROUNDMAPS CALL COMMON.WeatherApply() IN OUTDOOR AREAS.
+SV.weather.number = 0 --To reset most instances of this script happening when they shouldn't. also it's easier than going through every chapter change and whatever.
 
 	if SV.weather.allow and not SV.weather.rolled then --Allow should be true on Freeplay bits. Only roll if it hasn't been rolled before. RESET ROLLED ON DAY END.
 

@@ -33,12 +33,22 @@ end
 function wigglyguildent.Enter(map)
 GROUND:Hide("Madilyn")
 wigglyguildent.SetupGround()
-if SV.chapter.number == 1 and not SV.chapter1.apricorn_tutorial then
-		GROUND:Unhide("Madilyn")
-		wigglyguildent.ApricornTut()
-end
 
-COMMON.WeatherApply()
+	if SV.chapter.number == 1 and not SV.chapter1.apricorn_tutorial then
+			GROUND:Unhide("Madilyn")
+			wigglyguildent.ApricornTut()
+	end
+
+	if SV.weather.number ~= 3 or 4 then
+
+		COMMON.WeatherApply()
+			if SV.weather.number == 5 then --I feel like this is the stupid way to code this, but who cares. It works.
+	
+			GROUND:RemoveMapStatus("rain")
+			GROUND:AddMapStatus("non_colliding_rain")
+
+		end
+	end
 
   GAME:FadeIn(20)
 

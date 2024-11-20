@@ -392,7 +392,7 @@ UI:WaitShowDialogue("I know you'd like to keep playing, but there's something I 
 UI:WaitShowDialogue("There's no way to progress the story right now.")
 UI:WaitShowDialogue("You must wait for the next update, as unfortunate as that sounds.")
 UI:WaitShowDialogue("But you can still play the dungeons in this 'free play' state.")
-UI:WaitShowDialogue("You are allowed to do Job Board missions if that pleases your fancy.")
+UI:WaitShowDialogue("The job board assignments are not ready yet, those will come later.")
 
 GROUND:EntTurn(Chatot, Direction.Down)
 GAME:UnlockDungeon('roadwalkpathway')

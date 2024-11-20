@@ -1,5 +1,5 @@
 ﻿{
-"Version": "0.8.5.0",
+"Version": "0.8.6.0",
 "Object": {
 "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[RogueEssence.Data.EntrySummary, RogueEssence]], System.Private.CoreLib",
 "branchwaywoods": {
@@ -424,7 +424,7 @@
 },
 "prologueEX": {
 "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
-"ExpPercent": 60,
+"ExpPercent": 55,
 "Level": 5,
 "LevelCap": false,
 "KeepSkills": false,
@@ -435,7 +435,7 @@
 "KeepTreasure": false,
 "BagSize": 32,
 "Rescues": 0,
-"CountedFloors": 5,
+"CountedFloors": 9,
 "Rogue": 2,
 "Grounds": [],
 "Maps": [
@@ -444,7 +444,11 @@
 1,
 2,
 3,
-4
+4,
+5,
+6,
+7,
+8
 ]
 ],
 "Name": {

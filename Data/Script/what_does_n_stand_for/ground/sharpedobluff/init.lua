@@ -42,7 +42,16 @@ if SV.chapter.number == 1 then
 	end
 end
 
-COMMON.WeatherApply()
+	if SV.weather.number ~= 3 or 4 then
+
+		COMMON.WeatherApply()
+			if SV.weather.number == 5 then
+	
+			GROUND:RemoveMapStatus("rain")
+			GROUND:AddMapStatus("non_colliding_rain")
+
+		end
+	end
 
 if not SV.chapter1.sbfadein then
   GAME:FadeIn(20) --Really stupid way of hiding the fade in, but it's better than nothing. It will continue reading until this function is over.

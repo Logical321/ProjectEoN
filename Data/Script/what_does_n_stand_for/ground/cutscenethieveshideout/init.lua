@@ -321,11 +321,11 @@ UI:SetSpeaker(Purrloin)
 UI:SetSpeakerEmotion("Normal", true)
 --UI:SetSpeakerLoc(264,131)
 UI:WaitShowDialogue("It would be pretty easy once we set it up correctly...")
-GAME:WaitFrames(10)
 GROUND:EntTurn(Thievul, Direction.DownRight)
 GROUND:EntTurn(ScraftyA, Direction.UpRight)
 GROUND:EntTurn(ScraftyB, Direction.UpRight)
 GROUND:CharSetEmote(Thievul, "", 0)
+GAME:WaitFrames(10)
 UI:WaitShowDialogue(COMMON.GenderCheck(player, "they don't", true) .." have a partner. [pause=0]".. COMMON.GenderCheck(player, "they'll", true) .." be all alone for the ambush. ♪")
 
 GROUND:CharAnimateTurn(Thievul, Direction.Up, 4, true)
@@ -350,6 +350,10 @@ GAME:WaitFrames(60)
 UI:WaitHideTitle(60)
 
 SV.chapter.number = 2
+  SV.checkpoint.zone = 'treasuretownzone'
+  SV.checkpoint.segment = -1
+  SV.checkpoint.map = 17
+  SV.checkpoint.entry = 0
 
 UI:WaitShowVoiceOver("The next morning...", -1)
 

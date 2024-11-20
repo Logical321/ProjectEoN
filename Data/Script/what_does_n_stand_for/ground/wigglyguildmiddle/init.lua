@@ -287,7 +287,7 @@ local player =CH('PLAYER')
 
 	else
 
-		UI:WaitShowDialogue("This isn't coded, Logic. Fix it.")
+		UI:WaitShowDialogue("This is a placeholder text. Jobs aren't implemented yet.")
 
 	end
 
@@ -304,7 +304,7 @@ local player =CH('PLAYER')
 
 	else
 	
-	UI:WaitShowDialogue("Not coded, Logic. Try again.")
+	UI:WaitShowDialogue("Not coded. Sorry.")
 
 	end
 end
@@ -722,7 +722,7 @@ UI:SetSpeakerEmotion("Pain")
 UI:WaitShowDialogue("(Nnf... I know what [color=#54ebaf]Madilyn[color] told me...)")
 UI:WaitShowDialogue("(But that's still so... [pause=20]dumb...)")
 UI:SetSpeakerEmotion("Worried")
-UI:WaitShowDialogue("(On the bright side, [pause=10]I got this Elixir from ".. CH('Kecleon'):GetDisplayName() ..".)")
+UI:WaitShowDialogue("(On the bright side, [pause=10]I got this [color=#32a852]Elixir[color] from ".. CH('Kecleon'):GetDisplayName() ..".)")
 
 if SV.playerinfo.job == 'Study' then
 UI:WaitShowDialogue("(I'm glad items aren't considered as payment.)")
@@ -841,7 +841,7 @@ GROUND:EntTurn(player, Direction.Up)
 UI:SetSpeakerEmotion("Normal")
 UI:WaitShowDialogue("I don't want to keep anymore of your time, [pause=10]but there is one thing I must speak with you about.")
 UI:WaitShowDialogue("You know how I was talking about letting you take extra credit?")
-UI:WaitShowDialogue("What I mean by that is taking jobs off the Job and Outlaw Board.")
+UI:WaitShowDialogue("What I mean by that is taking jobs off the Job and Outlaw Boards.")
 
 local NeededRefresh = false
 
@@ -869,7 +869,7 @@ UI:WaitShowDialogue("We should let you get some rest, [pause=10]".. CH('PLAYER')
 UI:WaitShowDialogue("Remember, [pause=10]this stuff isn't necessary, [pause=10]but if you're looking for work, [pause=10]try doing some jobs.")
 UI:WaitShowDialogue("It's a bit more rewarding than stumbling into a dungeon with nothing to do.")
 UI:SetSpeakerEmotion("Happy")
-UI:WaitShowDialogue("Now get some rest. [pause=0]We'll see you tomorrow, ".. CH('PLAYER'):GetDisplayName()".")
+UI:WaitShowDialogue("Now get some rest. [pause=0]We'll see you tomorrow, ".. CH('PLAYER'):GetDisplayName() ..".")
 
 coro1 = TASK:BranchCoroutine(function()
 

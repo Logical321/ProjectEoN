@@ -1,5 +1,5 @@
 
-Project EoN Version 0.2.1 (It's not gonna be done for a long while.)
+Project EoN Version 0.2.2 (It's not gonna be done for a long while.)
 - Made by Logical123
 - Coding Support by: Palika, Sunkern, and Audino.
 - Dialogue Support: Trio~
@@ -8,6 +8,26 @@ Project EoN Version 0.2.1 (It's not gonna be done for a long while.)
 - And to those that playtest and checked out EoN: Thank you, I hope you enjoyed it. If you got complaints, share them at the Project EoN Channel in the PMD:O Discord Server. I'll try to put it down on a list and do them.
 
 ----------------------------------------------------------------------------------
+
+V0.2.2 Changes -
+
+- Added an intro that you can watch, or skip. It is not finished, and it is subject to change.
+
+         - It should make things a little clearer, but it is also a very long intro, roughly 16 minutes if you need to pause to read.
+
+- Changed some dialogues, I think. (I can't remember)
+
+- Several bug fixes, including the 'missing team-mates' issue that happens in Cackling Quarry.
+
+- Changed some colors of Cameo Locations to have the Dull Blue (#9696ff) colors to differentiate them between real regions, and ones that belong to other people.
+
+- Added Weather effects, only if you're in a 'freeplay' state.
+
+- Balanced Madilyn when you have to traverse through Crumbling Canyonway. She may now take more considerable damage, and deal only standard damage at a fixed level of 30. This is not her actual Level.
+
+- Balanced the Boss Fight at Crumbling Canyonway to feel more fair.
+
+- Added preparations for V0.2.3, which include a Roguelocke dungeon, and Job Boards.
 
 V0.2.1 Changes -
 
