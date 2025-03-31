@@ -1,10 +1,10 @@
 <Header>
-  <Name>Project EoN (0.2.2)</Name>
+  <Name>Project EoN (0.2.3)</Name>
   <Author>Logical123</Author>
   <Description>You're hired by an Exploration Team to investigate and explore dungeons of various kinds, a mystery is afoot and you have to find out what causes the dungeons' sudden shift in strength.</Description>
   <Namespace>what_does_n_stand_for</Namespace>
   <UUID>ADD9A018-9122-4716-B088-E87E41EC50B9</UUID>
-  <Version>0.2.3</Version>
+  <Version>0.2.2</Version>
   <GameVersion>0.8.6.0</GameVersion>
   <ModType>Quest</ModType>
   <Relationships>

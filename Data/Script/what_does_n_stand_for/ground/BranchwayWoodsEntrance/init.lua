@@ -40,8 +40,6 @@ SV.repeatable.madilyns_stories_told = 0
 SV.repeatable.asked_adam_for_help = 0
 SV.chapter.number = 0 --I feel like a secondary script that runs all these processes is more effective than continuously adding to one single script, but I don't even know if I'll even continue making this. / How did I miss this being wrong?
 SV.prologue_alts.d_bluff_no_counter = 0
-local talk_evt = RogueEssence.Dungeon.BattleScriptEvent("HeroInteract") --Necessary to make the PC shut up.
-_DATA.Save.ActiveTeam.Players[0].ActionEvents:Add(talk_evt)
 
 SV.checkpoint = 
   {
@@ -178,7 +176,6 @@ else
 end
 
 function BranchwayWoodsEntrance.WalkDown_3_Touch(obj, activator) --The player spawns outside the map, there is an object that triggers this function. There should be ABSOLUTELY no way for a player to spawn, and not get to Branchway. Inefficient, but I'm tired.
-
 --
 
 GAME:CutsceneMode(true)

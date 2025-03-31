@@ -5,6 +5,7 @@
 ]]--
 -- Commonly included lua functions and data
 require 'what_does_n_stand_for.common'
+require 'what_does_n_stand_for.mission_gen'
 
 -- Package name
 local wigglyguildbedmoon = {}

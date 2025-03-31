@@ -124,7 +124,7 @@ UI:WaitShowTitle("At the top of\nCackling Quarry", 20)
 GAME:WaitFrames(60)
 UI:WaitHideTitle(20)
 
-SOUND:PlayBGM("A05. Cave Camp.ogg", true)
+SOUND:PlayBGM("Cave Camp.ogg", true)
 GAME:FadeIn(20)
 GAME:WaitFrames(20)
 
@@ -149,10 +149,18 @@ GAME:WaitFrames(80)
 GROUND:CharSetEmote(player, "sweatdrop", 1)
 end)
 
+	if PartySize >= 2 then --This just works.
 local coro3 = TASK:BranchCoroutine(function() cacklingquarryfinal.Teammate1_Sequence(Teammate_1) end)
+	end
+	
+	if PartySize >= 3 then
 local coro4 = TASK:BranchCoroutine(function() cacklingquarryfinal.Teammate2_Sequence(Teammate_2) end)
+	end
+	
+	if PartySize == 4 then
 local coro5 = TASK:BranchCoroutine(function() cacklingquarryfinal.Teammate3_Sequence(Teammate_3) end)
-
+	end
+	
 local coro6 = TASK:BranchCoroutine(function()
 GAME:WaitFrames(90)
 UI:ResetSpeaker(false)
@@ -174,7 +182,6 @@ GAME:CutsceneMode(false)
 end
 
 function cacklingquarryfinal.Teammate1_Sequence(character)
-	if PartySize == 2 then
 	
 GROUND:Unhide("Teammate_1")
 GROUND:MoveInDirection(character, Direction.Right, 30, false, 1)
@@ -196,11 +203,9 @@ GROUND:EntTurn(character, Direction.UpRight)
 GAME:WaitFrames(20)
 GROUND:EntTurn(character, Direction.Up)
 
-	end
 end
 
 function cacklingquarryfinal.Teammate2_Sequence(character)
-	if PartySize == 3 then
 
 GAME:WaitFrames(60)
 GROUND:Unhide("Teammate_2")
@@ -225,11 +230,9 @@ GAME:WaitFrames(40)
 GROUND:MoveInDirection(character, Direction.UpRight, 35, false, 1)
 GROUND:EntTurn(character, Direction.Up)
 
-	end
 end
 
 function cacklingquarryfinal.Teammate3_Sequence(character)
-	if PartySize == 4 then
 
 GAME:WaitFrames(120)
 GROUND:Unhide("Teammate_3")
@@ -247,7 +250,6 @@ GROUND:MoveInDirection(character, Direction.UpLeft, 55, false, 1)
 GROUND:MoveInDirection(character, Direction.Up, 20, false, 1)
 GROUND:CharAnimateTurn(character, Direction.UpRight, 4, false)
 
-	end
 end
 
 return cacklingquarryfinal

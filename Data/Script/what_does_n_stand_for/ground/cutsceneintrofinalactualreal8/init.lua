@@ -423,7 +423,7 @@ GAME:WaitFrames(10)
 
 UI:SetSpeaker('[color=#00FFFF]Thievul[color]', true, "", -1, "", RogueEssence.Data.Gender.Unknown)
 UI:WaitShowDialogue("Grahh!! Get off me, and go chase ".. COMMON.GenderCheck(player, "them", false) .."!")
-UI:WaitShowDialogue(COMMON.GenderCheck(player, "they", true) .." are going to give us that medallion today!")
+UI:WaitShowDialogue(COMMON.GenderCheck(player, "they are", true) .." going to give us that medallion today!")
 
 GAME:WaitFrames(10)
 
@@ -443,7 +443,7 @@ UI:SetAutoFinish(true)
 
 UI:WaitShowVoiceOver("Your journey begins here...", 90)
 GAME:WaitFrames(90)
-UI:WaitShowVoiceOver("Project EoN v0.2.2\n\n\nPresented and Developed by: [color=#20c7fa]Logical123[color]", 210)
+UI:WaitShowVoiceOver("Project EoN v0.2.3\n\n\nPresented and Developed by: [color=#20c7fa]Logical123[color]", 210)
 
 UI:SetCenter(false)
 UI:SetAutoFinish(false)

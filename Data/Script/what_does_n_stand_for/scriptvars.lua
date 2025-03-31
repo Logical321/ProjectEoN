@@ -47,6 +47,18 @@ SV.MissionPrereq =
   NumDungeonsCompleted = 0
 }
 
+SV.DestinationFloorNotified = false
+SV.MonsterHouseMessageNotified = false
+SV.OutlawDefeated = false
+SV.OutlawGoonsDefeated = false
+SV.MapTurnCounter = -1
+
+SV.TemporaryFlags =
+{
+    MissionCompleted = false,--used to mark if there are any pending missions to hand in.
+    PriorMapSetting = nil,--Used to mark what the player had their minimap setting whenever the game needs to temporarily change it to something else.
+}
+
 SV.adventure = 
 {
   Thief    = false,

@@ -3,7 +3,9 @@
     A collection of frequently used functions and values!
 ]]--
 require 'origin.common_gen'
-
+require 'what_does_n_stand_for.menu.MemberReturnMenu'
+require 'what_does_n_stand_for.common_vars'
+print ('Stuff is working')
 
 ----------------------------------------
 -- Lib Definitions
@@ -79,23 +81,14 @@ function COMMON.GetSortedKeys(dict)
   return keys
 end
 
-COMMON.MISSION_TYPE_RESCUE = 0
-COMMON.MISSION_TYPE_ESCORT = 1
-COMMON.MISSION_TYPE_OUTLAW = 2
-COMMON.MISSION_TYPE_EXPLORATION = 3
-COMMON.MISSION_TYPE_LOST_ITEM = 4
-COMMON.MISSION_TYPE_OUTLAW_ITEM = 5
-COMMON.MISSION_TYPE_OUTLAW_FLEE = 6
-COMMON.MISSION_TYPE_OUTLAW_MONSTER_HOUSE = 7
-COMMON.MISSION_TYPE_DELIVERY = 8
-COMMON.MISSION_TYPE_ESCORT_OUT = 9
-COMMON.MISSION_TYPE_OUTLAW_HOUSE = 10
-COMMON.MISSION_TYPE_OUTLAW_DISGUISE = 11
+COMMON.MISSION_TYPE_OUTLAW = 4
+COMMON.MISSION_TYPE_EXPLORATION = 5
+COMMON.MISSION_TYPE_LOST_ITEM = 6
+COMMON.MISSION_TYPE_OUTLAW_ITEM = 7
+COMMON.MISSION_TYPE_OUTLAW_FLEE = 8
+COMMON.MISSION_TYPE_OUTLAW_MONSTER_HOUSE = 9
+COMMON.MISSION_TYPE_DELIVERY = 10
 
- COMMON.MISSION_INCOMPLETE = 0
- COMMON.MISSION_COMPLETE = 1
- COMMON.MISSION_ARCHIVED = 2
- 
 COMMON.MISSION_BOARD_MISSION = 0
 COMMON.MISSION_BOARD_OUTLAW = 1
 COMMON.MISSION_BOARD_TAKEN = 2
@@ -183,138 +176,137 @@ function COMMON.ShowTeamAssemblyMenu(obj, init_fun)
   end
 end
 
-function COMMON.ShowDestinationMenu(dungeon_entrances, ground_entrances)
-  --get dungeons with a taken mission
-  local mission_dests = {}
+function COMMON.ShowDestinationMenu(dungeon_entrances, ground_entrances, force_list, speaker, confirm_msg)  --get dungeons with a taken mission
+    local mission_dests = {}
 
     for i = 1, 8, 1 do
-        local zone = SV.TakenBoard[i].Zone --I plan to use this for the next update.
+        local zone = SV.TakenBoard[i].Zone
         if zone ~= nil and zone ~= '' and SV.TakenBoard[i].Taken then
             mission_dests[zone] = 1
         end
     end
-    
-   local open_dests = {}
 
-   --check for unlock of grounds
-   for ii = 1,#ground_entrances,1 do
-      if ground_entrances[ii].Flag then
-          local ground_id = ground_entrances[ii].Zone
-          local zone_summary = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get(ground_id)
-          local ground = _DATA:GetGround(zone_summary.Grounds[ground_entrances[ii].ID])
-          local ground_name = ground:GetColoredName()
-          table.insert(open_dests, { Name=ground_name, Dest=RogueEssence.Dungeon.ZoneLoc(ground_id, -1, ground_entrances[ii].ID, ground_entrances[ii].Entry) })
-      end
-   end
- 
+    local open_dests = {}
 
-   --check for unlock of dungeons
-   for ii = 1,#dungeon_entrances,1 do
-    local zone = dungeon_entrances[ii]
-    if GAME:DungeonUnlocked(zone) then
-	local zone_summary = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get(zone)
- 	  if zone_summary.Released then
- 	    local zone_name = ""
-	    if _DATA.Save:GetDungeonUnlock(zone) == RogueEssence.Data.GameProgress.UnlockState.Completed then
- 		  zone_name = zone_summary:GetColoredName()
- 		else
- 		  zone_name = "[color=#00FFFF]"..zone_summary.Name:ToLocal().."[color]"
- 		end
-		if SV.MissionsEnabled then
-        if mission_dests[zone] ~= nil then
-          zone_name = STRINGS:Format("\\uE10F") .. zone_name --open letter
-        elseif COMMON.HasSidequestInZone(zone) then
-          zone_name = STRINGS:Format("\\uE111") .. zone_name --exclamation point
+    --check for unlock of grounds
+    for ii = 1,#ground_entrances,1 do
+        if ground_entrances[ii].Flag then
+            local ground_id = ground_entrances[ii].Zone
+            local zone_summary = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get(ground_id)
+            local ground = _DATA:GetGround(zone_summary.Grounds[ground_entrances[ii].ID])
+            local ground_name = ground:GetColoredName()
+            table.insert(open_dests, { Name=ground_name, Dest=RogueEssence.Dungeon.ZoneLoc(ground_id, -1, ground_entrances[ii].ID, ground_entrances[ii].Entry) })
         end
-		end
-        table.insert(open_dests, { Name=zone_name, Dest=RogueEssence.Dungeon.ZoneLoc(zone, 0, 0, 0) })
- 	  end
- 	end
-   end
-local dest = RogueEssence.Dungeon.ZoneLoc.Invalid
-  if #open_dests > 1 or force_list then
-    if before_list ~= nil then
-	  before_list(dest)
-	end
-	
-    SOUND:PlaySE("Menu/Skip")
-	default_choice = 1
-	while true do
-      UI:ResetSpeaker()
-      UI:DestinationMenu(open_dests, default_choice)
-	  UI:WaitForChoice()
-	  default_choice = UI:ChoiceResult()
-	
-	  if default_choice == nil then
-	    break
-	  end
-	  ask_dest = open_dests[default_choice].Dest
-      if ask_dest.StructID.Segment >= 0 then	  
-	    --chosen dungeon entry
-		if speaker ~= nil then
-		  UI:SetSpeaker(speaker)
-		else
-          UI:ResetSpeaker(false)
-		end
-	    UI:DungeonChoice(open_dests[default_choice].Name, ask_dest)
-        UI:WaitForChoice()
-        if UI:ChoiceResult() then
-	      dest = ask_dest
-	      break
-	    end
-	  else 
-	    dest = ask_dest
-	    break
-	  end
-	end
-  elseif #open_dests == 1 then
-    if open_dests[1].Dest.StructID.Segment < 0 then
-	  --single ground entry
-	  if speaker ~= nil then
-	    UI:SetSpeaker(speaker)
-	  else
-        UI:ResetSpeaker(false)
+    end
+
+    --check for unlock of dungeons
+    for ii = 1,#dungeon_entrances,1 do
+        local zone = dungeon_entrances[ii]
+        if GAME:DungeonUnlocked(zone) then
+            local zone_summary = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get(zone)
+            if zone_summary.Released then
+                local zone_name = ""
+                if _DATA.Save:GetDungeonUnlock(zone) == RogueEssence.Data.GameProgress.UnlockState.Completed then
+                    zone_name = zone_summary:GetColoredName()
+                else
+                    zone_name = "[color=#00FFFF]"..zone_summary.Name:ToLocal().."[color]"
+                end
+                if SV.MissionsEnabled then
+                    if mission_dests[zone] ~= nil then
+                        zone_name = STRINGS:Format("\\uE10F") .. zone_name --open letter
+                    elseif COMMON.HasSidequestInZone(zone) then
+                        zone_name = STRINGS:Format("\\uE111") .. zone_name --exclamation point
+                    end
+                end
+                table.insert(open_dests, { Name=zone_name, Dest=RogueEssence.Dungeon.ZoneLoc(zone, 0, 0, 0) })
+            end
+        end
+    end
+
+    local dest = RogueEssence.Dungeon.ZoneLoc.Invalid
+    if #open_dests > 1 or force_list then
+        if before_list ~= nil then
+            before_list(dest)
+        end
+
         SOUND:PlaySE("Menu/Skip")
-	  end
-	  UI:ChoiceMenuYesNo(STRINGS:FormatKey("DLG_ASK_ENTER_GROUND", open_dests[1].Name))
-      UI:WaitForChoice()
-      if UI:ChoiceResult() then
-	    dest = open_dests[1].Dest
-	  end
-	else
-	  --single dungeon entry
-	  if speaker ~= nil then
-	    UI:SetSpeaker(speaker)
-	  else
-        UI:ResetSpeaker(false)
-        SOUND:PlaySE("Menu/Skip")
-	  end
-	  UI:DungeonChoice(open_dests[1].Name, open_dests[1].Dest)
-      UI:WaitForChoice()
-      if UI:ChoiceResult() then
-	    dest = open_dests[1].Dest
-	  end
-	end
-  else
-    PrintInfo("No valid destinations found!")
-  end
-  
-  if dest:IsValid() then
-    if confirm_msg ~= nil then
-	  UI:WaitShowDialogue(confirm_msg)
-	end
-	if dest.StructID.Segment > -1 then
-	  --pre-loads the zone on a separate thread while we fade out, just for a little optimization
-	  _DATA:PreLoadZone(dest.ID)
-	  SOUND:PlayBGM("", true)
-      GAME:FadeOut(false, 20)
-	  GAME:EnterDungeon(dest.ID, dest.StructID.Segment, dest.StructID.ID, dest.EntryPoint, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
-	else
-	  SOUND:PlayBGM("", true)
-      GAME:FadeOut(false, 20)
-	  GAME:EnterZone(dest.ID, dest.StructID.Segment, dest.StructID.ID, dest.EntryPoint)
-	end
-  end
+        default_choice = 1
+        while true do
+            UI:ResetSpeaker()
+            UI:DestinationMenu(open_dests, default_choice)
+            UI:WaitForChoice()
+            default_choice = UI:ChoiceResult()
+
+            if default_choice == nil then
+                break
+            end
+            ask_dest = open_dests[default_choice].Dest
+            if ask_dest.StructID.Segment >= 0 then
+                --chosen dungeon entry
+                if speaker ~= nil then
+                    UI:SetSpeaker(speaker)
+                else
+                    UI:ResetSpeaker(false)
+                end
+                UI:DungeonChoice(open_dests[default_choice].Name, ask_dest)
+                UI:WaitForChoice()
+                if UI:ChoiceResult() then
+                    dest = ask_dest
+                    break
+                end
+            else
+                dest = ask_dest
+                break
+            end
+        end
+    elseif #open_dests == 1 then
+        if open_dests[1].Dest.StructID.Segment < 0 then
+            --single ground entry
+            if speaker ~= nil then
+                UI:SetSpeaker(speaker)
+            else
+                UI:ResetSpeaker(false)
+                SOUND:PlaySE("Menu/Skip")
+            end
+            UI:ChoiceMenuYesNo(STRINGS:FormatKey("DLG_ASK_ENTER_GROUND", open_dests[1].Name))
+            UI:WaitForChoice()
+            if UI:ChoiceResult() then
+                dest = open_dests[1].Dest
+            end
+        else
+            --single dungeon entry
+            if speaker ~= nil then
+                UI:SetSpeaker(speaker)
+            else
+                UI:ResetSpeaker(false)
+                SOUND:PlaySE("Menu/Skip")
+            end
+            UI:DungeonChoice(open_dests[1].Name, open_dests[1].Dest)
+            UI:WaitForChoice()
+            if UI:ChoiceResult() then
+                dest = open_dests[1].Dest
+            end
+        end
+    else
+        PrintInfo("No valid destinations found!")
+    end
+
+    if dest:IsValid() then
+        if confirm_msg ~= nil then
+            UI:WaitShowDialogue(confirm_msg)
+        end
+        if dest.StructID.Segment > -1 then
+            --pre-loads the zone on a separate thread while we fade out, just for a little optimization
+            _DATA:PreLoadZone(dest.ID)
+            SOUND:PlayBGM("", true)
+            GAME:FadeOut(false, 20)
+            GAME:EnterDungeon(dest.ID, dest.StructID.Segment, dest.StructID.ID, dest.EntryPoint, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+        else
+            SOUND:PlayBGM("", true)
+            GAME:FadeOut(false, 20)
+            GAME:EnterZone(dest.ID, dest.StructID.Segment, dest.StructID.ID, dest.EntryPoint)
+        end
+    end
 end
 
 function COMMON.LearnMoveFlow(member, move, replace_msg)
@@ -1187,6 +1179,25 @@ function COMMON.EndDungeonDay(result, zoneId, structureId, mapId, entryId)
 	end
 	
   if GAME:InRogueMode() then
+  
+  local QuoteRNG = 0
+  
+  	UI:SetCenter(true)
+	UI:SetAutoFinish(true)
+  
+		QuoteRNG = math.random(1, 3)
+		
+		if QuoteRNG == 1 then
+				UI:WaitShowVoiceOver("You're worried about failing... But...\n\nThat's how everyone becomes stronger.\nThat's how the best explorers get to be that way.", 120)
+		elseif QuoteRNG == 2 then
+				UI:WaitShowVoiceOver("It's not about how many times you get knocked down.\nIt's about how many times you get back up.", 120)
+		else
+				UI:WaitShowVoiceOver("...But I sense something about you...\nsomething akin to deja vu, and unpredictability.\nThat's how I know you're special.", 120)
+		end
+		
+	UI:SetCenter(false)
+	UI:SetAutoFinish(false)
+  
     GAME:RestartToTitle()
   else
 	GAME:EnterZone(zoneId, structureId, mapId, entryId)

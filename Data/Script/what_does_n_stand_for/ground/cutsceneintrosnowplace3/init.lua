@@ -140,7 +140,7 @@ GAME:WaitFrames(20)
 UI:ResetSpeaker()
 UI:WaitShowDialogue("As ".. CH('PLAYER'):GetDisplayName() .." looked into the cavern ahead, [pause=10]".. COMMON.GenderCheck(player, "they", false) .." couldn't just leave the wounded Pokémon there...")
 UI:WaitShowDialogue(COMMON.GenderCheck(player, "they", true) .." needed to act now if ".. COMMON.GenderCheck(player, "they", false) .." wanted to save this Pokémon's sister in time, [pause=10]however.")
-UI:WaitShowDialogue("But ".. COMMON.GenderCheck(player, "their", false) .." body was so conflicted, [pause=10]fighting if this stranger was lying to ".. COMMON.GenderCheck(player, "them", false) .."...")
+UI:WaitShowDialogue("But ".. COMMON.GenderCheck(player, "their", false) .." body was so conflicted, [pause=10]trying to think if this stranger was lying to ".. COMMON.GenderCheck(player, "them", false) .."...")
 UI:WaitShowDialogue("Surely, [pause=10]this Pokémon wasn't lying to ".. COMMON.GenderCheck(player, "them", false) .." about it... [pause=20]Who could jest about a serious situation like that?")
 UI:WaitShowDialogue("Acting on instinct alone, [pause=10]".. CH('PLAYER'):GetDisplayName() .." cleared any doubt in ".. COMMON.GenderCheck(player, "their", false) .." head...")
 

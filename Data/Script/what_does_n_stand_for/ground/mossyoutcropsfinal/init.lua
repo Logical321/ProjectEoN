@@ -88,7 +88,7 @@ GAME:WaitFrames(30)
 local coro1 = TASK:BranchCoroutine(function() mossyoutcropsfinal.walkin_Sequence(player) end)
 local coro2 = TASK:BranchCoroutine(function() --This is not what an Anonymous Function is for, I can tell.
 
-SOUND:PlayBGM("A05. Cave Camp.ogg", true)
+SOUND:PlayBGM("Cave Camp.ogg", true)
 GAME:FadeIn(20)
  
  end)

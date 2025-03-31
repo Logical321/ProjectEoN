@@ -1007,7 +1007,7 @@ coro2 = TASK:BranchCoroutine(function()
 	
 coro3 = TASK:BranchCoroutine(function() GAME:FadeOut(false, 30) end)
 
-GAME:WaitFrames(60)
+GAME:WaitFrames(90)
 
 UI:SetSpeaker(Chatot)
 UI:SetSpeakerLoc(264,131)

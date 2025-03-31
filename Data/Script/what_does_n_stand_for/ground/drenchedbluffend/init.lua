@@ -491,7 +491,8 @@ if ch then
 else
 	UI:SetSpeakerEmotion("Pain")
 	UI:WaitShowDialogue("...")
-	UI:SetSpeaker(AdamMudkip, false)
+	UI:SetSpeaker(AdamMudkip, false) --bruh, why do you reset the emotion
+	UI:SetSpeakerEmotion("Pain")
 	UI:WaitShowDialogue("(Chatot would seriously squawk harshly from this one.)")
     drenchedbluffend.seriouslyannoying_Choice(DosRepeating)
 end
@@ -682,7 +683,7 @@ UI:WaitHideTitle(20)
 
 GAME:WaitFrames(30)
 
-SOUND:PlayBGM("A05. Cave Camp.ogg", true)
+SOUND:PlayBGM("Cave Camp.ogg", true)
 
 local coro1 = TASK:BranchCoroutine(function() 
 GAME:FadeIn(20)

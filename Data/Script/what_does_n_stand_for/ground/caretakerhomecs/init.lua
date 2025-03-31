@@ -190,7 +190,7 @@ GAME:WaitFrames(10)
 
 UI:SetSpeakerEmotion("Determined")
 UI:WaitShowDialogue("If you can, [pause=10]listen to me ".. CH('PLAYER'):GetDisplayName() ..". [pause=0]You must stop that Pokémon!")
-UI:WaitShowDialogue("[color=#00FFFF]Hoopa[color] can, [pause=10]and will cause mass destruction with whatever Pokémon they summon!")
+UI:WaitShowDialogue("[color=#00FFFF]Hoopa[color] can, [pause=10]and will, [pause=10]cause mass destruction with whatever Pokémon they summon!")
 
 GROUND:EntTurn(Celebi, Direction.UpRight)
 GAME:WaitFrames(10)

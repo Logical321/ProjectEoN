@@ -12,3 +12,5 @@
 -- Service Packages
 --------------------------------------------------------------------------------------------------------------
 require 'what_does_n_stand_for.services.upgrade_tools'
+require 'what_does_n_stand_for.services.mission_menu_tools'
+require 'what_does_n_stand_for.services.mission_service'

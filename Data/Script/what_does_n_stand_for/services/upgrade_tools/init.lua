@@ -35,9 +35,7 @@ end
       When a save file in an old version is loaded this is called!
 ---------------------------------------------------------------]]
 function UpgradeTools:OnUpgrade()
-print(SV.branchwaywoodsentrance.DungeonComplete)
-print(SV.branchwaywoodsentrance.BossDefeated)
-print(SV.chapter1.piks_reminder)
+print('Upgrading...')
 print(SV.chapter.number)
 
   assert(self, 'UpgradeTools:OnUpgrade() : self is null!')
@@ -76,10 +74,44 @@ SV.adventure =
   Thief    = false
 }
 
+SV.DestinationFloorNotified = false
+SV.MonsterHouseMessageNotified = false
+SV.OutlawDefeated = false
+SV.OutlawGoonsDefeated = false
+SV.MapTurnCounter = -1
+
+if SV.DestinationFloorNotified == nil then
+SV.DestinationFloorNotified = false
+end
+
+if SV.MonsterHouseMessageNotified == nil then
+SV.MonsterHouseMessageNotified = false
+end
+
+if SV.OutlawDefeated == nil then
+SV.OutlawDefeated = false
+end
+
+if SV.OutlawGoonsDefeated == nil then
+SV.OutlawGoonsDefeated = false
+end
+
+if SV.MapTurnCounter == nil then
+SV.MapTurnCounter = -1
+end
+
 SV.MissionsEnabled = false
 
 if SV.MissionsEnabled == nil then
 SV.MissionsEnabled = false
+end
+
+if SV.TemporaryFlags == nil then
+SV.TemporaryFlags =
+{
+    MissionCompleted = false,--used to mark if there are any pending missions to hand in.
+    PriorMapSetting = nil,--Used to mark what the player had their minimap setting whenever the game needs to temporarily change it to something else.
+}
 end
 
 print(SV.checkpoint.zone)

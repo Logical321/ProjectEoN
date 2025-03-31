@@ -35,8 +35,6 @@ function cutsceneintroroad.Enter(map)
 _DATA.Save.NoSwitching = true --Disable this at your own peril, cutscenes will stop making sense if the 'founder' Pokémon is not the leader. / I also don't know how to reference the Founder Pokémon in any way shape or form when they are NOT the leader.
 _DATA.Save.ActiveTeam.Bank = 0 --No free cash for you.
 _DATA.Save.ActiveTeam:SetRank("none") --This command is going to be common when the PC earns better Bag upgrades throughout the story. 8 Blocks of Inventory Space is all you should need for Branchway and Drenched.
-local talk_evt = RogueEssence.Dungeon.BattleScriptEvent("HeroInteract") --Necessary to make the PC shut up.
-_DATA.Save.ActiveTeam.Players[0].ActionEvents:Add(talk_evt)
 SV.tutorial.Progress = 0
 SV.weather.number = 0
 
@@ -333,6 +331,9 @@ end
 local player = CH('PLAYER') --For this kind of cutscene, local the player AFTER they select their species.
 local dummy = CH('dummy')
 
+local talk_evt = RogueEssence.Dungeon.BattleScriptEvent("HeroInteract") --Necessary to make the PC shut up.
+_DATA.Save.ActiveTeam.Players[0].ActionEvents:Add(talk_evt)
+
 UI:WaitHideBG(30)
 
 local walkCyclePlayer = false
@@ -599,8 +600,6 @@ end
 	
 	local monster = _DATA:GetMonster(player_choice.Species).Forms[player_choice.Form]
 	local ability = monster.Intrinsic1
-	
-	--create player with a species specific egg move and specific ability
 	local mon_id = player_choice
 	mon_id.Gender = gender
 
@@ -667,6 +666,9 @@ SOUND:PlayBGM("None", true, 180)
 end)
 
 TASK:JoinCoroutines{coro1,coro2}
+
+local talk_evt = RogueEssence.Dungeon.BattleScriptEvent("HeroInteract") --Necessary to make the PC shut up.
+_DATA.Save.ActiveTeam.Players[0].ActionEvents:Add(talk_evt)
 
 GAME:WaitFrames(20)
 

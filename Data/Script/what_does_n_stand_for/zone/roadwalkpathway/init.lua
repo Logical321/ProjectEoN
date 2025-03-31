@@ -7,6 +7,7 @@
 require 'what_does_n_stand_for.common'
 
 -- Package name
+
 local roadwalkpathway = {}
 
 -------------------------------
@@ -31,73 +32,81 @@ end
 
 ---roadwalkpathway.ExitSegment(zone, result, rescue, segmentID, mapID)
 --Engine callback function
-function roadwalkpathway.ExitSegment(zone, result, rescue, segmentID, mapID)
+function roadwalkpathway.ExitSegment(zone, result, rescue, segmentID, mapID) --This is the worst programmed ExitSegment ever made, and no, you can't bother me about it if it works.
 
   PrintInfo("=>> ExitSegment_cacklingquarry result "..tostring(result).." segment "..tostring(segmentID))
   
   --first check for rescue flag; if we're in rescue mode then take a different path
   COMMON.ExitDungeonMissionCheck(zone.ID, segmentID)
 
-  if rescue == true then
+		if rescue == true then
   
-    COMMON.EndRescue(zone, result, segmentID)
+			COMMON.EndRescue(zone, result, segmentID)
   
-  elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
+		elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
 	
-	local guestCount = GAME:GetPlayerGuestCount()
+			local guestCount = GAME:GetPlayerGuestCount()
 
-		for i = 0, guestCount - 1, 1 do
+				for i = 0, guestCount - 1, 1 do
 		
-			GAME:RemovePlayerGuest(0)
+					GAME:RemovePlayerGuest(0)
 
-		end
+				end
 	
-	if not SV.chapter1.thieves_defeated then
-
-		GAME:WaitFrames(10)
-		UI:SetSpeaker('[color=#54ebaf]Madilyn[color]',true,'piplup',1,'normal',Gender.Female)
-		UI:SetSpeakerEmotion("Pain")
-		UI:WaitShowDialogue("Shoot! [pause=0]We have to get out of here, [pause=10]and regroup tomorrow.")
-		SV.branchwaywoodsentrance.DungeonComplete = false
-		GAME:WaitFrames(10)
-
-	end
-
-   COMMON.EndDungeonDay(result, SV.checkpoint.Zone, SV.checkpoint.Segment, SV.checkpoint.Map, SV.checkpoint.Entry)
-	
-  else
-  
-    if segmentID == 0 then
-
-		SV.dungeons.crumblingcanyonway = true --It wouldn't make sense to say you *haven't* completed the dungeon when you technically did.
-
 			if not SV.chapter1.thieves_defeated then
 
-				SV.branchwaywoodsentrance.DungeonComplete = true
-				COMMON.EndDungeonDay(result, 'roadwalkpathway', -1, 1, 0)
-
-			else
-
-				COMMON.EndDungeonDay(result, SV.checkpoint.Zone, SV.checkpoint.Segment, SV.checkpoint.Map, SV.checkpoint.Entry) --Skip that thing entirely. This is a caravan crossing place.
+				GAME:WaitFrames(10)
+				UI:SetSpeaker('[color=#54ebaf]Madilyn[color]',true,'piplup',1,'normal',Gender.Female)
+				UI:SetSpeakerEmotion("Pain")
+			
+				UI:WaitShowDialogue("Shoot! [pause=0]We have to get out of here, [pause=10]and regroup tomorrow.")
+			
+				SV.branchwaywoodsentrance.DungeonComplete = false
+				GAME:WaitFrames(10)
 
 			end
-			
-	elseif segmentID == 1 then
+
+			COMMON.EndDungeonDay(result, SV.checkpoint.Zone, SV.checkpoint.Segment, SV.checkpoint.Map, SV.checkpoint.Entry)
 	
-		local guestCount = GAME:GetPlayerGuestCount()
-			for i = 0, guestCount - 1, 1 do
+		else
+  
+			if segmentID == 0 then --Primary to Secondary
+	
+				GAME:WaitFrames(40)
+				COMMON.EndDungeonDay(result, 'roadwalkpathway', -1, 2, 0) --Should NEVER EVER show the results screen, as it leads to the Midway point.
+  
+			elseif segmentID == 1 then --Secondary Dungeon
+
+				SV.dungeons.crumblingcanyonway = true --It wouldn't make sense to say you *haven't* completed the dungeon when you technically did.
+
+					if not SV.chapter1.thieves_defeated then
+
+						SV.branchwaywoodsentrance.DungeonComplete = true
+						COMMON.EndDungeonDay(result, 'roadwalkpathway', -1, 1, 0)
+
+					else
+
+						COMMON.EndDungeonDay(result, SV.checkpoint.Zone, SV.checkpoint.Segment, SV.checkpoint.Map, SV.checkpoint.Entry) --Skip that thing entirely. This is a caravan crossing place.
+
+					end
+			
+			elseif segmentID == 2 then --Boss
+
+					local guestCount = GAME:GetPlayerGuestCount()
+					
+						for i = 0, guestCount - 1, 1 do
 		
-				GAME:RemovePlayerGuest(0)
+							GAME:RemovePlayerGuest(0)
 
-		end
+						end
 	
-		SV.chapter1.thieves_defeated = true
-		COMMON.EndDungeonDay(result, 'roadwalkpathway', -1, 1, 0)
+					SV.chapter1.thieves_defeated = true
+					COMMON.EndDungeonDay(result, 'roadwalkpathway', -1, 1, 0)
 			
-    else
+			else
 
-      PrintInfo("No exit procedure found!")
-      COMMON.EndDungeonDay(result, SV.checkpoint.Zone, SV.checkpoint.Segment, SV.checkpoint.Map, SV.checkpoint.Entry)
+				PrintInfo("No exit procedure found!")
+				COMMON.EndDungeonDay(result, SV.checkpoint.Zone, SV.checkpoint.Segment, SV.checkpoint.Map, SV.checkpoint.Entry)
 	
 		end
 	end
@@ -113,4 +122,3 @@ function roadwalkpathway.Rescued(zone, name, mail)
 end
 
 return roadwalkpathway
-

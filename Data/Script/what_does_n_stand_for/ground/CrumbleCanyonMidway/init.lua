@@ -167,11 +167,11 @@ GROUND:TeleportTo(Madilyn, 195, 355, Direction.Up)
 GROUND:TeleportTo(Kecleon, 245, 355, Direction.Up)
 
 GAME:WaitFrames(60)
-GAME:FadeIn(20)
 
 local coro1 = TASK:BranchCoroutine(function() GROUND:MoveInDirection(player, Direction.Up, 44, false, 2) end)
 local coro2 = TASK:BranchCoroutine(function() GROUND:MoveInDirection(Madilyn, Direction.Up, 44, false, 2) end)
 local coro3 = TASK:BranchCoroutine(function() GROUND:MoveInDirection(Kecleon, Direction.Up, 44, false, 2) end)
+local coro4 = TASK:BranchCoroutine(function() GAME:FadeIn(20) end)
 
 GAME:WaitFrames(80)
 
@@ -366,7 +366,7 @@ ch = UI:ChoiceResult()
 
 if ch then
 GAME:FadeOut(false, 30)
-GAME:ContinueDungeon('roadwalkpathway', 0, 10, 0)
+GAME:ContinueDungeon('roadwalkpathway', 1, 0, 0)
 else
 
 end

@@ -350,7 +350,7 @@ UI:WaitShowDialogue("Whew...[pause=30]") --273 178 madi / 292 200 player
 GROUND:MoveToPosition(Kecleon, 311, 178, false, 2)
 GROUND:EntTurn(Kecleon, Direction.UpLeft)
 
-SOUND:PlayBGM("A05. Cave Camp.ogg", true)
+SOUND:PlayBGM("Cave Camp.ogg", true)
 
 UI:SetSpeakerLoc(264,131)
 UI:SetSpeakerEmotion("Normal", true)
@@ -645,7 +645,7 @@ SV.chapter1.thieves_cutscene = true
 
 GAME:CutsceneMode(false)
 
-GAME:EnterZone('roadwalkpathway', 1, 0, 0) --Should work / Yeah, it does.
+GAME:EnterZone('roadwalkpathway', 2, 0, 0) --Should work / Yeah, it does.
 
 end
 
@@ -1013,7 +1013,7 @@ GAME:FadeOut(true, 0)
 
 GAME:CutsceneMode(false)
 
-GAME:EnterZone('roadwalkpathway', 1, 0, 0) --Should work / Yeah, it does.
+GAME:EnterZone('roadwalkpathway', 2, 0, 0) --Should work / Yeah, it does.
 
 end
 
