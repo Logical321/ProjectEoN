@@ -122,19 +122,19 @@
     <comment></comment>  
   </data>
   <data name="MISSION_OBJECTIVES_DEFAULT" xml:space="preserve">
-    <value>Reach the end of the dungeon.</value>
+    <value>Reach the end of the dungeon!</value>
     <comment></comment>  </data>
   <data name="MISSION_OBJECTIVES_SIDE" xml:space="preserve">
     <value>Reach {0} to complete missions.</value>
     <comment></comment>  </data>
   <data name="MISSION_OBJECTIVES_RESCUE" xml:space="preserve">
-    <value>Rescue {0}.</value>
+    <value>Rescue {0}!</value>
     <comment></comment>  </data>
   <data name="MISSION_OBJECTIVES_ESCORT" xml:space="preserve">
     <value>Escort {0} to {1}.</value>
     <comment></comment>  </data>
   <data name="MISSION_OBJECTIVES_OUTLAW" xml:space="preserve">
-    <value>Arrest {0}.</value>
+    <value>Arrest {0}!</value>
     <comment></comment>  </data>
   <data name="MISSION_OBJECTIVES_EXPLORATION" xml:space="preserve">
     <value>Explore with {0}.</value>
@@ -143,20 +143,20 @@
     <value>Find {0} for {1}.</value>
     <comment></comment>  </data>
   <data name="MISSION_OBJECTIVES_OUTLAW_ITEM" xml:space="preserve">
-    <value>Reclaim {0} from {1}.</value>
+    <value>Reclaim {0} from {1}!</value>
     <comment></comment>  </data>
   <data name="MISSION_OBJECTIVES_OUTLAW_FLEE" xml:space="preserve">
-    <value>Arrest cowardly {0}.</value>
+    <value>Arrest the cowardly {0}!</value>
     <comment></comment>  </data>
   <data name="MISSION_OBJECTIVES_OUTLAW_MONSTER_HOUSE" xml:space="preserve">
-    <value>Arrest big boss {0}.</value>
+    <value>Arrest big boss {0}!!</value>
     <comment></comment>  </data>
   <data name="MISSION_OBJECTIVES_DELIVERY" xml:space="preserve">
     <value>Deliver {0} to {1}.</value>
     <comment></comment>  </data>
   <data name="MISSION_EXP_DESCRIPTION" xml:space="preserve">
-    <value>{0} Exp. Point Reward</value>
-    <comment>For labeling an Experience point reward</comment>  </data>
+    <value>{0} Rank Points awarded.</value>
+    <comment>For labeling a Rank Point Reward.</comment>  </data>
   <data name="MISSION_JOB_SUMMARY" xml:space="preserve">
     <value>Job Summary</value>
     <comment></comment>  </data>

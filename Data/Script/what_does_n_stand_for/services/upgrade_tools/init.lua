@@ -36,6 +36,7 @@ end
 ---------------------------------------------------------------]]
 function UpgradeTools:OnUpgrade()
 print('Upgrading...')
+print('The Chapter is...')
 print(SV.chapter.number)
 
   assert(self, 'UpgradeTools:OnUpgrade() : self is null!')
@@ -55,7 +56,7 @@ print(SV.chapter.number)
   SV.checkpoint.map = 0
   SV.checkpoint.entry = 0
   
-  elseif SV.chapter.number >= 1 then
+  elseif SV.chapter.number == 1 then
 	--SV.checkpoint = 
   --{
     --Zone    = 'treasuretownzone', Segment  = -1,
@@ -65,6 +66,13 @@ print(SV.chapter.number)
   SV.checkpoint.zone = 'treasuretownzone'
   SV.checkpoint.segment = -1
   SV.checkpoint.map = 17
+  SV.checkpoint.entry = 0
+  
+  else
+  
+  SV.checkpoint.zone = 'treasuretownzone'
+  SV.checkpoint.segment = -1
+  SV.checkpoint.map = 9
   SV.checkpoint.entry = 0
   
 end
@@ -100,10 +108,10 @@ if SV.MapTurnCounter == nil then
 SV.MapTurnCounter = -1
 end
 
-SV.MissionsEnabled = false
+SV.MissionsEnabled = true
 
-if SV.MissionsEnabled == nil then
-SV.MissionsEnabled = false
+if SV.MissionsEnabled ~= true then
+SV.MissionsEnabled = true
 end
 
 if SV.TemporaryFlags == nil then
@@ -111,14 +119,16 @@ SV.TemporaryFlags =
 {
     MissionCompleted = false,--used to mark if there are any pending missions to hand in.
     PriorMapSetting = nil,--Used to mark what the player had their minimap setting whenever the game needs to temporarily change it to something else.
+	EndDay = false
 }
 end
 
+print('Checkpoints')
 print(SV.checkpoint.zone)
 print(SV.checkpoint.segment)
 print(SV.checkpoint.map)
 print(SV.checkpoint.entry)
-
+print('Checkpoints Done.')
 
 SV.TakenBoard =
 {
@@ -617,6 +627,13 @@ SV.MissionPrereq =
   NumDungeonsCompleted = 0
 }
 
+SV.RankStuff =
+{
+  Rank = 1,
+  RankGoal = 0,
+  RankPoints = 0,
+}
+
 -----------------------------------------------
 -- Level Specific Defaults
 -----------------------------------------------
@@ -770,6 +787,8 @@ if SV.chapter2 == nil then
 SV.chapter2=
 {
 chatot_reminder = false,
+picnic_scene = false,
+medallion_handover = false,
 }
 end
 
@@ -785,7 +804,8 @@ SV.playerinfo =
 {
 continent = nil,
 town = nil,
-job = nil
+job = nil,
+bed_location = 0,
 }
 end
 
@@ -1017,10 +1037,22 @@ end
   
   if SV.playerinfo.job == nil then
   SV.playerinfo.job = nil
+  end --This shouldn't affect any of the 'Special Choices', because they're nil anyways. 
+  
+  if SV.playerinfo.bed_location == nil then
+  SV.playerinfo.bed_location = 0
   end --This shouldn't affect any of the 'Special Choices', because they're nil anyways.
   
   if SV.chapter2.chatot_reminder == nil then
   SV.chapter2.chatot_reminder = nil
+  end
+  
+  if SV.chapter2.picnic_scene == nil then
+  SV.chapter2.picnic_scene = nil
+  end
+
+  if SV.chapter2.medallion_handover == nil then
+  SV.chapter2.medallion_handover = nil
   end
   
   if SV.weather.allow == nil then
@@ -1038,10 +1070,38 @@ end
 if SV.MissionPrereq == nil then 
   SV.MissionPrereq =
 {
-  DungeonsCompleted = {}, --Uses a bitmap to determine which sections are complete (
+  DungeonsCompleted = { },
   NumDungeonsCompleted = 0
 }
 end
+
+if SV.RankStuff == nil then
+SV.RankStuff =
+{
+  Rank = 1,
+  RankGoal = 0,
+  RankPoints = 0,
+}
+end
+
+if SV.RankStuff.Rank == nil then
+SV.RankStuff.Rank = 1
+end
+
+if SV.RankStuff.RankGoal == nil then
+SV.RankStuff.RankGoal = 0
+end
+
+if SV.RankStuff.RankPoints == nil then
+SV.RankStuff.RankPoints = 0
+end
+
+if SV.TemporaryFlags.EndDay == nil then
+SV.TemporaryFlags.EndDay = false
+end
+
+SV.MissionPrereq.DungeonsCompleted = {  drenchedbluff = {[0] = 1}, mossyoutcroppings = {[0] = 1}, seasideserenade = {[0] = 1}, cacklingquarry = {[0] = 1}, roadwalkpathway = {[0] = 1, [1] = 2} } --These should be here by default. Players cannot use the board until Chapter 2 anyways.
+SV.MissionPrereq.NumDungeonsCompleted = 5
 
 if SV.TakenBoard == nil then
 SV.TakenBoard =
@@ -1539,6 +1599,9 @@ SV.OutlawBoard =
   }
 }
 end
+
+result = 1
+MISSION_GEN.RegenerateJobs(result)
   
   SV.eontestroom.Starter = { Species="piplup", Form=1, Skin="normal", Gender=1 }
   

@@ -73,6 +73,7 @@ end
 --Engine callback function
 function treasuretownbeach.GameLoad(map)
 
+  SOUND:FadeInSE("Beach_Noise")
   GAME:FadeIn(20)
 
 end
@@ -90,7 +91,7 @@ local player = CH('PLAYER')
 	
 	GAME:FadeOut(false, 20)
 	
-	UI:WaitShowBG("SeaLook", 1, 20);
+	UI:WaitShowBG("SeaLook", 30, 20);
 	GAME:WaitFrames(30)
 	
 	UI:WaitShowDialogue("(I wouldn't be surprised if this is a common place to sit down and relax.)")

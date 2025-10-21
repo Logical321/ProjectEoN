@@ -54,15 +54,12 @@ function COMMON.ExitDungeonMissionCheckEx(result, rescue, zoneId, segmentID)
         end
     end
 
-    if SV.MissionsEnabled then
-
-        MISSION_GEN.RegenerateJobs(result)
+        MISSION_GEN.EndOfDay(result, segmentID)
 
         if SV.TemporaryFlags.MissionCompleted then
             COMMON.EndDungeonDay(result, 'treasuretownzone', -1, 9, 0)
             return true
         end
-    end
 
     return false
 end

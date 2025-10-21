@@ -1,5 +1,4 @@
 ﻿require 'what_does_n_stand_for.common'
-print ('mission gen fired')
 
 --Halcyon Custom work ported to PMDO Vanilla:
 --Code in this folder is used to generate, display, and handle randomized missions
@@ -43,28 +42,28 @@ MISSION_GEN.DUNGEON_LIST["drenchedbluff"] = { [0] = "F" }
 MISSION_GEN.DUNGEON_LIST["mossyoutcroppings"] = { [0] = "E" }
 MISSION_GEN.DUNGEON_LIST["seasideserenade"] = { [0] = "E" }
 MISSION_GEN.DUNGEON_LIST["cacklingquarry"] = { [0] = "E" }
-MISSION_GEN.DUNGEON_LIST["roadwalkpathway"] = { [0] = "C", [1] = "C" } --Crumbling Canyonway
+MISSION_GEN.DUNGEON_LIST["roadwalkpathway"] = { [0] = "D", [1] = "D" } --Crumbling Canyonway
 
 
 --This is mainly used for EXP rewards in base PMDO
 MISSION_GEN.DIFFICULTY = {}
 MISSION_GEN.DIFFICULTY[""] = 0
-MISSION_GEN.DIFFICULTY["F"] = 100 --below lv 10 dungeons generally
-MISSION_GEN.DIFFICULTY["E"] = 200 --lv 10-14 dungeons
-MISSION_GEN.DIFFICULTY["D"] = 400 --lv 15-20 dungeons
-MISSION_GEN.DIFFICULTY["C"] = 800 --lv 21-29 dungeons
-MISSION_GEN.DIFFICULTY["B"] = 1250 --lv 30-39 dungeons
-MISSION_GEN.DIFFICULTY["A"] = 2500 --lv 40-49 dungeons
-MISSION_GEN.DIFFICULTY["S"] = 5000 --lv 50-59 dungeons
-MISSION_GEN.DIFFICULTY["STAR_1"] = 10000 --lv 60+ dungeons
-MISSION_GEN.DIFFICULTY["STAR_2"] = 20000 --reserved for challenge dungeons
-MISSION_GEN.DIFFICULTY["STAR_3"] = 30000 --reserved for challenge dungeons
-MISSION_GEN.DIFFICULTY["STAR_4"] = 40000 --reserved for challenge dungeons
-MISSION_GEN.DIFFICULTY["STAR_5"] = 50000 --reserved for challenge dungeons
-MISSION_GEN.DIFFICULTY["STAR_6"] = 60000 --reserved for challenge dungeons
-MISSION_GEN.DIFFICULTY["STAR_7"] = 70000 --reserved for challenge dungeons
-MISSION_GEN.DIFFICULTY["STAR_8"] = 80000 --reserved for challenge dungeons
-MISSION_GEN.DIFFICULTY["STAR_9"] = 90000 --reserved for challenge dungeons
+MISSION_GEN.DIFFICULTY["F"] = 10 --below lv 10 dungeons generally
+MISSION_GEN.DIFFICULTY["E"] = 20 --lv 10-14 dungeons
+MISSION_GEN.DIFFICULTY["D"] = 40 --lv 15-20 dungeons
+MISSION_GEN.DIFFICULTY["C"] = 80 --lv 21-29 dungeons
+MISSION_GEN.DIFFICULTY["B"] = 100 --lv 30-39 dungeons
+MISSION_GEN.DIFFICULTY["A"] = 200 --lv 40-49 dungeons
+MISSION_GEN.DIFFICULTY["S"] = 500 --lv 50-59 dungeons
+MISSION_GEN.DIFFICULTY["STAR_1"] = 1000 --lv 60+ dungeons
+MISSION_GEN.DIFFICULTY["STAR_2"] = 2000 --reserved for challenge dungeons
+MISSION_GEN.DIFFICULTY["STAR_3"] = 3000 --reserved for challenge dungeons
+MISSION_GEN.DIFFICULTY["STAR_4"] = 4000 --reserved for challenge dungeons
+MISSION_GEN.DIFFICULTY["STAR_5"] = 5000 --reserved for challenge dungeons
+MISSION_GEN.DIFFICULTY["STAR_6"] = 6000 --reserved for challenge dungeons
+MISSION_GEN.DIFFICULTY["STAR_7"] = 7000 --reserved for challenge dungeons
+MISSION_GEN.DIFFICULTY["STAR_8"] = 8000 --reserved for challenge dungeons
+MISSION_GEN.DIFFICULTY["STAR_9"] = 9000 --reserved for challenge dungeons
 
 --order of difficulties. 
 MISSION_GEN.DIFF_TO_ORDER = {}
@@ -2273,7 +2272,7 @@ end
 --Generate a board. Board_type should be given as "Mission" or "Outlaw".
 --Job/Outlaw Boards should be cleared before being regenerated.
 function MISSION_GEN.GenerateBoard(result, board_type)
-    local jobs_to_make = 8
+    local jobs_to_make = math.random(6, 8) --EoT/D/S has a random number of missions generated, keeping that here.
     local assigned_combos = {}--floor/dungeon combinations that already have had missions genned for it. Need to consider already genned missions and missions on taken board.
 
     -- All seen Pokemon in the pokedex
@@ -2292,7 +2291,12 @@ function MISSION_GEN.GenerateBoard(result, board_type)
     if board_type == COMMON.MISSION_BOARD_OUTLAW then mission_type = COMMON.MISSION_BOARD_OUTLAW end
 
     --get list of potential dungeons for missions, remove any that haven't been completed yet.
-    local dungeon_candidates = {}
+    local dungeon_candidates = MISSION_GEN.ShallowCopy(MISSION_GEN.DUNGEON_LIST)
+    for i = #dungeon_candidates, 1, -1 do
+        if _DATA.Save:GetDungeonUnlock(dungeon_candidates[i]) ~= RogueEssence.Data.GameProgress.UnlockState.Completed then
+            table.remove(dungeon_candidates, i)
+        end
+    end
     local dungeon_segments = {}
     local dungeon_candidate_index_cur = 1
     local dungeon_difficulties = MISSION_GEN.ShallowCopy(MISSION_GEN.DIFFICULTY)
@@ -3761,21 +3765,21 @@ function MISSION_GEN.RemoveMissionBackReference()
     end
 end
 
-function MISSION_GEN.EndOfDay(result, segmentID) --This is entirely worthless for this mod.
+function MISSION_GEN.EndOfDay(result, segmentID)
     --Mark the current dungeon as visited
 
-    -- local cur_zone_name = _ZONE.CurrentZoneID
+    local cur_zone_name = _ZONE.CurrentZoneID
 
-    -- if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
-        -- PrintInfo("Completed zone "..cur_zone_name.." with segment "..segmentID)
-        -- if SV.MissionPrereq.DungeonsCompleted[cur_zone_name] == nil then
-            -- SV.MissionPrereq.DungeonsCompleted[cur_zone_name] = { }
-            -- SV.MissionPrereq.DungeonsCompleted[cur_zone_name][segmentID] = 1
-            -- SV.MissionPrereq.NumDungeonsCompleted = SV.MissionPrereq.NumDungeonsCompleted + 1
-        -- elseif SV.MissionPrereq.DungeonsCompleted[cur_zone_name][segmentID] == nil then
-            -- SV.MissionPrereq.DungeonsCompleted[cur_zone_name][segmentID] = 1
-        -- end
-    -- end
+    if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
+        PrintInfo("Completed zone ".. cur_zone_name .." with segment ".. segmentID)
+        if SV.MissionPrereq.DungeonsCompleted[cur_zone_name] == nil then
+            SV.MissionPrereq.DungeonsCompleted[cur_zone_name] = { }
+            SV.MissionPrereq.DungeonsCompleted[cur_zone_name][segmentID] = 1
+            SV.MissionPrereq.NumDungeonsCompleted = SV.MissionPrereq.NumDungeonsCompleted + 1
+        elseif SV.MissionPrereq.DungeonsCompleted[cur_zone_name][segmentID] == nil then
+            SV.MissionPrereq.DungeonsCompleted[cur_zone_name][segmentID] = 1
+        end
+    end
 
     MISSION_GEN.RegenerateJobs(result)
 end

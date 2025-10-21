@@ -69,8 +69,12 @@ end
 		end
 
 	elseif SV.chapter.number == 2 then
-		if not SV.chapter2.chatot_reminder then --too many 1's, we might need some 0's.
+		if not SV.chapter2.chatot_reminder then
 			wigglyguildbottom.chatot_quest2()
+		end
+		
+		if not SV.chapter2.picnic_scene and SV.RankStuff.RankPoints >= 1 then --Only accounts for the first time you earned Rank Points, but might cause a problem if you somehow obtained Rank Points before.
+			wigglyguildbottom.picnic_intro()
 		end
 	end
 
@@ -123,6 +127,11 @@ UI:SetSpeakerEmotion("Normal")
 	if SV.chapter.number == 1 and SV.chapter1.meeting_partA then
 UI:WaitShowDialogue("Remember, [pause=10]Team [color=#ffb5fd]Electrater[color] is going to give you another assignment.")
 UI:WaitShowDialogue("Be on your best behaviour now.") --I can't write chatot good.
+	elseif SV.chapter.number == 2 and not SV.chapter2.picnic_scene then
+UI:WaitShowDialogue("You know, we don't typically get single adventurers in our guild here.")
+UI:WaitShowDialogue("Besides [color=#54ebaf]Madilyn[color], you're the second Pokémon to ever step foot into this place with no partner.")
+UI:WaitShowDialogue("If [color=#ffb5fd]Electrater[color] could stop bringing in single adventurers, [pause=10]that'd be great...")
+UI:WaitShowDialogue("We have rules for a reason...")
 	else
 UI:WaitShowDialogue("Go along now, [pause=10]you have a long day ahead of you.")
 	end
@@ -300,12 +309,12 @@ GROUND:CharSetAction(Diglett, RogueEssence.Ground.PoseGroundAction(Diglett.Posit
 GAME:WaitFrames(27)
 GROUND:Hide("Diglett")
 
---They leave
+--They leave GAME:WaitFrames(20)
 local coro1 = TASK:BranchCoroutine(function() wigglyguildbottom.MoveUp_Sequence(Chimecho) end)
-local coro2 = TASK:BranchCoroutine(function() wigglyguildbottom.MoveUp_Sequence(Bidoof) end)
+local coro2 = TASK:BranchCoroutine(function() GAME:WaitFrames(5) wigglyguildbottom.MoveUp_Sequence(Bidoof) end)
 local coro3 = TASK:BranchCoroutine(function() wigglyguildbottom.MoveUp_Sequence(Crawdaunt) end)
-local coro4 = TASK:BranchCoroutine(function() wigglyguildbottom.MoveUp_Sequence(Sunflora) end)
-local coro5 = TASK:BranchCoroutine(function() wigglyguildbottom.MoveLeft_Sequence(LoudredDupe) end)
+local coro4 = TASK:BranchCoroutine(function() GAME:WaitFrames(5) wigglyguildbottom.MoveUp_Sequence(Sunflora) end)
+local coro5 = TASK:BranchCoroutine(function() GAME:WaitFrames(10) wigglyguildbottom.MoveLeft_Sequence(LoudredDupe) end)
 local coro6 = TASK:BranchCoroutine(function() wigglyguildbottom.MoveLeft_Sequence(CroagunkDupe) end)
 local coro7 = TASK:BranchCoroutine(function() wigglyguildbottom.ScriptGMRoom_Sequence(Wigglytuff) end)
 
@@ -366,6 +375,9 @@ UI:SetSpeaker(Chatot)
 UI:SetSpeakerEmotion("Normal", true)
 UI:SetSpeakerLoc(185,50)
 UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['PlayerAttention'], player:GetDisplayName()))
+
+GROUND:EntTurn(player, Direction.Up)
+
 UI:WaitShowDialogue("[color=#54ebaf]Adam[color] informed me last night that you should head to [color=#FFC663]Sharpedo Bluff[color].")
 UI:WaitShowDialogue("He has some sort of assignment for you, [pause=10]which is excellent news.")
 UI:WaitShowDialogue("Oh yes... [pause=20]if you're going to go over there, [pause=10]tell one of them that I feel much better now.")
@@ -388,11 +400,12 @@ UI:SetSpeaker(Chatot)
 UI:SetSpeakerEmotion("Normal", true)
 UI:SetSpeakerLoc(185,50)
 UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['PlayerAttention'], player:GetDisplayName()))
-UI:WaitShowDialogue("I know you'd like to keep playing, but there's something I should mention.")
-UI:WaitShowDialogue("There's no way to progress the story right now.")
-UI:WaitShowDialogue("You must wait for the next update, as unfortunate as that sounds.")
-UI:WaitShowDialogue("But you can still play the dungeons in this 'free play' state.")
-UI:WaitShowDialogue("The job board assignments are not ready yet, those will come later.")
+
+GROUND:EntTurn(player, Direction.Up)
+
+UI:WaitShowDialogue("You've been assigned to the job boards, [pause=10]correct?")
+UI:WaitShowDialogue("Those are upstairs, [pause=10]".. player:GetDisplayName() ..". [pause=10]Just simply pick some, [pause=10]and head off.")
+UI:WaitShowDialogue("Now, [pause=10]off you go! [pause=0]You're wasting valuable daylight here.")
 
 GROUND:EntTurn(Chatot, Direction.Down)
 GAME:UnlockDungeon('roadwalkpathway')
@@ -1061,7 +1074,205 @@ GROUND:CharAnimateTurn(character, Direction.Left, 4, true)
 end
 
 function wigglyguildbottom.turnupleft_Sequence(character)
-GROUND:CharAnimateTurn(character, Direction.UpLeft, 4, true)
+GROUND:CharAnimateTurn(character, Direction.UpLeft, 4, true) --Why did I make so many Coroutines?
+end
+
+function wigglyguildbottom.picnic_intro()
+local player =CH('PLAYER')
+local Piks =CH('Piks')
+local AdamMudkip =CH('AdamMudkip')
+local Chatot =CH('Chatot')
+
+SOUND:PlayBGM("None", true)
+
+GAME:CutsceneMode(true)
+GAME:MoveCamera(216, 260, 1, false)
+
+  GROUND:Hide("Chimecho")
+  GROUND:Hide("Bidoof")
+  GROUND:Hide("Crawdaunt")
+  GROUND:Hide("Sunflora")
+  GROUND:Hide("CroagunkDupe")
+  GROUND:Hide("Croagunk")
+  GROUND:Hide("LoudredDupe")
+  GROUND:Hide("Loudred")
+  GROUND:Hide("Wigglytuff")
+  GROUND:Hide("Diglett")
+  GROUND:Hide("Dugtrio")
+  GROUND:Unhide("AdamMudkip")
+  GROUND:Unhide("Piks")
+  
+  GROUND:TeleportTo(AdamMudkip, 317, 125, Direction.Up)
+  GROUND:TeleportTo(Piks, 317, 90, Direction.Up)
+  GROUND:TeleportTo(Chatot, 037, 268, Direction.Right)
+  
+  GAME:WaitFrames(20)
+  
+  local coro1 = TASK:BranchCoroutine(function() GAME:FadeIn(20) end)
+  local coro2 = TASK:BranchCoroutine(function() GROUND:MoveInDirection(player, Direction.Left, 30, false, 1) end)
+  
+  TASK:JoinCoroutines({coro1,coro2})
+  
+  SOUND:PlayBattleSE("EVT_Emote_Exclaim_2")
+  GROUND:CharSetEmote(player, "exclaim", 1)
+  
+  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  
+  UI:WaitShowDialogue(player:GetDisplayName() .."!")
+  
+  GROUND:CharAnimateTurnTo(player, Direction.Right, 4, true)
+  
+  coro1 = TASK:BranchCoroutine(function()
+  
+  GROUND:AnimateToPosition(AdamMudkip, "Walk", Dir8.Up, 317, 155, 1, 2, 0)
+  GROUND:MoveInDirection(AdamMudkip, Direction.Down, 80, false, 1)
+  GROUND:MoveInDirection(AdamMudkip, Direction.DownLeft, 40, false, 1)
+  GROUND:MoveInDirection(AdamMudkip, Direction.Left, 60, false, 1)
+  
+  end)
+  
+  coro2 = TASK:BranchCoroutine(function()
+  
+  GROUND:AnimateToPosition(Piks, "Walk", Dir8.Up, 317, 155, 1, 2, 0)
+  GROUND:MoveInDirection(Piks, Direction.Down, 80, false, 1)
+  GROUND:MoveInDirection(Piks, Direction.DownLeft, 30, false, 1)
+  GROUND:MoveInDirection(Piks, Direction.Left, 45, false, 1)
+  
+  end)
+  
+  TASK:JoinCoroutines({coro1,coro2})
+  
+  UI:SetSpeaker(AdamMudkip)
+  UI:SetSpeakerEmotion("Normal", true)
+  UI:SetSpeakerLoc(214,131)
+  
+  UI:WaitShowDialogue("I was wondering if you wanted to go out on a picnic with us.")
+  UI:WaitShowDialogue("The reason is... [pause=20]er... [pause=20]well, [pause=10]it's...")
+  UI:SetSpeakerEmotion("Worried", true)
+  UI:WaitShowDialogue("Uh, [pause=10]how do I exactly explain it to you...?")
+  
+  GAME:WaitFrames(10)
+  
+  UI:SetSpeaker(Piks)
+  UI:SetSpeakerEmotion("Happy", true)
+  UI:SetSpeakerLoc(224,101)
+  
+  UI:WaitShowDialogue("Oh, [pause=10]lemme tell it, [pause=10]".. AdamMudkip:GetDisplayName() .."!")
+  
+  GROUND:CharAnimateTurn(AdamMudkip, Direction.UpRight, 4, false)
+  GAME:WaitFrames(10)
+  
+  UI:SetSpeakerEmotion("Normal", true)
+  UI:WaitShowDialogue("You see, [pause=10]my mom would get me and my siblings to go outside to see how beautiful everything is.")
+  UI:WaitShowDialogue("We would head next to the forest next to the plateau, [pause=10]right under some nice shade...")
+  UI:SetSpeakerEmotion("Happy", true)
+  UI:WaitShowDialogue("It was always inspiring to me, [pause=10]to try and explore this world we live in to the fullest.")
+  UI:SetSpeakerEmotion("Worried", true)
+  UI:WaitShowDialogue("My siblings didn't really appreciate it as much as I did, [pause=10]especially [color=#54ebaf]Alex[color]...")
+  UI:WaitShowDialogue("My old home was pretty closed off from the world...")
+  
+  GAME:WaitFrames(10)
+  
+  UI:SetSpeaker(AdamMudkip)
+  UI:SetSpeakerEmotion("Worried", false)
+  UI:SetSpeakerLoc(214,131)
+  
+  GROUND:EntTurn(Piks, Direction.DownLeft)
+  
+  UI:WaitShowDialogue("We should head back there sometime. [pause=0]I just hope he doesn't try anything funny this time.")
+  
+  GROUND:CharAnimateTurn(AdamMudkip, Direction.Left, 4, false)
+  GAME:WaitFrames(10)
+  GROUND:EntTurn(Piks, Direction.Left)
+  
+  UI:SetSpeakerEmotion("Normal", true)
+  UI:WaitShowDialogue("Though I do like to think of it as motivation.")
+  UI:WaitShowDialogue("We do not want to live in eternal darkness, [pause=10]or become statues. [pause=0]That's just not what life is.")
+  UI:WaitShowDialogue("So every picnic we have is a reminder of what we're defending.")
+  UI:SetSpeakerEmotion("Happy", true)
+  UI:WaitShowDialogue("That, and we eat stuff not exclusive to this region! [pause=0]Hahaha!")
+  
+  GROUND:CharSetEmote(AdamMudkip, "glowing", 0)
+  
+  UI:SetSpeakerEmotion("Happy", true)
+  UI:WaitShowDialogue("Of course, [pause=10]we'd be happy to have our new recruit there too!")
+  
+  GROUND:CharSetEmote(Piks, "happy", 0)
+  GAME:WaitFrames(10)
+  
+  UI:SetSpeaker(player, false)
+  UI:SetSpeakerEmotion("Normal")
+  UI:ResetSpeakerLoc()
+  
+  UI:WaitShowDialogue("(A surprise, [pause=10]huh...?)")
+  UI:WaitShowDialogue("(I should check it out.)")
+  
+  GROUND:CharSetEmote(Piks, "", 0)
+  
+  coro1 = TASK:BranchCoroutine(function()
+  GROUND:CharAnimateTurn(AdamMudkip, Direction.Right, 4, false)
+  GROUND:MoveInDirection(AdamMudkip, Direction.Right, 12, false, 1)
+  GROUND:CharSetEmote(AdamMudkip, "exclaim", 1)
+  end)
+  
+  coro2 = TASK:BranchCoroutine(function()
+  
+  GROUND:CharAnimateTurn(Piks, Direction.Right, 4, true)
+  GROUND:MoveInDirection(Piks, Direction.Right, 16, false, 1)
+  GROUND:CharSetEmote(Piks, "exclaim", 1)
+  
+  end)
+  
+  local coro3 = TASK:BranchCoroutine(function()
+  
+  GROUND:CharAnimateTurn(player, Direction.Right, 4, true)
+  GROUND:MoveInDirection(player, Direction.Right, 15, false, 1)
+  GROUND:CharSetEmote(player, "exclaim", 1)
+  
+  end)
+  
+  local coro4 = TASK:BranchCoroutine(function()
+  
+  GAME:WaitFrames(20)
+  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  UI:WaitShowDialogue("Hold on a minute![pause=20]")
+  
+  end)
+
+  TASK:JoinCoroutines({coro1,coro2,coro3,coro4}) --Might as well rename this whole groundmap to corozone.
+  GAME:WaitFrames(1)
+
+  coro1 = TASK:BranchCoroutine(function()
+  
+  GAME:WaitFrames(6)
+  GROUND:CharAnimateTurn(AdamMudkip, Direction.Left, 4, false)
+  
+  end)
+  
+  coro2 = TASK:BranchCoroutine(function()
+  
+  GAME:WaitFrames(7)
+  GROUND:CharAnimateTurn(Piks, Direction.Left, 4, true)
+  
+  end)
+  
+  coro3 = TASK:BranchCoroutine(function()
+  
+  GAME:WaitFrames(4)
+  GROUND:CharAnimateTurn(player, Direction.Left, 4, false)
+  
+  end)
+  
+  TASK:JoinCoroutines({coro1,coro2,coro3})
+  
+  GAME:WaitFrames(20)
+  GROUND:MoveInDirection(Chatot, Direction.Right, 50, false, 2)
+  
+  UI:SetSpeaker(Chatot)
+  UI:SetSpeakerEmotion("Normal")
+  UI:WaitShowDialogue("Where are ")
+  
+  GAME:CutsceneMode(false)
 end
 
 return wigglyguildbottom

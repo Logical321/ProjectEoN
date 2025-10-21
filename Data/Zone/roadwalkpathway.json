@@ -6959,27 +6959,7 @@
 "ID": "stairs_go_down",
 "Revealed": true,
 "Owner": 1,
-"TileStates": [
-{
-"$type": "PMDC.Dungeon.ResultEventState, PMDC",
-"ResultEvents": [
-{
-"$type": "RogueEssence.Dungeon.SingleCharScriptEvent, RogueEssence",
-"Script": "QuicksaveBypass",
-"ArgTable": "{}"
-}
-]
-},
-{
-"$type": "PMDC.Dungeon.DestState, PMDC",
-"Dest": {
-"Segment": -1,
-"ID": 2
-},
-"Relative": false,
-"PreserveMusic": false
-}
-]
+"TileStates": []
 }
 }
 ],
@@ -11777,7 +11757,7 @@
 "X": 0,
 "Y": 0
 },
-"ID": "stairs_go_down",
+"ID": "stairs_exit_down",
 "Revealed": true,
 "Owner": 0,
 "TileStates": []

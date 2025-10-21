@@ -116,7 +116,7 @@
     <value>Please take this as well! Zzz!</value>
   </data>
   <data name="Outlaw_Capture_Cutscene_004" xml:space="preserve">
-    <value>Thank you for helping to make Guildmaster Island a little bit safer! Zzz!</value>
+    <value>Thank you for maintaining peace! Zzz!</value>
   </data>
   <data name="Outlaw_Retrieve_Cutscene" xml:space="preserve">
     <value>Thank you for getting my {0} back!</value>
@@ -155,6 +155,6 @@
     <value>Thank you so much for saving my child!</value>
   </data>
   <data name="Mission_Handout_EXP" xml:space="preserve">
-    <value>Your team gained {0} EXP as a reward!</value>
+    <value>Your badge gained {0} Rank Points as a reward!</value>
   </data>
 </root>

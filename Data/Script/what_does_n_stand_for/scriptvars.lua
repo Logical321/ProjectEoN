@@ -39,12 +39,23 @@ SV.checkpoint =
     Map  = 0, Entry  = 1
   }
 
-SV.MissionsEnabled = false
+SV.MissionsEnabled = true
+
+if SV.MissionsEnabled ~= true then
+SV.MissionsEnabled = true --I hate this check, I should remove it entirely.
+end
 
 SV.MissionPrereq =
 {
-  DungeonsCompleted = {}, --Uses a bitmap to determine which sections are complete (
+  DungeonsCompleted = {}, --Uses a bitmap to determine which sections are complete
   NumDungeonsCompleted = 0
+}
+
+SV.RankStuff =
+{
+  Rank = 1,
+  RankGoal = 0,
+  RankPoints = 0,
 }
 
 SV.DestinationFloorNotified = false
@@ -57,6 +68,7 @@ SV.TemporaryFlags =
 {
     MissionCompleted = false,--used to mark if there are any pending missions to hand in.
     PriorMapSetting = nil,--Used to mark what the player had their minimap setting whenever the game needs to temporarily change it to something else.
+	EndDay = false --Needed for an edge case involving the Checkpoint system and having no jobs.
 }
 
 SV.adventure = 
@@ -663,7 +675,7 @@ SV.dungeons = --Used for completions sake later. Would be a waste of time to do 
 SV.chapter1= --For use in Chapter 1's story bits only.
 {
   chatot_quest1 = false,
-  chimecho_greeted = false,
+  chimecho_greeted = false, --Not Chapter 1 exclusive.
   piks_reminder = false,
   sbfadein = false, --AKA the dumbest way to stop a fadein.
   mission_brief = false,
@@ -682,6 +694,8 @@ SV.chapter1= --For use in Chapter 1's story bits only.
 SV.chapter2=
 {
 chatot_reminder = false,
+picnic_scene = false,
+medallion_handover = false,
 }
 
 SV.chapter = --SHOULD Change WHEN CHAPTERS ARE FINISHED, NOT STARTED!
@@ -689,11 +703,12 @@ SV.chapter = --SHOULD Change WHEN CHAPTERS ARE FINISHED, NOT STARTED!
 number = 0,
 }
 
-SV.playerinfo =
+SV.playerinfo = --Used to figure out the player character's origin, among other player-controllable things
 {
 continent = nil,
 town = nil,
-job = nil
+job = nil,
+bed_location = 0,
 }
 
 SV.eontestroom =

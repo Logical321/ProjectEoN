@@ -13,92 +13,6 @@ function BATTLE_SCRIPT.AllyInteract(owner, ownerChar, context, args)
   COMMON.DungeonInteract(context.User, context.Target, context.CancelState, context.TurnCancel)
 end
 
-function BATTLE_SCRIPT.ShopkeeperInteract(owner, ownerChar, context, args)
-
-  if COMMON.CanTalk(context.Target) then
-	local security_state = COMMON.GetShopPriceState()
-    local price = security_state.Cart
-    local sell_price = COMMON.GetDungeonSellPrice()
-  
-    local oldDir = context.Target.CharDir
-    DUNGEON:CharTurnToChar(context.Target, context.User)
-	
-	  --Basic for now, but choose a different line based on mission type/special 
-  --Should be expanded on in the future to be more dynamic, and to have more special lines for special pairs
-  local tbl = LTBL(context.Target)
-  local mission_slot = tbl.Escort
-  local job = SV.TakenBoard[mission_slot]
-  
-  if job.Type == COMMON.MISSION_TYPE_EXPLORATION then
-	  local zone_string = _DATA:GetZone(job.Zone).Segments[job.Segment]:ToString()
-	  zone_string = COMMON.CreateColoredSegmentString(zone_string)
-	  local floor = SV.StairType[job.Zone] .. '[color=#00FFFF]' .. tostring(job.Floor) .. '[color]' .. "F"
-	  UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("MISSION_EXPLORATION_INTERACT"):ToLocal(), zone_string , floor))
-  elseif job.Type == COMMON.MISSION_TYPE_ESCORT then
-    if job.Special == MISSION_GEN.SPECIAL_CLIENT_LOVER then
-	  UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("MISSION_ESCORT_LOVER_INTERACT"):ToLocal()))
-	else
-	  UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("MISSION_ESCORT_INTERACT"):ToLocal(), _DATA:GetMonster(job.Target):GetColoredName())) 
-	end
-   end
-	
-    if sell_price > 0 then
-      context.TurnCancel.Cancel = true
-      UI:SetSpeaker(context.Target)
-	  UI:ChoiceMenuYesNo(STRINGS:Format(RogueEssence.StringKey(string.format("TALK_SHOP_SELL_%04d", context.Target.Discriminator)):ToLocal(), STRINGS:FormatKey("MONEY_AMOUNT", sell_price)), false)
-	  UI:WaitForChoice()
-	  result = UI:ChoiceResult()
-	  
-	  if SV.adventure.Thief then
-	    COMMON.ThiefReturn()
-	  elseif result then
-	    -- iterate player inventory prices and remove total price
-        COMMON.PayDungeonSellPrice(sell_price)
-	    SOUND:PlayBattleSE("DUN_Money")
-	    UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey(string.format("TALK_SHOP_SELL_DONE_%04d", context.Target.Discriminator)):ToLocal()))
-	  else
-	    -- nothing
-	  end
-    end
-	
-    if price > 0 then
-      context.TurnCancel.Cancel = true
-      UI:SetSpeaker(context.Target)
-	  UI:ChoiceMenuYesNo(STRINGS:Format(RogueEssence.StringKey(string.format("TALK_SHOP_PAY_%04d", context.Target.Discriminator)):ToLocal(), STRINGS:FormatKey("MONEY_AMOUNT", price)), false)
-	  UI:WaitForChoice()
-	  result = UI:ChoiceResult()
-	  if SV.adventure.Thief then
-	    COMMON.ThiefReturn()
-	  elseif result then
-	    if price > GAME:GetPlayerMoney() then
-          UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey(string.format("TALK_SHOP_PAY_SHORT_%04d", context.Target.Discriminator)):ToLocal()))
-	    else
-	      -- iterate player inventory prices and remove total price
-          COMMON.PayDungeonCartPrice(price)
-	      SOUND:PlayBattleSE("DUN_Money")
-	      UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey(string.format("TALK_SHOP_PAY_DONE_%04d", context.Target.Discriminator)):ToLocal()))
-	    end
-	  else
-	    UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey(string.format("TALK_SHOP_PAY_REFUSE_%04d", context.Target.Discriminator)):ToLocal()))
-	  end
-    end
-	
-	if price == 0 and sell_price == 0 then
-      context.CancelState.Cancel = true
-      UI:SetSpeaker(context.Target)
-      UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey(string.format("TALK_SHOP_%04d", context.Target.Discriminator)):ToLocal()))
-      context.Target.CharDir = oldDir
-    end
-  else
-
-    UI:ResetSpeaker()
-	
-	local chosen_quote = RogueEssence.StringKey("TALK_CANT"):ToLocal()
-    chosen_quote = string.gsub(chosen_quote, "%[myname%]", context.Target:GetDisplayName(true))
-    UI:WaitShowDialogue(chosen_quote)
-  end
-end
-
 function BATTLE_SCRIPT.RescueReached(owner, ownerChar, context, args)
     -- Set the nickname of the target, removing the gender sign
     local base_name = RogueEssence.Data.DataManager.Instance.DataIndices[RogueEssence.Data.DataManager.DataType.Monster]:Get(context.Target.BaseForm.Species).Name:ToLocal()
@@ -478,6 +392,9 @@ function BATTLE_SCRIPT.MadilynInteract(owner, ownerChar, context, args) --Taken 
   if target:GetStatusEffect("sleep") == nil and target:GetStatusEffect("freeze") == nil then
     
     local ratio = target.HP * 100 // target.MaxHP 
+	local randtext = 0
+	
+	randtext = random(1, 3)
 
     if ratio <= 25 then
       UI:SetSpeakerEmotion("Pain")
@@ -497,7 +414,17 @@ function BATTLE_SCRIPT.MadilynInteract(owner, ownerChar, context, args) --Taken 
 	if ratio <= 25 then
 	chosen_quote = "Nnf...[pause=20]I've taken quite the damage. [pause=0]Don't worry about me, [pause=10]I can recover from this."
 	else
-    chosen_quote = "You're the one leading, [pause=10]not me. [pause=0]Focus on the task at hand."
+		if randtext == 1 then
+			chosen_quote = "You're the one leading, [pause=10]not me. [pause=0]Focus on the task at hand."
+			
+		elseif randtext == 2 then
+			chosen_quote = "Can we talk later? [pause=0]We're in the middle of a dungeon right now."
+		
+		else
+		local player = CH('PLAYER')
+			chosen_quote = "I'm not the one who needs escorting, [pause=10]".. CH('PLAYER'):GetDisplayName() ..". [pause=10]I can handle myself just fine."
+		
+		end
 	end
   
     UI:WaitShowDialogue(chosen_quote)
@@ -547,13 +474,55 @@ function SINGLE_CHAR_SCRIPT.SetGuestHPStatus(owner, ownerChar, context, args)
 	end
 end
 
-function BATTLE_SCRIPT.EscortInteract(owner, ownerChar, context, args)
+function BATTLE_SCRIPT.KecleonInteract(owner, ownerChar, context, args)
   context.CancelState.Cancel = true
   local oldDir = context.Target.CharDir
   DUNGEON:CharTurnToChar(context.Target, context.User)
   UI:SetSpeaker(context.Target)
-  UI:WaitShowDialogue("I'm counting on you!")
+  
+  local randomtext = random(1, 7)
+  
+  if randomtext <= 2 then
+	UI:WaitShowDialogue("I do hope you know what you're doing...")
+	
+  elseif randomtext <= 4 then
+	UI:WaitShowDialogue("These dungeons are a maze... [pause=20]How do you figure out where you're going?")
+	
+  elseif randomtext <= 6 then
+	UI:WaitShowDialogue("I hope [color=#00FFFF]Skiddo[color] is alright. [pause=0]I wouldn't want anything to happen to him.")
+	
+  elseif randomtext == 7 then
+	UI:WaitShowDialogue("Never give up, [pause=10]trust your instincts... [pause=20]or something like that.")
+  end
+  
   context.Target.CharDir = oldDir
+end
+
+function BATTLE_SCRIPT.EscortInteract(owner, ownerChar, context, args)
+    context.CancelState.Cancel = true
+    local oldDir = context.Target.CharDir
+    DUNGEON:CharTurnToChar(context.Target, context.User)
+    UI:SetSpeaker(context.Target)
+
+    --Basic for now, but choose a different line based on mission type/special 
+    --Should be expanded on in the future to be more dynamic, and to have more special lines for special pairs
+    local tbl = LTBL(context.Target)
+    local mission_slot = tbl.Escort
+    local job = SV.TakenBoard[mission_slot]
+
+    if job.Type == COMMON.MISSION_TYPE_EXPLORATION then
+        local zone_string = GAME:GetCurrentDungeon().Segments[job.Segment]:ToString()
+        zone_string = COMMON.CreateColoredSegmentString(zone_string)
+        local floor = SV.StairType[job.Zone] .. '[color=#00FFFF]' .. tostring(job.Floor) .. '[color]' .. "F"
+        UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("MISSION_EXPLORATION_INTERACT"):ToLocal(), zone_string , floor))
+    elseif job.Type == COMMON.MISSION_TYPE_ESCORT then
+        if job.Special == MISSION_GEN.SPECIAL_CLIENT_LOVER then
+            UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("MISSION_ESCORT_LOVER_INTERACT"):ToLocal()))
+        else
+            UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("MISSION_ESCORT_INTERACT"):ToLocal(), _DATA:GetMonster(job.Target):GetColoredName()))
+        end
+    end
+    context.Target.CharDir = oldDir
 end
 
 function BATTLE_SCRIPT.SkiddoInteract(owner, ownerChar, context, args)
@@ -566,23 +535,27 @@ function BATTLE_SCRIPT.SkiddoInteract(owner, ownerChar, context, args)
 end
 
 function BATTLE_SCRIPT.RescueReached(owner, ownerChar, context, args)
+    -- Set the nickname of the target, removing the gender sign
+    local base_name = RogueEssence.Data.DataManager.Instance.DataIndices[RogueEssence.Data.DataManager.DataType.Monster]:Get(context.Target.BaseForm.Species).Name:ToLocal()
+    GAME:SetCharacterNickname(context.Target, base_name)
 
-  local tbl = LTBL(context.Target)
-  local mission = SV.missions.Missions[tbl.Mission]
-  mission.Complete = 1
-  
-  local oldDir = context.Target.CharDir
-  DUNGEON:CharTurnToChar(context.Target, context.User)
-  
-  UI:SetSpeaker(context.Target)
-  UI:WaitShowDialogue("Yay, you found me!")
-  
-  -- warp out
-  TASK:WaitTask(_DUNGEON:ProcessBattleFX(context.Target, context.Target, _DATA.SendHomeFX))
-  _DUNGEON:RemoveChar(context.Target)
-  
-  UI:ResetSpeaker()
-  UI:WaitShowDialogue("Mission status set to complete. Return to quest giver for reward.")
+    context.CancelState.Cancel = false
+    context.TurnCancel.Cancel = true
+
+    local targetName = _DATA:GetMonster(context.Target.BaseForm.Species):GetColoredName()
+
+    local oldDir = context.Target.CharDir
+
+    local tbl = LTBL(context.Target)
+    local mission = SV.TakenBoard[tbl.Mission]
+    DUNGEON:CharTurnToChar(context.Target, context.User)
+    UI:ResetSpeaker()
+
+    if mission.Type == COMMON.MISSION_TYPE_RESCUE then
+        RescueCheck(context, targetName, mission)
+    elseif mission.Type == COMMON.MISSION_TYPE_DELIVERY then
+        DeliveryCheck(context, targetName, mission)
+    end
 end
 
 

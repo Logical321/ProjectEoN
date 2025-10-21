@@ -190,6 +190,7 @@ UI:ChoiceMenuYesNo("Do you want to test Adam's book?")
 UI:WaitForChoice()
 	if UI:ChoiceResult() then
 UI:WaitShowDialogue("I know you want to, but you're going to need to make the UI for this on a whole new Groundmap, because you're weird.")
+GAME:EnterGroundMap("adambooktest", "Entrance")
 	else
 
 	end
@@ -238,6 +239,25 @@ end
 
 end
 
+function eontestroom.ShowRank_Action(obj, activator)
+local pointsneeded = 0
+local rankname = 'string'
+
+SV.RankStuff.RankPoints = 0
+
+UI:SetAutoFinish(true)
+
+rankname = COMMON.RANKS[SV.RankStuff.Rank]['rank_name'] --Read the current Rank.
+pointsneeded = COMMON.RANKS[SV.RankStuff.Rank + 1]['points_needed'] --Determine the points to the next one.
+
+SV.RankStuff.RankGoal = pointsneeded - SV.RankStuff.RankPoints --This is stupid. // But it works. // Get the accurate amount of points required for the next stage.
+
+UI:SetBounds(195,70,110,63)
+UI:WaitShowDialogue("[color=#FFC663]Rank:[color] ".. rankname .."\n[color=#54ebaf]Current:[color] ".. SV.RankStuff.RankPoints .."\n[color=#9696ff]Next:[color] ".. SV.RankStuff.RankGoal .."") 
+
+UI:SetAutoFinish(false)
+
+end
 
 return eontestroom
 

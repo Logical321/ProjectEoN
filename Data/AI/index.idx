@@ -1,5 +1,5 @@
 ﻿{
-"Version": "0.8.5.0",
+"Version": "0.8.11.0",
 "Object": {
 "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[RogueEssence.Data.EntrySummary, RogueEssence]], System.Private.CoreLib",
 "stick_together": {
@@ -17,6 +17,17 @@
 "ko": "함께 가자",
 "zh-hans": "一起走吧"
 }
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 0
+},
+"wander_normal": {
+"$type": "RogueEssence.Data.AIEntrySummary, RogueEssence",
+"Assignable": false,
+"Name": {
+"DefaultText": "Normal Wander",
+"LocalTexts": {}
 },
 "Released": true,
 "Comment": "",

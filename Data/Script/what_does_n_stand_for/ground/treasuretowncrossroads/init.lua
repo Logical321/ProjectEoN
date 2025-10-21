@@ -40,12 +40,18 @@ SV.checkpoint =
     Zone    = 'treasuretownzone', Segment  = -1,
     Map  = 0, Entry  = 0
   } --T.Town entrance, don't call after prologue is done. / Spawns player OOB.
-elseif SV.chapter.number >= 1 then
+elseif SV.chapter.number == 1 then
 SV.checkpoint = 
   {
     Zone    = 'treasuretownzone', Segment  = -1,
     Map  = 17, Entry  = 0
   } --Mess Hall, spawn here after the prologue is done, but not when chapter 2 starts.
+  elseif SV.chapter.number == 2 then
+SV.checkpoint = 
+  {
+    Zone    = 'treasuretownzone', Segment  = -1,
+    Map  = 9, Entry  = 0
+  }
 end
 
 if SV.prologue.dont_cutscene then
@@ -680,7 +686,7 @@ if ch then
 	kecleon:FullRestore()
 	--kecleon.Tactic = _DATA:GetAITactic("escortee") --Avoid Trouble? More like cause trouble. What a joke of an AI.
     
-	local talk_evt = RogueEssence.Dungeon.BattleScriptEvent("EscortInteract")
+	local talk_evt = RogueEssence.Dungeon.BattleScriptEvent("KecleonInteract")
     kecleon.ActionEvents:Add(talk_evt)
 	kecleon:RefreshTraits()
 

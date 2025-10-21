@@ -85,6 +85,7 @@ end
 --Engine callback function
 function sharpedobluff.GameLoad(map)
 
+  SOUND:FadeInSE("Beach_Noise")
   GAME:FadeIn(20)
 
 end

@@ -272,6 +272,7 @@ SV.repeatable.day_finished = true
 SV.repeatable.daily_chant = false
 SV.weather.allow = true
 COMMON.WeatherStatus()
+
 GAME:WaitFrames(50)
 
 	UI:SetCenter(true)

@@ -1,7 +1,49 @@
 ﻿{
-"Version": "0.8.9.0",
+"Version": "0.8.11.0",
 "Object": {
 "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[RogueEssence.Data.EntrySummary, RogueEssence]], System.Private.CoreLib",
+"confusion": {
+"$type": "RogueEssence.Data.SkillDataSummary, RogueEssence",
+"Element": "psychic",
+"Category": 2,
+"BasePower": 40,
+"BaseCharges": 20,
+"HitRate": 100,
+"RangeDescription": "Foe in 2-Tile Phasing Shot",
+"Description": {
+"DefaultText": "The target is hit by a weak telekinetic force. This may also confuse the target.",
+"LocalTexts": {
+"fr": "Une faible vague télékinétique frappe l’ennemi. Peut aussi le plonger dans la confusion.",
+"de": "Das Ziel wird von schwacher telekinetischer Energie getroffen und eventuell verwirrt.",
+"es": "Débil ataque telequinético que puede causar confusión.",
+"pt": "O alvo é atingido por uma onda telecinética fraca, que pode causar confusão.",
+"it": "Il Pokémon attacca il bersaglio con una leggera forza telecinetica che può anche confonderlo.",
+"ko": "약한 염동력을 상대에게 보내어 공격한다. 상대를 혼란시킬 때가 있다.",
+"ja": "よわい　ねんりきを あいてに　おくって　こうげきする。 あいてを　こんらん　させることが　ある。",
+"ja-jp": "弱い　念力を 相手に　送って　攻撃する。 相手を　混乱させることが　ある。",
+"zh-hans": "向对手发送微弱的念力进行攻击。有时会使对手混乱。",
+"zh-hant": "向對手發送 微弱的念力進行攻擊。 有時會使對手混亂。"
+}
+},
+"Name": {
+"DefaultText": "Confusion",
+"LocalTexts": {
+"fr": "Choc Mental",
+"de": "Konfusion",
+"es": "Confusión",
+"pt": "Confusão",
+"it": "Confusione",
+"ko": "염동력",
+"ja": "ねんりき",
+"ja-jp": "ねんりき",
+"zh-hans": "念力",
+"zh-hant": "念力"
+}
+},
+"Released": true,
+"Comment": "Nerfed because it was stinky and unfair.",
+"SortOrder": 93
+},
 "shadow_sneak": {
 "$type": "RogueEssence.Data.SkillDataSummary, RogueEssence",
 "Element": "ghost",

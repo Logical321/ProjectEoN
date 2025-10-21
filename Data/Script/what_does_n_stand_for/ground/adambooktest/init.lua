@@ -72,6 +72,8 @@ end
 -------------------------------
 
 function adambooktest.Book()
+local result = nil
+UI:WaitShowDialogue("Working")
 
 UI:SetChoiceLoc(105,85)
 UI:SetBounds(300,300,20,20) --Used to place secondary menu.
@@ -80,7 +82,7 @@ UI:SetAutoFinish(true)
 
 choices = {STRINGS:Format(STRINGS.MapStrings['Read']),
     STRINGS:Format(STRINGS.MapStrings['Music']),
-    STRINGS:Format(STRINGS.MapStrings['Leave'])}
+    STRINGS:Format(STRINGS.MapStrings['Leave']),}
 
 UI:BeginChoiceMenu("Nothing here lmao", choices, 1, 3)
 UI:WaitForChoice()
@@ -94,10 +96,10 @@ elseif result == 2 then
 
     UI:ShowMusicMenu({'ADAM_JOURNAL'})
 	UI:WaitForChoice()
-	  local result = UI:ChoiceResult()
-  if result ~= nil then
-	SV.eontestroom.Song = result
-  end
+	result = UI:ChoiceResult()
+		if result ~= nil then
+			SV.eontestroom.Song = result
+		end
   
   adambooktest.Book()
   
@@ -115,49 +117,51 @@ AdamBookMenu = Class('AdamBookMenu')
 
 function adambooktest.deargod()
 --150 010
---UI:SetBounds(115,010,200,220) --Needed to place secondary menu.
---UI:SetChoiceLoc(15,10) --Needed to place primary menu.
+UI:SetBounds(115,010,200,220) --Needed to place secondary menu.
+UI:SetChoiceLoc(15,10) --Needed to place primary menu.
 
-	  local menu = AdamBookMenu:new() --Needed to get the function to work in the first place. Probably.
-	  UI:SetCustomMenu(menu,menu) --Spawns the menu, I guess?
-	  UI:WaitForChoice()
+UI:WaitForChoice();
+
+	  -- local menu = AdamBookMenu:new() --Needed to get the function to work in the first place. Probably.
+	  -- UI:SetCustomMenu(menu,menu) --Spawns the menu, I guess?
+	  -- UI:WaitForChoice()
 	  
-	  adambooktest.Book() --Return to the "top menu" of this groundmap.
+	  -- adambooktest.Book() --Return to the "top menu" of this groundmap.
 
 end
 
-function AdamBookMenu:initialize()
-assert(self, "AdamBookMenu:initialize(): Error, self is nil!") --Then you wouldn't run, muppet.
+-- function AdamBookMenu:initialize()
+-- assert(self, "AdamBookMenu:initialize(): Error, self is nil!") --Then you wouldn't run, muppet.
 
-self.menu = RogueEssence.Menu.ScriptableMenu(15, 10, 80, 200, function(input) self:Update(input) end) --I assume it spawns the bloody menu. And also calls 'update'.
+-- self.menu = RogueEssence.Menu.ScriptableMenu(15, 10, 80, 200, function(input) self:Update(input) end) --I assume it spawns the bloody menu. And also calls 'update'.
 
-self:DrawMenu() --runs the DrawMenu function that happens to be in it's group.
+-- self:DrawMenu() --runs the DrawMenu function that happens to be in it's group.
 
-end
+-- end
 
-function AdamBookMenu:DrawMenu()
+-- function AdamBookMenu:DrawMenu()
 
-  --Standard menu divider. Reuse this whenever you need a menu divider at the top for a title. - Palika
-  self.menu.MenuElements:Add(RogueEssence.Menu.MenuDivider(RogueElements.Loc(8, 8 + 12), self.menu.Bounds.Width - 8 * 2))
+  -- --Standard menu divider. Reuse this whenever you need a menu divider at the top for a title. - Palika
+  -- self.menu.MenuElements:Add(RogueEssence.Menu.MenuDivider(RogueElements.Loc(8, 8 + 12), self.menu.Bounds.Width - 8 * 2))
 
-  --Standard title. Reuse this whenever a title is needed. - Palika 2
-  self.menu.MenuElements:Add(RogueEssence.Menu.MenuText("The title of something, probably.", RogueElements.Loc(16, 8)))
+  -- --Standard title. Reuse this whenever a title is needed. - Palika 2
+  -- self.menu.MenuElements:Add(RogueEssence.Menu.MenuText("The title of something, probably.", RogueElements.Loc(16, 8)))
   
-    self.menu.MenuElements:Add(RogueEssence.Menu.MenuText("Can this bloody thing work, I would like to make something unique for once.", RogueElements.Loc(16, 54)))
+    -- self.menu.MenuElements:Add(RogueEssence.Menu.MenuText("Can this bloody thing work, I would like to make something unique for once.", RogueElements.Loc(16, 54)))
 
-end
+-- end
 
-function AdamBookMenu:Update(input)
-assert(self, "BaseState:Begin(): Error, self is nil!")
+-- function AdamBookMenu:Update(input)
+-- assert(self, "BaseState:Begin(): Error, self is nil!")
 
-  if input:JustPressed(RogueEssence.FrameInput.InputType.Cancel) or input:JustPressed(RogueEssence.FrameInput.InputType.Menu) then --Runs when pressing the Cancel button.
-    _GAME:SE("Menu/Cancel")
-    _MENU:RemoveMenu() --Supposed to remove menu, but it can also crash.
+  -- if input:JustPressed(RogueEssence.FrameInput.InputType.Cancel) or input:JustPressed(RogueEssence.FrameInput.InputType.Menu) then --Runs when pressing the Cancel button.
+    -- _GAME:SE("Menu/Cancel")
+    -- _MENU:RemoveMenu() --Supposed to remove menu, but it can also crash.
 
-  else
+  -- else
 
-  end
-end
+  -- end
+-- end
 
 return adambooktest
 

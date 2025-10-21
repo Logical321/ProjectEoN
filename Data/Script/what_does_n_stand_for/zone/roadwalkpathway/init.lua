@@ -37,7 +37,7 @@ function roadwalkpathway.ExitSegment(zone, result, rescue, segmentID, mapID) --T
   PrintInfo("=>> ExitSegment_cacklingquarry result "..tostring(result).." segment "..tostring(segmentID))
   
   --first check for rescue flag; if we're in rescue mode then take a different path
-  COMMON.ExitDungeonMissionCheck(zone.ID, segmentID)
+  COMMON.ExitDungeonMissionCheck(result, rescue, zoneId, segmentID)
 
 		if rescue == true then
   

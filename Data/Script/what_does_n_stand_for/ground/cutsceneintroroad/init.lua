@@ -37,6 +37,7 @@ _DATA.Save.ActiveTeam.Bank = 0 --No free cash for you.
 _DATA.Save.ActiveTeam:SetRank("none") --This command is going to be common when the PC earns better Bag upgrades throughout the story. 8 Blocks of Inventory Space is all you should need for Branchway and Drenched.
 SV.tutorial.Progress = 0
 SV.weather.number = 0
+SV.playerinfo.bed_location = 0
 
 --Roguelocke Unlocks
 

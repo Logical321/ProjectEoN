@@ -136,10 +136,10 @@
     <value>Yes!\nYou reclaimed the {0}!</value>
     <comment></comment>  </data>
   <data name="DLG_MISSION_OUTLAW_HOUSE_DEFEATED" xml:space="preserve">
-    <value>Yes!\nKnocked out outlaw {0} and goons!</value>
+    <value>Yes!\nKnocked out outlaw {0}, and their goons!</value>
     <comment></comment>  </data>
   <data name="DLG_MISSION_OUTLAW_BOSS_DEFEATED" xml:space="preserve">
-    <value>Yes! You defeated {0}! Defeat the rest of the goons!</value>
+    <value>Yes! You defeated {0}! Hurry and defeat the rest of their goons!</value>
     <comment></comment>  </data>
   <data name="DLG_MISSION_OUTLAW_MINIONS_DEFEATED" xml:space="preserve">
     <value>Grr! You won't be able to defeat me!</value>

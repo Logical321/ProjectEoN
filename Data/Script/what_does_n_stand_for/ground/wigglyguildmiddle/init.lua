@@ -38,7 +38,10 @@ GROUND:Hide("Skiddo")
 GROUND:Hide("AdamMudkip")
 GROUND:Hide("Piks")
 
+local FadeLess = false
+
 	if SV.TemporaryFlags.MissionCompleted == true then --Go ahead and cry if this is not the optimal way of doing something.
+		
 		GROUND:Hide("Sunflora")
 		GROUND:Hide("Bidoof_roamer")
 		GROUND:Hide("crawdaunt_roamer")
@@ -46,14 +49,20 @@ GROUND:Hide("Piks")
 		GROUND:Hide("Barky")
 		GROUND:Hide("Barksalot")
 		GROUND:Hide("Barkingson")
+		FadeLess = true
 		wigglyguildmiddle.Hand_In_Missions()
+	
+	elseif SV.TemporaryFlags.EndDay == true then
+	
+		FadeLess = true
+		SV.TemporaryFlags.EndDay = false
+		GAME:EnterGroundMap("wigglyguildeatcutscene", "Entrance")
+	
 	end
 
 if SV.chapter1.apricorn_tutorial and not SV.chapter1.meeting_partB then
 GROUND:Unhide("Madilyn")
 end
-
-local FadeLess = false
 
 if SV.chapter.number == 1 and SV.chapter1.thieves_defeated then
 CutsceneChapter1Closer()
@@ -61,7 +70,7 @@ FadeLess = true
 end
 
 if FadeLess == true then --This is stupid, but it's better than a whole SV. / You may call this 'shit coding', but I don't give a fuck.
-
+--Do nothing, which seems stupid
 else
 
   GAME:FadeIn(20)
@@ -158,14 +167,13 @@ elseif result == 2 then
   	UI:SetSpeaker(player)
 	UI:SetSpeakerEmotion("Worried")
     UI:WaitShowDialogue("(I know what's written here, [pause=10]it's helpful stuff for someone that understands it.)")
-	UI:WaitShowDialogue("(Unfortunately, [pause=10]whoever wrote this is insanely cryptic, and out of this world.)")
+	UI:WaitShowDialogue("(Unfortunately, [pause=10]whoever wrote this is insanely cryptic, and out of this world.)") --Making fun of the fact they just show straight up buttons for hints.
 	elseif result == 3 then
   UI:SetCenter(false)
   UI:SetAutoFinish(false)
   	UI:SetSpeaker(player)
 	UI:SetSpeakerEmotion("Worried")
     UI:WaitShowDialogue("(Surely dungeon work isn't so complicated that I'd need a guide on it.)")
-	--UI:WaitShowDialogue("(If I just follow [color=#ffb5fd]Electrater[color]'s words, [pause=10]I should be golden.)")
 	elseif result == 4 then
 	  UI:SetCenter(false)
   UI:SetAutoFinish(false)
@@ -213,8 +221,8 @@ function wigglyguildmiddle.default_initialize(wanderzoneloc, wanderzonesize, wan
 
 AI:SetCharacterAI(CH('Bidoof_roamer'), "what_does_n_stand_for.ai.ground_default", RogueElements.Loc(390, 240), RogueElements.Loc(16, 16), 1, 16, 32, 40, 180)
 AI:SetCharacterAI(CH('crawdaunt_roamer'), "what_does_n_stand_for.ai.ground_default", RogueElements.Loc(305, 275), RogueElements.Loc(16, 16), 1, 16, 32, 40, 180) --Somehow more confusing to set up than Ariados, wtf.
---389 244 / Bidoof location  / 304 273 Crawdaunt                                                           |                                         |      SPD, STPMIN, STPMAX, IDLMN, IDLMX (Go in order)
-                                                                                                           -- LOCATION OF ENTITY         THE BOUNDARY THEY CAN GO                                Useful later to understand this specific command.
+--389 244 / Bidoof location  / 304 273 Crawdaunt                                     															                      |                                         |      SPD, STPMIN, STPMAX, IDLMN, IDLMX (Go in order) / tf does any of this mean
+																																													-- LOCATION OF ENTITY         THE BOUNDARY THEY CAN GO                                Useful later to understand this specific command.
 end
 
 function wigglyguildmiddle.Bidoof_roamer_Action(chara, activator)
@@ -301,13 +309,13 @@ local player =CH('PLAYER')
 
 --This is locked until a chapter is finished.
 
-	GROUND:CharSetAnim(player, 'None', true)
+		GROUND:CharSetAnim(player, 'None', true)
 
 		local menu = BoardSelectionMenu:new(COMMON.MISSION_BOARD_MISSION)
 		UI:SetCustomMenu(menu.menu)
 		UI:WaitForChoice()
 
-	GROUND:CharEndAnim(player)
+		GROUND:CharEndAnim(player)
 
 	end
 
@@ -324,13 +332,13 @@ local player =CH('PLAYER')
 
 	else
 
-	GROUND:CharSetAnim(player, 'None', true)
+		GROUND:CharSetAnim(player, 'None', true)
 
 		local menu = BoardSelectionMenu:new(COMMON.MISSION_BOARD_OUTLAW)
 		UI:SetCustomMenu(menu.menu)
 		UI:WaitForChoice()
 
-	GROUND:CharEndAnim(player)
+		GROUND:CharEndAnim(player)
 
 	end
 end
@@ -993,13 +1001,17 @@ end
 end
 
 function wigglyguildmiddle.Hand_In_Missions()
+  SV.checkpoint.zone = 'treasuretownzone'
+  SV.checkpoint.segment = -1
+  SV.checkpoint.map = 9
+  SV.checkpoint.entry = 0
 	for i = 8, 1, -1 do
 		if SV.TakenBoard[i].Client ~= "" and SV.TakenBoard[i].Completion == MISSION_GEN.COMPLETE then
 			if SV.TakenBoard[i].Type == COMMON.MISSION_TYPE_OUTLAW or SV.TakenBoard[i].Type == COMMON.MISSION_TYPE_OUTLAW_ITEM
 							or SV.TakenBoard[i].Type == COMMON.MISSION_TYPE_OUTLAW_FLEE or SV.TakenBoard[i].Type == COMMON.MISSION_TYPE_OUTLAW_MONSTER_HOUSE then
-				default_map.Outlaw_Job_Clear(SV.TakenBoard[i])
+				wigglyguildmiddle.Outlaw_Job_Clear(SV.TakenBoard[i])
 			else
-				default_map.Mission_Job_Clear(SV.TakenBoard[i])
+				wigglyguildmiddle.Mission_Job_Clear(SV.TakenBoard[i])
 			end
 			--short pause between fadeins
 			GAME:WaitFrames(20)
@@ -1032,10 +1044,26 @@ function wigglyguildmiddle.Hand_In_Missions()
 
 	GAME:MoveCamera(0, 0, 1, true)
 	SOUND:PlayBGM("None", true)
-	MISSION_GEN.RegenerateJobs(result)
 
 	--sort taken jobs now that we're removed completed ones
 	MISSION_GEN.SortTaken()
+	
+	--if SV.playerinfo.Bed_Location == 0 then
+	
+		GAME:EnterGroundMap("wigglyguildeatcutscene", "Entrance") --What is this nightmare?
+	
+	--elseif SV.playerinfo.Bed_Location == 1 then --These are for LATER.
+	
+		--GAME:EnterGroundMap("???", "Entrance")
+	
+	--end
+	
+	if SV.RankStuff.RankPoints >= 1 and not SV.chapter2.picnic_scene then --Placed here just in case there was more jobs to complete. Maybe.
+			
+		GAME:EnterGroundMap("wigglyguildbottom", "EntranceCS")
+			
+	end
+	
 end
 
 --takes a job and plays an outlaw reward scene depending on the job.
@@ -1076,9 +1104,9 @@ function wigglyguildmiddle.Outlaw_Job_Clear(job)
 
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Outlaw_Capture_Cutscene_001'], _DATA:GetMonster(outlaw.CurrentForm.Species):GetColoredName()))
 
-		GAME:WaitFrames(20)
+		GAME:WaitFrames(10)
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Outlaw_Capture_Cutscene_002']))
-		GAME:WaitFrames(20)
+		GAME:WaitFrames(10)
 
 		--reward the item 
 		if money then
@@ -1090,16 +1118,16 @@ function wigglyguildmiddle.Outlaw_Job_Clear(job)
 
 		if job.BonusReward ~= '' then
 			UI:SetSpeaker(magna)
-			GAME:WaitFrames(20)
+			GAME:WaitFrames(10)
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Outlaw_Capture_Cutscene_003']))
-			GAME:WaitFrames(20)
+			GAME:WaitFrames(10)
 			COMMON.RewardItem(job.BonusReward)
 		end
 
-		GAME:WaitFrames(20)
-		default_map.RewardEXP(job)
+		GAME:WaitFrames(10)
+		wigglyguildmiddle.RewardEXP(job)
 
-		GAME:WaitFrames(20)
+		GAME:WaitFrames(10)
 
 		UI:SetSpeaker(magna)
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Outlaw_Capture_Cutscene_004']))
@@ -1168,7 +1196,7 @@ function wigglyguildmiddle.Outlaw_Job_Clear(job)
 		end
 
 		GAME:WaitFrames(20)
-		default_map.RewardEXP(job)
+		wigglyguildmiddle.RewardEXP(job)
 		GAME:WaitFrames(20)
 
 		--fade out and clean up any temporary characters
@@ -1221,9 +1249,9 @@ function wigglyguildmiddle.Mission_Job_Clear(job)
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Mission_Response_Delivery_Item'], item:GetDisplayName()))
 		end
 
-		GAME:WaitFrames(20)
+		GAME:WaitFrames(10)
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Mission_Generic_Reward']))
-		GAME:WaitFrames(20)
+		GAME:WaitFrames(10)
 
 		--reward the item 
 		if money then
@@ -1234,15 +1262,15 @@ function wigglyguildmiddle.Mission_Job_Clear(job)
 
 		if job.BonusReward ~= '' then
 			UI:SetSpeaker(client)
-			GAME:WaitFrames(20)
+			GAME:WaitFrames(10)
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Mission_Generic_Reward_2']))
-			GAME:WaitFrames(20)
+			GAME:WaitFrames(10)
 			COMMON.RewardItem(job.BonusReward)
 		end
 
-		GAME:WaitFrames(20)
-		default_map.RewardEXP(job)
-		GAME:WaitFrames(20)
+		GAME:WaitFrames(10)
+		wigglyguildmiddle.RewardEXP(job)
+		GAME:WaitFrames(10)
 
 
 		--fade out and clean up any temporary characters
@@ -1269,7 +1297,7 @@ function wigglyguildmiddle.Mission_Job_Clear(job)
 		local target_monster = RogueEssence.Dungeon.MonsterID(job.Target, 0, "normal", target_gender)
 		target_monster.Gender = _DATA:GetMonster(job.Target).Forms[0]:RollGender(_ZONE.CurrentGround.Rand)
 
-		local target = RogueEssence.Ground.GroundChar(target_monster, RogueElements.Loc(256, 248), Direction.Down, job.Target:gsub("^%l", string.upper), target_monster.Species)
+		local target = RogueEssence.Ground.GroundChar(target_monster, RogueElements.Loc(256, 201), Direction.Down, job.Target:gsub("^%l", string.upper), target_monster.Species)
 		target:ReloadEvents()
 		GAME:GetCurrentGround():AddTempChar(target)
 
@@ -1291,9 +1319,9 @@ function wigglyguildmiddle.Mission_Job_Clear(job)
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Mission_Response_Rescue_Friend']))
 			end
 		end
-		GAME:WaitFrames(20)
+		GAME:WaitFrames(10)
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Mission_Generic_Reward']))
-		GAME:WaitFrames(20)
+		GAME:WaitFrames(10)
 
 		--reward the item 
 		if money then
@@ -1304,15 +1332,15 @@ function wigglyguildmiddle.Mission_Job_Clear(job)
 
 		if job.BonusReward ~= '' then
 			UI:SetSpeaker(client)
-			GAME:WaitFrames(20)
+			GAME:WaitFrames(10)
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Mission_Generic_Reward_2']))
-			GAME:WaitFrames(20)
+			GAME:WaitFrames(10)
 			COMMON.RewardItem(job.BonusReward)
 		end
 
-		GAME:WaitFrames(20)
-		default_map.RewardEXP(job)
-		GAME:WaitFrames(20)
+		GAME:WaitFrames(10)
+		wigglyguildmiddle.RewardEXP(job)
+		GAME:WaitFrames(10)
 
 
 		--fade out and clean up any temporary characters
@@ -1321,7 +1349,25 @@ function wigglyguildmiddle.Mission_Job_Clear(job)
 		GAME:GetCurrentGround():RemoveTempChar(client)
 		GAME:GetCurrentGround():RemoveTempChar(target)
 	end
-	GAME:CutsceneMode(false)
+	
+
+GAME:CutsceneMode(false)
+end
+
+function wigglyguildmiddle.RewardEXP(job)
+  --Reward RANK POINTS for your party
+  local exp_reward = MISSION_GEN.GetJobExpReward(job.Difficulty)
+  local exp_reward_string = "[color=#00FFFF]"..exp_reward.."[color]"
+  UI:ResetSpeaker()
+  UI:SetCenter(true)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Mission_Handout_EXP'], exp_reward_string))
+  PrintInfo("Rewarding Rank Points for job with difficulty "..job.Difficulty.." and reward "..exp_reward_string)
+  local player_count = _DATA.Save.ActiveTeam.Players.Count
+  UI:SetCenter(false)
+
+SV.RankStuff.RankPoints = exp_reward + SV.RankStuff.RankPoints
+COMMON.BadgeRank_RankUp()
+
 end
 
 function wigglyguildmiddle.HideScript()

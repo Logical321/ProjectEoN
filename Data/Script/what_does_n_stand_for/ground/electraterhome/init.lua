@@ -66,7 +66,7 @@ end
 --Engine callback function
 function electraterhome.Exit(map)
 
---SOUND:FadeOutSE("Beach_Noise") --Not needed, comment out later.
+
 
 end
 
@@ -88,6 +88,11 @@ end
 --Engine callback function
 function electraterhome.GameLoad(map)
 
+  	if SV.chapter.number == 1 and SV.chapter1.meeting_partB then
+		SOUND:PlayBGM("", true) --But only *if* these are here. Might change later.
+		SOUND:FadeInSE("Beach_Noise")
+	end
+	
   GAME:FadeIn(20)
 
 end
