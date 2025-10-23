@@ -85,7 +85,7 @@ end
 -- Entities Callbacks
 -------------------------------
 
-function wigglyguildbedmoon.FinalPrologueCS(finally)
+function wigglyguildbedmoon.FinalPrologueCS()
 local player = CH('PLAYER')
 local Piks = CH('Piks')
 GAME:CutsceneMode(true)
@@ -200,7 +200,7 @@ GAME:EnterGroundMap("wigglyguildbedsun", "Entrance")
 GAME:CutsceneMode(false)
 end
 
-function wigglyguildbedmoon.BedtimeCasual(resetday)
+function wigglyguildbedmoon.BedtimeCasual()
 SOUND:PlayBGM("Goodnight.ogg", true)
 local player = CH('PLAYER')
 GAME:CutsceneMode(true)
@@ -239,6 +239,7 @@ if #completed == 3 then
 	UI:WaitShowDialogue("(I hope they can use this information somehow.)")
 	UI:SetSpeakerEmotion("Worried")
 	UI:WaitShowDialogue("(But there was nothing in those places. [pause=0]Worse yet, [pause=10]not even a single lead...)")
+	SV.weather.rolled = false
 	SV.weather.allow = false --Make sure it's off for Crumbling Canyonway.
 elseif #completed == 2 then
     UI:WaitShowDialogue(
@@ -248,12 +249,14 @@ elseif #completed == 2 then
         string.format("(The last one I need to do is [color=#FFC663]%s[color].)", to_do[1])
     )
 	
+	SV.weather.rolled = false
 	SV.weather.allow = true
 elseif #completed == 1 then
     UI:WaitShowDialogue(
         string.format("(I got [color=#FFC663]%s[color] done, [pause=10]and I've got two more to do tomorrow.)", completed[1])
     )
 	
+	SV.weather.rolled = false
 	SV.weather.allow = true
 		elseif #completed == 0 then
     
@@ -262,6 +265,7 @@ elseif #completed == 1 then
 
 		end
 	
+	SV.weather.rolled = false
 	SV.weather.allow = true
 
 end
@@ -270,6 +274,7 @@ GAME:FadeOut(false, 30)
 SOUND:PlayBGM("None", true)
 SV.repeatable.day_finished = true
 SV.repeatable.daily_chant = false
+SV.weather.rolled = false
 SV.weather.allow = true
 COMMON.WeatherStatus()
 
@@ -334,6 +339,7 @@ SOUND:PlayBGM("None", true)
 	UI:WaitHideBG(40)
 	GAME:UnlockDungeon('roadwalkpathway')
 
+SV.weather.rolled = false
 SV.weather.allow = true --Should be True.
 SV.repeatable.day_finished = true
 SV.repeatable.daily_chant = false

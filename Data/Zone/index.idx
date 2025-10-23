@@ -474,7 +474,7 @@
 "BagRestrict": -1,
 "KeepTreasure": false,
 "BagSize": -1,
-"Rescues": 0,
+"Rescues": 3,
 "CountedFloors": 10,
 "Rogue": 0,
 "Grounds": [],
@@ -496,7 +496,7 @@
 "DefaultText": "Craggy Coast",
 "LocalTexts": {}
 },
-"Released": false,
+"Released": true,
 "Comment": "Difficulty: Normal+",
 "SortOrder": 0
 }

@@ -1060,7 +1060,7 @@ end
   end
   
   if SV.weather.rolled == nil then
-  SV.weather.rolled = true
+  SV.weather.rolled = false
   end
   
   if SV.weather.number == nil then

@@ -6,7 +6,7 @@
 "DefaultText": "Craggy Coast",
 "LocalTexts": {}
 },
-"Released": false,
+"Released": true,
 "Comment": "Difficulty: Normal+",
 "NoEXP": false,
 "ExpPercent": 40,
@@ -20,7 +20,7 @@
 "KeepTreasure": false,
 "BagSize": -1,
 "Persistent": false,
-"Rescues": 0,
+"Rescues": 3,
 "Rogue": 0,
 "Segments": [
 {
@@ -7726,8 +7726,8 @@
 "Gender": -1
 },
 "Level": {
-"Min": 30,
-"Max": 31
+"Min": 28,
+"Max": 29
 },
 "SpecifiedSkills": [
 "aerial_ace",
