@@ -209,6 +209,8 @@ function COMMON.ExitDungeonMissionCheck(result, rescue, zoneId, segmentID)
     exited = COMMON.EndRescue(zone, result, segmentID)
   end
   
+  RogueEssence.Dungeon.ExplorerTeam.MAX_TEAM_SLOTS = 4
+  
   return exited
 end
 
@@ -783,7 +785,37 @@ function COMMON.EnterDungeonMissionCheck(zoneId, segmentID)
                     local guest_tbl = LTBL(GAME:GetPlayerGuestMember(i))
                     if guest_tbl.Escort ~= nil then return end
                 end
+				
+					if player_count + guest_count >= 4 then
+						          					
+		  SOUND:StopBGM()
+          local state = 0
+          while state > -1 do
+            UI:ResetSpeaker()
+            UI:WaitShowDialogue("Your team has too many Pokémon in it! Who will you send back to make room for " .. _DATA:GetMonster(mission.Client):GetColoredName() .. "?")
+            local MemberReturnMenu = CreateMemberReturnMenu()
+            local menu = MemberReturnMenu:new()
+            UI:SetCustomMenu(menu.menu)
+            UI:WaitForChoice()
+            local member = menu.members[menu.current_item]
+            UI:ChoiceMenuYesNo("Send " .. member:GetDisplayName(true) .. " back to the guild?", false)
+            UI:WaitForChoice()
 
+            local send_home = UI:ChoiceResult()
+				UI:WaitShowDialogue(member:GetDisplayName(true) .." has been sent back to the guild.")
+            if send_home then 
+              local slot = menu.slots[menu.current_item]
+              GAME:AddPlayerAssembly(member);
+              GAME:RemovePlayerTeam(slot)
+              state = -1
+            end
+          end
+        end
+		
+		--Set max team size to 3 as the guest is "taking" up a party slot
+		RogueEssence.Dungeon.ExplorerTeam.MAX_TEAM_SLOTS = 3
+
+				
                 local mon_id = RogueEssence.Dungeon.MonsterID(mission.Client, 0, "normal", COMMON.NumToGender(mission.ClientGender))
                 -- set the escort level 20% less than the expected level
                 local level = math.floor(SV.ExpectedLevel[mission.Zone] * 0.80)
@@ -799,6 +831,7 @@ function COMMON.EnterDungeonMissionCheck(zoneId, segmentID)
 
                 UI:ResetSpeaker()
                 UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("MISSION_ESCORT_ADD"):ToLocal(), new_mob.Name))
+				
             end
         end
     end
